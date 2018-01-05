@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">basketball_01</string>
+    <string name="group">請輸入球員背號及姓名</string>
+    <string name="Title">籃球全場紀錄表</string>
+    <string name="start">start</string>
+
+</resources>
