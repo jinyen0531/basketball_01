@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">basketball_01</string>
     <string name="Title">籃球全場紀錄版</string>
+    <string name="gameStart">比賽開始</string>
+    <string name="query">紀錄查詢</string>
     <string name="group">請輸入球員背號及姓名</string>
     <string name="point2_in">兩分球進</string>
     <string name="point2_out">兩分球不進</string>
@@ -10,6 +12,7 @@
     <string name="FT_out">罰球不進</string>
     <string name="foul">犯規</string>
     <string name="AS">助攻</string>
+    <string name="BS">阻攻</string>
     <string name="TO">失誤</string>
     <string name="ST">抄截</string>
     <string name="OR">進攻籃板</string>
