@@ -28,7 +28,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/button10"
+                    android:id="@+id/bt2in"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_margin="5dp"
@@ -37,7 +37,7 @@
                     android:textAlignment="center" />
 
                 <Button
-                    android:id="@+id/button8"
+                    android:id="@+id/bt2out"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_margin="5dp"
@@ -52,7 +52,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/button9"
+                    android:id="@+id/bt3in"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_margin="5dp"
@@ -60,7 +60,7 @@
                     android:text="@string/point3_in" />
 
                 <Button
-                    android:id="@+id/button11"
+                    android:id="@+id/bt3out"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_margin="5dp"
@@ -75,7 +75,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/button7"
+                    android:id="@+id/btFTin"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_margin="5dp"
@@ -83,7 +83,7 @@
                     android:text="@string/FT_in" />
 
                 <Button
-                    android:id="@+id/button5"
+                    android:id="@+id/btFTout"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_margin="5dp"
@@ -111,12 +111,12 @@
                     android:layout_weight="1">
 
                     <TextView
-                        android:id="@+id/textView2"
+                        android:id="@+id/tvScore2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="24dp"
+                        android:layout_marginEnd="40dp"
                         android:layout_marginStart="8dp"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginTop="24dp"
                         android:layout_weight="1"
                         android:text="100"
                         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
@@ -127,11 +127,11 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/textView3"
+                        android:id="@+id/tvScore1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="32dp"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginStart="28dp"
+                        android:layout_marginTop="24dp"
                         android:layout_weight="1"
                         android:text="100"
                         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
@@ -153,24 +153,26 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/textView6"
+                        android:id="@+id/tvSectionFoul1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="56dp"
+                        android:layout_marginStart="60dp"
+                        android:layout_marginTop="8dp"
                         android:text="3"
                         android:textSize="36sp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+                        app:layout_constraintTop_toBottomOf="@+id/tvScore1" />
 
                     <TextView
-                        android:id="@+id/textView7"
+                        android:id="@+id/tvSectionFoul2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="56dp"
+                        android:layout_marginTop="8dp"
                         android:text="3"
                         android:textSize="36sp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+                        app:layout_constraintTop_toBottomOf="@+id/tvScore2" />
                 </android.support.constraint.ConstraintLayout>
 
             </LinearLayout>
@@ -187,7 +189,7 @@
                     android:orientation="horizontal">
 
                     <ToggleButton
-                        android:id="@+id/toggleButton6"
+                        android:id="@+id/tbNumber1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -196,7 +198,7 @@
                         android:textOn="1" />
 
                     <ToggleButton
-                        android:id="@+id/toggleButton8"
+                        android:id="@+id/tbNumber2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -205,7 +207,7 @@
                         android:textOn="2" />
 
                     <ToggleButton
-                        android:id="@+id/toggleButton7"
+                        android:id="@+id/tbNumber3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -220,7 +222,7 @@
                     android:orientation="horizontal">
 
                     <ToggleButton
-                        android:id="@+id/toggleButton2"
+                        android:id="@+id/tbNumber4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -229,7 +231,7 @@
                         android:textOn="4" />
 
                     <ToggleButton
-                        android:id="@+id/toggleButton"
+                        android:id="@+id/tbNumber5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -238,6 +240,7 @@
                         android:textOn="5" />
 
                     <ToggleButton
+                        android:id="@+id/tbOP"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -263,14 +266,14 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/button16"
+                    android:id="@+id/btOR"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="@string/OR" />
 
                 <Button
-                    android:id="@+id/button6"
+                    android:id="@+id/btDR"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -278,7 +281,7 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/button19"
+                android:id="@+id/btST"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/ST" />
@@ -289,14 +292,14 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/button15"
+                    android:id="@+id/btAS"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/AS" />
 
                 <Button
-                    android:id="@+id/button"
+                    android:id="@+id/btBS"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -304,13 +307,13 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/button18"
+                android:id="@+id/btTO"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/TO" />
 
             <Button
-                android:id="@+id/button17"
+                android:id="@+id/btFoul"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
