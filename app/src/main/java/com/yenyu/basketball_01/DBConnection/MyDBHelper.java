@@ -23,7 +23,7 @@ public class MyDBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         //新增players資料表
-        sqLiteDatabase.execSQL("create table if not exists main.players "+
+        sqLiteDatabase.execSQL("create table main.players "+
         "(_id integer primary key not null," +
                 "pid varchar," +
                 "number integer," +
