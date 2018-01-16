@@ -9,7 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-public class ButtonRecord extends AppCompatActivity {
+public class ButtonRecord extends AppCompatActivity implements View.OnClickListener {
     Button bt2in,bt2out,bt3in,bt3out,btFTin,btFTout,btOR,btDR,btST,btAS,btBS,btTO,btFoul,btNextSection;
     ToggleButton tbNumber1,tbNumber2,tbNumber3,tbNumber4,tbNumber5,tbOP;
     TextView tvScore1,tvScore2,tvSectionFoul1,tvSectionFoul2,tvSection;
@@ -49,7 +49,7 @@ public class ButtonRecord extends AppCompatActivity {
         bt2in.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tvScore1.setText(Integer.valueOf(tvScore1.getText().toString())+2);
+                tvScore1.setText(String.valueOf(Integer.valueOf(tvScore1.getText().toString())+2));
                 Toast.makeText(ButtonRecord.this,"兩分球進",Toast.LENGTH_SHORT).show();
             }
         });
@@ -164,5 +164,12 @@ public class ButtonRecord extends AppCompatActivity {
         });
 
 
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+
+        }
     }
 }
