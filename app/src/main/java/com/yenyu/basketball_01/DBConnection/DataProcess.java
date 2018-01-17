@@ -27,7 +27,6 @@ public class DataProcess {
         MyDBHelper helper=new MyDBHelper(context);
         SQLiteDatabase database=helper.getDatabase();
         ContentValues values;
-        String pid,number,name;
         for(int i=0;i<myData.size();i++)
         {
             values=new ContentValues();
@@ -39,15 +38,17 @@ public class DataProcess {
                     " number "+myData.get(i).getNumber()+" name "+myData.get(i).getName());
             count++;
         }
+        database.close();
+        helper.close();
         return count;
     }
 
-    public Cursor getPlayers()
+    public Cursor getPlayers(String pid)
     {
         Cursor c=null;
         MyDBHelper helper=new MyDBHelper(context);
         SQLiteDatabase database=helper.getDatabase();
-        c=database.rawQuery("select * from players",null);
+        c=database.rawQuery("select * from players where pid="+pid,null);
         return c;
     }
 

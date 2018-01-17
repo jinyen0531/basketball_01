@@ -1,7 +1,9 @@
 package com.yenyu.basketball_01;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -14,21 +16,18 @@ import java.util.ArrayList;
 
 public class ActivityCheck extends AppCompatActivity {
 
-    EditText edNum1,edNum2,edNum3,edNum4,edNum5,edNum6,edNum7,edNum8,edNum9,edNum10,edNum11,edNum12;
-    int i;
-    boolean check[] = new boolean[12];
+    String pid="1";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check);
-
     }
 
     public void clickOK(View v)
     {
         ArrayList<Player> list=new ArrayList<>();
         DataProcess dp=new DataProcess(ActivityCheck.this);
-        dp.insertPlayers(list);
+
 
         LinearLayout layout=(LinearLayout) findViewById(R.id.linearLayout);
         //Toast.makeText(ActivityCheck.this,String.valueOf(layout.getChildCount()),Toast.LENGTH_SHORT).show();
@@ -47,11 +46,31 @@ public class ActivityCheck extends AppCompatActivity {
                 }
             }
         }
-        String str=textArrayList.get(1).getText().toString();
-        Toast.makeText(ActivityCheck.this,str,Toast.LENGTH_SHORT).show();
+        int count=0;
+        String number,name;
+        for(int i=0;i<textArrayList.size();i+=2)
+        {
+            number=textArrayList.get(i).getText().toString();
+            name=textArrayList.get(i+1).getText().toString();
+            //Log.d("add","number : "+number+ "name : "+name);
+            if(number.length()>0 && name.length()>0)
+            {
+                list.add(new Player(pid,number,name));
+                count++;
+            }
+        }
+        Log.d("Count",count+"");
+        if(count>=5)
+        {
+            dp.insertPlayers(list);
+            Intent it = new Intent(ActivityCheck.this,ButtonRecord.class);
+            startActivity(it);
+        }
+        else
+        {
+            Toast.makeText(ActivityCheck.this,"請至少輸入五人",Toast.LENGTH_SHORT).show();
+        }
 
-        //Intent it = new Intent(ActivityCheck.this,ButtonRecord.class);
-        //startActivity(it);
     }
 
 }
