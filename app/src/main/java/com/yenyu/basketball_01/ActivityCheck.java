@@ -51,8 +51,8 @@ public class ActivityCheck extends AppCompatActivity {
         dp.insertPlayers(list);
 
 
-        //Intent it = new Intent(ActivityCheck.this,ButtonRecord.class);
-        //startActivity(it);
+        Intent it = new Intent(ActivityCheck.this,ButtonRecord.class);
+        startActivity(it);
 
 //        it.putExtra("player1",edNum1.getText().toString());
 //        it.putExtra("player2",edNum2.getText().toString());

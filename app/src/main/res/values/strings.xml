@@ -4,6 +4,7 @@
     <string name="gameStart">比賽開始</string>
     <string name="query">紀錄查詢</string>
     <string name="group">請輸入球員背號及姓名</string>
+    <string name="teamEnter">請輸入隊伍名稱</string>
     <string name="point2_in">兩分球進</string>
     <string name="point2_out">兩分球不進</string>
     <string name="point3_in">三分球進</string>
