@@ -2,6 +2,7 @@ package com.yenyu.basketball_01.DBConnection;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
@@ -40,4 +41,14 @@ public class DataProcess {
         }
         return count;
     }
+
+    public Cursor getPlayers()
+    {
+        Cursor c=null;
+        MyDBHelper helper=new MyDBHelper(context);
+        SQLiteDatabase database=helper.getDatabase();
+        c=database.rawQuery("select * from players",null);
+        return c;
+    }
+
 }
