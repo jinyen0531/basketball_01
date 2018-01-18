@@ -43,13 +43,22 @@ public class DataProcess {
         return count;
     }
 
-    public Cursor getPlayers(String pid)
+    public ArrayList<Player> getPlayers(String pid)
     {
-        Cursor c=null;
+        ArrayList<Player> list=new ArrayList<>();
+        int _id;
+        String number,name;
         MyDBHelper helper=new MyDBHelper(context);
         SQLiteDatabase database=helper.getDatabase();
-        c=database.rawQuery("select * from players where pid="+pid,null);
-        return c;
+        Cursor c=database.rawQuery("select * from players where pid="+pid,null);
+        c.moveToFirst();
+        do {
+            _id=c.getInt(c.getColumnIndex("_id"));
+            number=c.getString(c.getColumnIndex("number"));
+            name=c.getString(c.getColumnIndex("name"));
+            list.add(new Player(pid,number,name));
+        }while(c.moveToNext());
+        return list;
     }
 
 }

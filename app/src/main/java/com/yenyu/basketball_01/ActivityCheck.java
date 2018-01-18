@@ -62,8 +62,8 @@ public class ActivityCheck extends AppCompatActivity {
         Log.d("Count",count+"");
         if(count>=5)
         {
-            dp.insertPlayers(list);
-            Intent it = new Intent(ActivityCheck.this,ButtonRecord.class);
+            //dp.insertPlayers(list);
+            Intent it = new Intent(ActivityCheck.this,Pick5Activity.class);
             startActivity(it);
         }
         else

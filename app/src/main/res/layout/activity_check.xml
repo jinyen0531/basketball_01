@@ -55,7 +55,8 @@
                     android:layout_marginTop="8dp"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:text="1" />
 
                 <EditText
                     android:id="@+id/edName1"
@@ -67,7 +68,7 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Name" />
+                    android:text="Name1" />
 
             </LinearLayout>
 
@@ -84,7 +85,8 @@
                     android:layout_marginTop="8dp"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:text="2" />
 
                 <EditText
                     android:id="@+id/edName2"
@@ -96,7 +98,7 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Name" />
+                    android:text="Name2" />
 
             </LinearLayout>
 
@@ -113,7 +115,8 @@
                     android:layout_marginTop="8dp"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:text="3" />
 
                 <EditText
                     android:id="@+id/edName3"
@@ -125,7 +128,7 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Name" />
+                    android:text="Name3" />
             </LinearLayout>
 
             <LinearLayout
@@ -141,7 +144,8 @@
                     android:layout_marginTop="8dp"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:text="4" />
 
                 <EditText
                     android:id="@+id/edName4"
@@ -153,7 +157,7 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Name" />
+                    android:text="Name4" />
             </LinearLayout>
 
             <LinearLayout
@@ -169,7 +173,8 @@
                     android:layout_marginTop="8dp"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:text="5" />
 
                 <EditText
                     android:id="@+id/edName5"
@@ -181,7 +186,7 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Name" />
+                    android:text="Name5" />
             </LinearLayout>
 
             <LinearLayout
