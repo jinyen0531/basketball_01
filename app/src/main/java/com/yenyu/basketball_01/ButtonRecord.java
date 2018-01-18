@@ -5,14 +5,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
 public class ButtonRecord extends AppCompatActivity {
     Button bt2in, bt2out, bt3in, bt3out, btFTin, btFTout, btOR, btDR, btST, btAS, btBS, btTO, btFoul, btNextSection;
-    ToggleButton tbNumber1, tbNumber2, tbNumber3, tbNumber4, tbNumber5, tbOP;
+    RadioButton rbNumber1, rbNumber2, rbNumber3, rbNumber4, rbNumber5, rbOP;
     TextView tvScore1, tvScore2, tvSectionFoul1, tvSectionFoul2, tvSection;
+    RadioGroup rg1,rg2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +27,11 @@ public class ButtonRecord extends AppCompatActivity {
         tvSectionFoul1 = (TextView) findViewById(R.id.tvSectionFoul1);
         tvSectionFoul2 = (TextView) findViewById(R.id.tvSectionFoul2);
         tvSection = (TextView) findViewById(R.id.tvSection);
+
+        rg1=(RadioGroup) findViewById(R.id.rg1);
+        rg2=(RadioGroup) findViewById(R.id.rg2);
+
+
 
         bt2in = (Button) findViewById(R.id.bt2in);
         bt2out = (Button) findViewById(R.id.bt2out);
@@ -40,48 +48,48 @@ public class ButtonRecord extends AppCompatActivity {
         btFoul = (Button) findViewById(R.id.btFoul);
         btNextSection = (Button) findViewById(R.id.btNextSection);
 
-        tbNumber1 = (ToggleButton) findViewById(R.id.tbNumber1);
-        tbNumber2 = (ToggleButton) findViewById(R.id.tbNumber2);
-        tbNumber3 = (ToggleButton) findViewById(R.id.tbNumber3);
-        tbNumber4 = (ToggleButton) findViewById(R.id.tbNumber4);
-        tbNumber5 = (ToggleButton) findViewById(R.id.tbNumber5);
-        tbOP = (ToggleButton) findViewById(R.id.tbOP);
+        rbNumber1 = (RadioButton) findViewById(R.id.rbNumber1);
+        rbNumber2 = (RadioButton) findViewById(R.id.rbNumber2);
+        rbNumber3 = (RadioButton) findViewById(R.id.rbNumber3);
+        rbNumber4 = (RadioButton) findViewById(R.id.rbNumber4);
+        rbNumber5 = (RadioButton) findViewById(R.id.rbNumber5);
+        rbOP = (RadioButton) findViewById(R.id.rbOP);
 
 
-        tbNumber1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        rbNumber1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                Toast.makeText(ButtonRecord.this, "1", Toast.LENGTH_SHORT).show();
+                rg2.clearCheck();
             }
         });
-        tbNumber2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        rbNumber2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                Toast.makeText(ButtonRecord.this, "2", Toast.LENGTH_SHORT).show();
+                rg2.clearCheck();
             }
         });
-        tbNumber3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        rbNumber3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                Toast.makeText(ButtonRecord.this, "3", Toast.LENGTH_SHORT).show();
+                rg2.clearCheck();
             }
         });
-        tbNumber4.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        rbNumber4.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                Toast.makeText(ButtonRecord.this, "4", Toast.LENGTH_SHORT).show();
+                rg1.clearCheck();
             }
         });
-        tbNumber5.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        rbNumber5.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                Toast.makeText(ButtonRecord.this, "5", Toast.LENGTH_SHORT).show();
+                rg1.clearCheck();
             }
         });
-        tbOP.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        rbOP.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                Toast.makeText(ButtonRecord.this, "對手", Toast.LENGTH_SHORT).show();
+                rg1.clearCheck();
             }
         });
 
@@ -99,8 +107,11 @@ public class ButtonRecord extends AppCompatActivity {
         btBS.setOnClickListener(listener);
         btTO.setOnClickListener(listener);
         btFoul.setOnClickListener(listener);
+        btNextSection.setOnClickListener(listener);
+
 
     }
+
 
     class MyOnClickListener implements View.OnClickListener {
         @Override
@@ -146,38 +157,20 @@ public class ButtonRecord extends AppCompatActivity {
                     Toast.makeText(ButtonRecord.this, "失誤", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.btFoul:
+                    int sectionfoul1 = Integer.valueOf(tvSectionFoul1.getText().toString());
+                    if(sectionfoul1<5)
+                        tvSectionFoul1.setText(String.valueOf(sectionfoul1+1));
                     Toast.makeText(ButtonRecord.this, "犯規", Toast.LENGTH_SHORT).show();
                     break;
-
-            }
-        }
-    }
-
-    class OnChangeListener implements CompoundButton.OnCheckedChangeListener
-    {
-
-        @Override
-        public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-            switch(compoundButton.getId())
-            {
-                case R.id.tbNumber1:
-                    if(compoundButton.isChecked())
-                    {
-                        View.OnClickListener onclick = new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                switch (view.getId()) {
-                                    case R.id.bt2in:
-                                        tvScore1.setText(String.valueOf(Integer.valueOf(tvScore1.getText().toString()) + 2));
-                                        Toast.makeText(ButtonRecord.this, "兩分球進", Toast.LENGTH_SHORT).show();
-                                        break;
-                                }
-                            }
-                        } ;
-                        Toast.makeText(ButtonRecord.this, "1", Toast.LENGTH_SHORT).show();
+                case R.id.btNextSection:
+                    int tvsection = Integer.valueOf(tvSection.getText().toString());
+                    if(tvsection<4) {
+                        tvSection.setText(String.valueOf(tvsection + 1));
                     }
             }
         }
     }
+
+
 
 }
