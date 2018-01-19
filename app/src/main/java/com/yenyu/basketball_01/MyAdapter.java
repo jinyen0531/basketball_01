@@ -66,15 +66,22 @@ public class MyAdapter extends BaseAdapter {
         viewHolder.tv5.setText(list.get(position).getNumber());
         //viewHolder.tv5.setText(list.get(position).get_id()+ " "+list.get(position).getNumber());
         viewHolder.tv7.setText(list.get(position).getName());
+        //測試用
+        for(int i=0;i<5;i++)
+        {
+            chks[i]=true;
+        }
         viewHolder.chk2.setOnCheckedChangeListener(null);
         viewHolder.chk2.setChecked(chks[position]);
+
         viewHolder.chk2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                chks[position]=b;
+                //chks[position]=b;         //測試,故標記
                 Log.d("click","Position : "+position+" b : "+b);
             }
         });
+
         int count=0;
         for(int i=0;i<chks.length;i++)
         {

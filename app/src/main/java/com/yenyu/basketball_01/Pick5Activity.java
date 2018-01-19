@@ -36,6 +36,7 @@ public class Pick5Activity extends AppCompatActivity {
     public void clickOk(View v)
     {
         int count=0;
+
         for(boolean b:chks)
         {
             if(b) count++;

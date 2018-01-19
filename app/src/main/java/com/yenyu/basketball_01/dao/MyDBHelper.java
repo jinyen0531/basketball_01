@@ -28,6 +28,13 @@ public class MyDBHelper extends SQLiteOpenHelper {
                 "pid varchar," +
                 "number integer," +
                 "name varchar)");
+
+        sqLiteDatabase.execSQL("create table main.actions "+
+                "(_id integer primary key not null, "+
+                "pid varchar,"+
+                "section integer,"+
+                "number integer, "+
+                "move integer)");
     }
 
     @Override

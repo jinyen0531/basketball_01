@@ -61,5 +61,9 @@ public class PlayerDAO {
         //Log.d("DP_Count",list.size()+"");
         return list;
     }
-
+    //刪除
+    public boolean delPlayers()
+    {
+        return true;
+    }
 }
