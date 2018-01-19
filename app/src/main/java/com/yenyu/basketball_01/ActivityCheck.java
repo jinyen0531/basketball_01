@@ -59,7 +59,6 @@ public class ActivityCheck extends AppCompatActivity {
                 count++;
             }
         }
-        Log.d("Count",count+"");
         if(count>=5)
         {
             //dp.insertPlayers(list);

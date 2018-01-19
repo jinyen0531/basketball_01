@@ -58,6 +58,7 @@ public class DataProcess {
             name=c.getString(c.getColumnIndex("name"));
             list.add(new Player(pid,number,name));
         }while(c.moveToNext());
+        //Log.d("DP_Count",list.size()+"");
         return list;
     }
 
