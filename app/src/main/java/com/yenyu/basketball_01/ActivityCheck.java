@@ -3,14 +3,13 @@ package com.yenyu.basketball_01;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.yenyu.basketball_01.DBConnection.DataProcess;
-import com.yenyu.basketball_01.datatable.Player;
+import com.yenyu.basketball_01.dao.PlayerDAO;
+import com.yenyu.basketball_01.dao.Player;
 
 import java.util.ArrayList;
 
@@ -26,7 +25,7 @@ public class ActivityCheck extends AppCompatActivity {
     public void clickOK(View v)
     {
         ArrayList<Player> list=new ArrayList<>();
-        DataProcess dp=new DataProcess(ActivityCheck.this);
+        PlayerDAO dp=new PlayerDAO(ActivityCheck.this);
 
 
         LinearLayout layout=(LinearLayout) findViewById(R.id.linearLayout);
@@ -59,7 +58,6 @@ public class ActivityCheck extends AppCompatActivity {
                 count++;
             }
         }
-        Log.d("Count",count+"");
         if(count>=5)
         {
             //dp.insertPlayers(list);

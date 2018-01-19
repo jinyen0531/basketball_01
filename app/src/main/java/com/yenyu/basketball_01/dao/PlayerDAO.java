@@ -1,4 +1,4 @@
-package com.yenyu.basketball_01.DBConnection;
+package com.yenyu.basketball_01.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -6,21 +6,20 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-import com.yenyu.basketball_01.datatable.Player;
-
 import java.util.ArrayList;
 
 /**
  * Created by Student on 2018/1/16.
  */
 
-public class DataProcess {
+public class PlayerDAO {
 
     Context context;
-    public DataProcess(Context context)
+    public PlayerDAO(Context context)
     {
         this.context=context;
     }
+    //新增
     public int insertPlayers(ArrayList<Player> myData)
     {
         int count=0;
@@ -43,6 +42,7 @@ public class DataProcess {
         return count;
     }
 
+    //取得全部球員
     public ArrayList<Player> getPlayers(String pid)
     {
         ArrayList<Player> list=new ArrayList<>();
@@ -56,8 +56,9 @@ public class DataProcess {
             _id=c.getInt(c.getColumnIndex("_id"));
             number=c.getString(c.getColumnIndex("number"));
             name=c.getString(c.getColumnIndex("name"));
-            list.add(new Player(pid,number,name));
+            list.add(new Player(_id,pid,number,name));
         }while(c.moveToNext());
+        //Log.d("DP_Count",list.size()+"");
         return list;
     }
 

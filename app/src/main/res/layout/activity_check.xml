@@ -202,7 +202,8 @@
                     android:layout_marginTop="8dp"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:text="6" />
 
                 <EditText
                     android:id="@+id/edName6"
@@ -214,7 +215,7 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Name" />
+                    android:text="Name6" />
             </LinearLayout>
 
             <LinearLayout
@@ -230,7 +231,8 @@
                     android:layout_marginTop="8dp"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:text="7" />
 
                 <EditText
                     android:id="@+id/edName7"
@@ -242,7 +244,7 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Name" />
+                    android:text="Name7" />
             </LinearLayout>
 
             <LinearLayout
@@ -258,7 +260,8 @@
                     android:layout_marginTop="8dp"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:text="8" />
 
                 <EditText
                     android:id="@+id/edName8"
@@ -270,7 +273,7 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Name" />
+                    android:text="Name8" />
             </LinearLayout>
 
             <LinearLayout
