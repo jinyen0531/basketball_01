@@ -1,21 +1,14 @@
 package com.yenyu.basketball_01;
 
-import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.CursorAdapter;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
-import com.yenyu.basketball_01.DBConnection.DataProcess;
-import com.yenyu.basketball_01.datatable.Player;
+import com.yenyu.basketball_01.dao.PlayerDAO;
+import com.yenyu.basketball_01.dao.Player;
 
 import java.util.ArrayList;
 
@@ -31,7 +24,7 @@ public class Pick5Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pick5);
         lv=findViewById(R.id.listView);
-        DataProcess dp=new DataProcess(Pick5Activity.this);
+        PlayerDAO dp=new PlayerDAO(Pick5Activity.this);
         mylist=dp.getPlayers(pid);
         chks=new boolean[mylist.size()];
         //Log.d("Pick5A",mylist.size()+"");

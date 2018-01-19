@@ -1,4 +1,4 @@
-package com.yenyu.basketball_01.datatable;
+package com.yenyu.basketball_01.dao;
 
 /**
  * Created by Student on 2018/1/16.
@@ -6,12 +6,19 @@ package com.yenyu.basketball_01.datatable;
 
 public class Player {
     private int _id;
-    private String pid;
-    private String number;
-    private String name;
+    private String pid;     //場次
+    private String number;  //背號
+    private String name;    //姓名
 
     public Player(String pid,String number,String name)
     {
+        this.pid=pid;
+        this.number=number;
+        this.name=name;
+    }
+    public Player(int _id,String pid,String number,String name)
+    {
+        this._id=_id;
         this.pid=pid;
         this.number=number;
         this.name=name;

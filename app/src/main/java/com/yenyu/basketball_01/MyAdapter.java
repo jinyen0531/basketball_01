@@ -5,13 +5,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
-import com.yenyu.basketball_01.datatable.Player;
+import com.yenyu.basketball_01.dao.Player;
 
 import java.util.ArrayList;
 
@@ -65,6 +64,7 @@ public class MyAdapter extends BaseAdapter {
             viewHolder=(ViewHolder) view.getTag();
         }
         viewHolder.tv5.setText(list.get(position).getNumber());
+        //viewHolder.tv5.setText(list.get(position).get_id()+ " "+list.get(position).getNumber());
         viewHolder.tv7.setText(list.get(position).getName());
         viewHolder.chk2.setOnCheckedChangeListener(null);
         viewHolder.chk2.setChecked(chks[position]);

@@ -1,4 +1,4 @@
-package com.yenyu.basketball_01.datatable;
+package com.yenyu.basketball_01.dao;
 
 /**
  * Created by User on 2018/1/18.
@@ -7,14 +7,14 @@ package com.yenyu.basketball_01.datatable;
 public class Action {
     private int _id;
     private String pid;     //場次
-    private int period;     //節次
+    private int section;     //節次
     private int number;     //背號
     private int action;     //動作
 
-    public Action(String pid,int period,int number,int action)
+    public Action(String pid,int section,int number,int action)
     {
         this.pid=pid;
-        this.period=period;
+        this.section=section;
         this.number=number;
         this.action=action;
     }
@@ -34,12 +34,12 @@ public class Action {
         this.pid = pid;
     }
 
-    public int getPeriod() {
-        return period;
+    public int getSection() {
+        return section;
     }
 
-    public void setPeriod(int period) {
-        this.period = period;
+    public void setSection(int section) {
+        this.section = section;
     }
 
     public int getNumber() {

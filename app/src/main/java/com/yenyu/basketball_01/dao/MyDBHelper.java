@@ -1,4 +1,4 @@
-package com.yenyu.basketball_01.DBConnection;
+package com.yenyu.basketball_01.dao;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
