@@ -47,14 +47,15 @@ public class PlayerDAO {
     {
         ArrayList<Player> list=new ArrayList<>();
         int _id;
-        String number,name;
+        int number;
+        String name;
         MyDBHelper helper=new MyDBHelper(context);
         SQLiteDatabase database=helper.getDatabase();
         Cursor c=database.rawQuery("select * from players where pid="+pid,null);
         c.moveToFirst();
         do {
             _id=c.getInt(c.getColumnIndex("_id"));
-            number=c.getString(c.getColumnIndex("number"));
+            number=c.getInt(c.getColumnIndex("number"));
             name=c.getString(c.getColumnIndex("name"));
             list.add(new Player(_id,pid,number,name));
         }while(c.moveToNext());
@@ -64,6 +65,7 @@ public class PlayerDAO {
     //刪除
     public boolean delPlayers()
     {
+
         return true;
     }
 }

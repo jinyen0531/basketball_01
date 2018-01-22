@@ -8,10 +8,10 @@ public class Action {
     private int _id;
     private String pid;     //場次
     private int section;     //節次
-    private String number;     //背號
+    private int number;     //背號
     private int move;     //動作
 
-    public Action(String pid,int section,String number,int move)
+    public Action(String pid,int section,int number,int move)
     {
         this.pid=pid;
         this.section=section;
@@ -42,11 +42,11 @@ public class Action {
         this.section = section;
     }
 
-    public String getNumber() {
+    public int getNumber() {
         return number;
     }
 
-    public void setNumber(String number) {
+    public void setNumber(int number) {
         this.number = number;
     }
 

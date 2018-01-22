@@ -3,6 +3,7 @@ package com.yenyu.basketball_01;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -51,16 +52,16 @@ public class ActivityCheck extends AppCompatActivity {
         {
             number=textArrayList.get(i).getText().toString();
             name=textArrayList.get(i+1).getText().toString();
-            //Log.d("add","number : "+number+ "name : "+name);
+            Log.d("add","number : "+number+ "name : "+name);
             if(number.length()>0 && name.length()>0)
             {
-                list.add(new Player(pid,number,name));
+                list.add(new Player(pid,Integer.valueOf(number),name));
                 count++;
             }
         }
         if(count>=5)
         {
-            //dp.insertPlayers(list);       //測試,故標記
+            dp.insertPlayers(list);       //測試,故標記
             Intent it = new Intent(ActivityCheck.this,Pick5Activity.class);
             startActivity(it);
         }
