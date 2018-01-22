@@ -1,16 +1,23 @@
 package com.yenyu.basketball_01;
 
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
+
+import com.yenyu.basketball_01.dao.Player;
+import com.yenyu.basketball_01.dao.PlayerDAO;
 
 import java.util.ArrayList;
 import java.util.regex.Pattern;
@@ -24,6 +31,11 @@ public class ButtonRecord extends AppCompatActivity {
     RadioGroup rg1, rg2;
     public int Player;
     public int Action;
+    public int Section=RecordAction.Section1;
+    ListView lv;
+    String pid="1";
+    ArrayList<com.yenyu.basketball_01.dao.Player> mylist;
+    boolean[] chks;
 
 
 
@@ -31,6 +43,7 @@ public class ButtonRecord extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.button_record);
+
 
         tvScore1 = (TextView) findViewById(R.id.tvScore1); //自己的得分
         tvScore2 = (TextView) findViewById(R.id.tvScore2); //對方的得分
@@ -90,10 +103,8 @@ public class ButtonRecord extends AppCompatActivity {
         btFoul.setOnClickListener(listener);
         btNextSection.setOnClickListener(listener);
 
-
-
-
     }
+
 
     class MyOnClickListener implements View.OnClickListener {
         @Override
@@ -241,14 +252,19 @@ public class ButtonRecord extends AppCompatActivity {
                     else {Player=0;}
                     break;
                 case R.id.btNextSection:
-                    Action = RecordAction.Next_Section;
+                    if(Section == 1111)
+                        Section = RecordAction.Section2;
+                    else if (Section == 2222)
+                        Section = RecordAction.Section3;
+                    else if (Section == 3333)
+                        Section = RecordAction.Section4;
+                    Log.d("Section",Section+"");
                     tvSectionFoul1.setText("0");
                     tvSectionFoul2.setText("0");
                     int tvsection = Integer.valueOf(tvSection.getText().toString());
                     Log.d("section",tvsection+"");
                     if(tvsection<4) {
                         tvSection.setText(String.valueOf(tvsection + 1));
-                        Log.d("section",tvsection+"");
                     }
                     break;
             }
@@ -322,6 +338,31 @@ public class ButtonRecord extends AppCompatActivity {
         rg1.clearCheck();
         rg2.clearCheck();
     }
+
+
+    public void clickChange(View v)
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(ButtonRecord.this);
+        builder.setTitle("請選擇五位上場球員");
+        LayoutInflater inflater=LayoutInflater.from(ButtonRecord.this);
+        View v1=inflater.inflate(R.layout.activity_changeplayer,null);
+//        lv = v1.findViewById(R.id.listView);
+//        PlayerDAO dp=new PlayerDAO(ButtonRecord.this);
+//        mylist=dp.getPlayers(pid);
+//        chks=new boolean[mylist.size()];
+//
+//        MyAdapter adapter=new MyAdapter(mylist,ButtonRecord.this,chks);
+//        lv.setAdapter(adapter);
+        builder.setView(v1);
+        builder.setPositiveButton("確定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        builder.show();
+    }
+
 }
 
 
