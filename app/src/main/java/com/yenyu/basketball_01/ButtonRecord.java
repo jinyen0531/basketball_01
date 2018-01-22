@@ -242,6 +242,8 @@ public class ButtonRecord extends AppCompatActivity {
                     break;
                 case R.id.btNextSection:
                     Action = RecordAction.Next_Section;
+                    tvSectionFoul1.setText("0");
+                    tvSectionFoul2.setText("0");
                     int tvsection = Integer.valueOf(tvSection.getText().toString());
                     Log.d("section",tvsection+"");
                     if(tvsection<4) {
@@ -263,34 +265,62 @@ public class ButtonRecord extends AppCompatActivity {
             switch(buttonView.getId())
             {
                 case R.id.rbNumber1:
-                    rg2.clearCheck();
-                    Player = RecordAction.Action_player1;
-                    break;
+                     if(102<=Player && Player<=106 )
+                         clickCancel();
+                     rg2.clearCheck();
+                     Player = RecordAction.Action_player1;
+                     Log.d("player", Player + "");
+                     break;
                 case R.id.rbNumber2:
+                    if(101<=Player && Player<=106 && Player != 102)
+                        clickCancel();
                     rg2.clearCheck();
                     Player = RecordAction.Action_player2;
+                    Log.d("player",Player+"");
                     break;
                 case R.id.rbNumber3:
+                    if(101<=Player && Player<=106 && Player != 103)
+                        clickCancel();
                     rg2.clearCheck();
                     Player = RecordAction.Action_player3;
+                    Log.d("player",Player+"");
                     break;
                 case R.id.rbNumber4:
+                    if(101<=Player && Player<=106 && Player != 104)
+                        clickCancel();
                     rg1.clearCheck();
                     Player = RecordAction.Action_player4;
+                    Log.d("player",Player+"");
                     break;
                 case R.id.rbNumber5:
+                    if(101<=Player && Player<=106 && Player != 105)
+                        clickCancel();
                     rg1.clearCheck();
                     Player = RecordAction.Action_player5;
+                    Log.d("player",Player+"");
                     break;
                 case R.id.rbOP:
+                    if(101<=Player && Player<=105 )
+                        clickCancel();
                     rg1.clearCheck();
                     Player = RecordAction.Action_playerOP;
+                    Log.d("player",Player+"");
                     break;
 
 
 
             }
         }
+
+    }
+
+
+
+    public void clickCancel()
+    {
+        Player = 0;
+        rg1.clearCheck();
+        rg2.clearCheck();
     }
 }
 

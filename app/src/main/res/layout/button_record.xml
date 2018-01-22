@@ -200,7 +200,7 @@
 
                     <Button
                         android:id="@+id/btNextSection"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="下一節"
@@ -208,12 +208,20 @@
 
                     <ImageButton
                         android:id="@+id/imageButton"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:adjustViewBounds="false"
                         android:elevation="0dp"
                         app:srcCompat="?attr/actionModeCloseDrawable" />
+
+                    <Button
+                        android:id="@+id/button5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="cilckCancel"
+                        android:text="Button" />
 
                 </LinearLayout>
 
