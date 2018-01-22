@@ -19,7 +19,7 @@ public class Pick5Activity extends AppCompatActivity {
     String pid="1";
     ArrayList<Player> mylist;
     boolean[] chks;
-    int[] numbers;
+    String[] numbers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +29,7 @@ public class Pick5Activity extends AppCompatActivity {
         PlayerDAO dp=new PlayerDAO(Pick5Activity.this);
         mylist=dp.getPlayers(pid);
         chks=new boolean[mylist.size()];
-        numbers=new int[mylist.size()];
+        numbers=new String[mylist.size()];
         for(int i=0;i<mylist.size();i++)
         {
             numbers[i]=mylist.get(i).getNumber();

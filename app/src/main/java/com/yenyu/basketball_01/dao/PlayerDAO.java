@@ -20,7 +20,7 @@ public class PlayerDAO {
         this.context=context;
     }
     //新增
-    public int insertPlayers(ArrayList<Player> myData)
+    public boolean insertPlayers(ArrayList<Player> myData)
     {
         int count=0;
         MyDBHelper helper=new MyDBHelper(context);
@@ -39,7 +39,8 @@ public class PlayerDAO {
         }
         database.close();
         helper.close();
-        return count;
+
+        return (count>0) ? true:false;
     }
 
     //取得全部球員
@@ -47,15 +48,15 @@ public class PlayerDAO {
     {
         ArrayList<Player> list=new ArrayList<>();
         int _id;
-        int number;
-        String name;
+        String number,name;
         MyDBHelper helper=new MyDBHelper(context);
         SQLiteDatabase database=helper.getDatabase();
-        Cursor c=database.rawQuery("select * from players where pid="+pid,null);
+        String strSql="select * from players where pid=?";
+        Cursor c=database.rawQuery(strSql,new String[]{pid});
         c.moveToFirst();
         do {
             _id=c.getInt(c.getColumnIndex("_id"));
-            number=c.getInt(c.getColumnIndex("number"));
+            number=c.getString(c.getColumnIndex("number"));
             name=c.getString(c.getColumnIndex("name"));
             list.add(new Player(_id,pid,number,name));
         }while(c.moveToNext());
@@ -63,7 +64,7 @@ public class PlayerDAO {
         return list;
     }
     //刪除
-    public boolean delPlayers()
+    public boolean delPlayer()
     {
 
         return true;

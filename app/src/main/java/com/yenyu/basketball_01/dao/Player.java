@@ -7,16 +7,16 @@ package com.yenyu.basketball_01.dao;
 public class Player {
     private int _id;
     private String pid;     //場次
-    private int number;  //背號
+    private String number;  //背號
     private String name;    //姓名
 
-    public Player(String pid,int number,String name)
+    public Player(String pid,String number,String name)
     {
         this.pid=pid;
         this.number=number;
         this.name=name;
     }
-    public Player(int _id,String pid,int number,String name)
+    public Player(int _id,String pid,String number,String name)
     {
         this._id=_id;
         this.pid=pid;
@@ -40,11 +40,11 @@ public class Player {
         this.pid = pid;
     }
 
-    public int getNumber() {
+    public String getNumber() {
         return number;
     }
 
-    public void setNumber(int number) {
+    public void setNumber(String number) {
         this.number = number;
     }
 

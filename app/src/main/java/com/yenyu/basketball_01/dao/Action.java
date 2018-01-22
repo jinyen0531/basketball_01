@@ -8,11 +8,19 @@ public class Action {
     private int _id;
     private String pid;     //場次
     private int section;     //節次
-    private int number;     //背號
+    private String number;     //背號
     private int move;     //動作
 
-    public Action(String pid,int section,int number,int move)
+    public Action(String pid,int section,String number,int move)
     {
+        this.pid=pid;
+        this.section=section;
+        this.number=number;
+        this.move=move;
+    }
+    public Action(int _id,String pid,int section,String number,int move)
+    {
+        this._id=_id;
         this.pid=pid;
         this.section=section;
         this.number=number;
@@ -42,11 +50,11 @@ public class Action {
         this.section = section;
     }
 
-    public int getNumber() {
+    public String getNumber() {
         return number;
     }
 
-    public void setNumber(int number) {
+    public void setNumber(String number) {
         this.number = number;
     }
 
