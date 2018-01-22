@@ -12,39 +12,36 @@ public class MyDBHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME="baseball.db";
     private static final int DATABASE_VERSION=1;
-    private SQLiteDatabase database;
 
     public MyDBHelper(Context context)
     {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-        database=this.getWritableDatabase();
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         //新增players資料表
-        sqLiteDatabase.execSQL("create table main.players "+
-        "(_id integer primary key not null," +
-                "pid varchar," +
-                "number integer," +
-                "name varchar)");
+        sqLiteDatabase.execSQL("CREATE TABLE `players` "+
+                "( `_id` INTEGER, "+
+                "`pid` TEXT, "+
+                "`number` TEXT, "+
+                "`name` TEXT, "+
+                "PRIMARY KEY(`_id`) )");
 
-        sqLiteDatabase.execSQL("create table main.actions "+
-                "(_id integer primary key not null, "+
-                "pid varchar,"+
-                "section integer,"+
-                "number integer, "+
-                "move integer)");
+        sqLiteDatabase.execSQL("CREATE TABLE `actions` "+
+                "( `_id` INTEGER, "+
+                "`pid` TEXT, "+
+                "`section` INTEGER, "+
+                "`number` TEXT, "+
+                "`move` INTEGER, "+
+                "PRIMARY KEY(`_id`) )");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         sqLiteDatabase.execSQL("DROP TABLE players");
+        sqLiteDatabase.execSQL("DROP TABLE actions");
         onCreate(sqLiteDatabase);
     }
 
-    public SQLiteDatabase getDatabase()
-    {
-        return database;
-    }
 }

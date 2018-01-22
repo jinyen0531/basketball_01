@@ -18,6 +18,14 @@ public class Action {
         this.number=number;
         this.move=move;
     }
+    public Action(int _id,String pid,int section,String number,int move)
+    {
+        this._id=_id;
+        this.pid=pid;
+        this.section=section;
+        this.number=number;
+        this.move=move;
+    }
     public int get_id() {
         return _id;
     }

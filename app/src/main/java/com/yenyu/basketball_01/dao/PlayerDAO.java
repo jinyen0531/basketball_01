@@ -20,11 +20,10 @@ public class PlayerDAO {
         this.context=context;
     }
     //新增
-    public int insertPlayers(ArrayList<Player> myData)
+    public boolean insertPlayers(ArrayList<Player> myData)
     {
         int count=0;
-        MyDBHelper helper=new MyDBHelper(context);
-        SQLiteDatabase database=helper.getDatabase();
+        SQLiteDatabase database=new MyDBHelper(context).getWritableDatabase();
         ContentValues values;
         for(int i=0;i<myData.size();i++)
         {
@@ -38,8 +37,8 @@ public class PlayerDAO {
             count++;
         }
         database.close();
-        helper.close();
-        return count;
+
+        return (count>0) ? true:false;
     }
 
     //取得全部球員
@@ -48,9 +47,9 @@ public class PlayerDAO {
         ArrayList<Player> list=new ArrayList<>();
         int _id;
         String number,name;
-        MyDBHelper helper=new MyDBHelper(context);
-        SQLiteDatabase database=helper.getDatabase();
-        Cursor c=database.rawQuery("select * from players where pid="+pid,null);
+        SQLiteDatabase database=new MyDBHelper(context).getWritableDatabase();
+        String strSql="select * from players where pid=?";
+        Cursor c=database.rawQuery(strSql,new String[]{pid});
         c.moveToFirst();
         do {
             _id=c.getInt(c.getColumnIndex("_id"));
@@ -59,11 +58,13 @@ public class PlayerDAO {
             list.add(new Player(_id,pid,number,name));
         }while(c.moveToNext());
         //Log.d("DP_Count",list.size()+"");
+        database.close();
         return list;
     }
     //刪除
-    public boolean delPlayers()
+    public boolean delPlayer()
     {
+
         return true;
     }
 }

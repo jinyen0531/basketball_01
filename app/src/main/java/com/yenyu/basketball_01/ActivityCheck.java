@@ -3,6 +3,7 @@ package com.yenyu.basketball_01;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -26,8 +27,6 @@ public class ActivityCheck extends AppCompatActivity {
     {
         ArrayList<Player> list=new ArrayList<>();
         PlayerDAO dp=new PlayerDAO(ActivityCheck.this);
-
-
         LinearLayout layout=(LinearLayout) findViewById(R.id.linearLayout);
         //Toast.makeText(ActivityCheck.this,String.valueOf(layout.getChildCount()),Toast.LENGTH_SHORT).show();
         ArrayList<EditText> textArrayList=new ArrayList<>();
@@ -51,7 +50,7 @@ public class ActivityCheck extends AppCompatActivity {
         {
             number=textArrayList.get(i).getText().toString();
             name=textArrayList.get(i+1).getText().toString();
-            //Log.d("add","number : "+number+ "name : "+name);
+            Log.d("add","number : "+number+ "name : "+name);
             if(number.length()>0 && name.length()>0)
             {
                 list.add(new Player(pid,number,name));
