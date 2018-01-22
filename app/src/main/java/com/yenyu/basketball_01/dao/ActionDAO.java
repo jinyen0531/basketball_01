@@ -23,8 +23,7 @@ public class ActionDAO {
     //新增
     public boolean insertAction(Action action)
     {
-        MyDBHelper helper=new MyDBHelper(context);
-        SQLiteDatabase database=helper.getDatabase();
+        SQLiteDatabase database=new MyDBHelper(context).getWritableDatabase();
         ContentValues values=new ContentValues();
         values.put("pid",action.getPid());
         values.put("section",action.getSection());
@@ -35,7 +34,6 @@ public class ActionDAO {
                 " section : "+action.getSection()+" number : "+action.getNumber()+
                 " move : "+action.getMove());
         database.close();
-        helper.close();
         if(id>0)
         {
             return true;
@@ -50,8 +48,7 @@ public class ActionDAO {
     public ArrayList<Action> getActions(String pid)
     {
         ArrayList<Action> mylist=new ArrayList<>();
-        MyDBHelper helper=new MyDBHelper(context);
-        SQLiteDatabase database=helper.getDatabase();
+        SQLiteDatabase database=new MyDBHelper(context).getWritableDatabase();
         String strSql="select * from actions where pid=?";
         Cursor c=database.rawQuery(strSql,new String[]{pid});
         c.moveToFirst();
@@ -65,6 +62,7 @@ public class ActionDAO {
             Log.d("LoadAction","id : "+_id+", section : "+section+", number : "+number+", move : "+move);
         }while(c.moveToNext());
         Log.d("Action_Count",mylist.size()+"");
+        database.close();
         return mylist;
     }
 

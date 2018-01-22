@@ -12,12 +12,10 @@ public class MyDBHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME="baseball.db";
     private static final int DATABASE_VERSION=1;
-    private SQLiteDatabase database;
 
     public MyDBHelper(Context context)
     {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-        database=this.getWritableDatabase();
     }
 
     @Override
@@ -46,8 +44,4 @@ public class MyDBHelper extends SQLiteOpenHelper {
         onCreate(sqLiteDatabase);
     }
 
-    public SQLiteDatabase getDatabase()
-    {
-        return database;
-    }
 }

@@ -27,8 +27,6 @@ public class ActivityCheck extends AppCompatActivity {
     {
         ArrayList<Player> list=new ArrayList<>();
         PlayerDAO dp=new PlayerDAO(ActivityCheck.this);
-
-
         LinearLayout layout=(LinearLayout) findViewById(R.id.linearLayout);
         //Toast.makeText(ActivityCheck.this,String.valueOf(layout.getChildCount()),Toast.LENGTH_SHORT).show();
         ArrayList<EditText> textArrayList=new ArrayList<>();

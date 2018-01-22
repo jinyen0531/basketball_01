@@ -23,8 +23,7 @@ public class PlayerDAO {
     public boolean insertPlayers(ArrayList<Player> myData)
     {
         int count=0;
-        MyDBHelper helper=new MyDBHelper(context);
-        SQLiteDatabase database=helper.getDatabase();
+        SQLiteDatabase database=new MyDBHelper(context).getWritableDatabase();
         ContentValues values;
         for(int i=0;i<myData.size();i++)
         {
@@ -38,7 +37,6 @@ public class PlayerDAO {
             count++;
         }
         database.close();
-        helper.close();
 
         return (count>0) ? true:false;
     }
@@ -49,8 +47,7 @@ public class PlayerDAO {
         ArrayList<Player> list=new ArrayList<>();
         int _id;
         String number,name;
-        MyDBHelper helper=new MyDBHelper(context);
-        SQLiteDatabase database=helper.getDatabase();
+        SQLiteDatabase database=new MyDBHelper(context).getWritableDatabase();
         String strSql="select * from players where pid=?";
         Cursor c=database.rawQuery(strSql,new String[]{pid});
         c.moveToFirst();
@@ -61,6 +58,7 @@ public class PlayerDAO {
             list.add(new Player(_id,pid,number,name));
         }while(c.moveToNext());
         //Log.d("DP_Count",list.size()+"");
+        database.close();
         return list;
     }
     //刪除
