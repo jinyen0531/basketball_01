@@ -15,15 +15,16 @@ import java.util.ArrayList;
 public class ActionDAO {
 
     Context context;
+    SQLiteDatabase database;
     public ActionDAO(Context context)
     {
         this.context=context;
+        database=new MyDBHelper(context).getWritableDatabase();
     }
 
     //新增
     public boolean insertAction(Action action)
     {
-        SQLiteDatabase database=new MyDBHelper(context).getWritableDatabase();
         ContentValues values=new ContentValues();
         values.put("pid",action.getPid());
         values.put("section",action.getSection());
@@ -48,7 +49,6 @@ public class ActionDAO {
     public ArrayList<Action> getActions(String pid)
     {
         ArrayList<Action> mylist=new ArrayList<>();
-        SQLiteDatabase database=new MyDBHelper(context).getWritableDatabase();
         String strSql="select * from actions where pid=?";
         Cursor c=database.rawQuery(strSql,new String[]{pid});
         c.moveToFirst();
@@ -69,7 +69,11 @@ public class ActionDAO {
     //刪除
     public boolean delAction()
     {
-
-        return true;
+        Cursor c=database.rawQuery("select _id from actions order by _id desc",null);
+        c.moveToFirst();
+        int id=c.getInt(0);
+        Log.d("Del_id : ",String.valueOf(id));
+        int i=database.delete("actions","_id=?",new String[]{String.valueOf(id)});
+        return (i>0) ? true : false;
     }
 }
