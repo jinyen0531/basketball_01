@@ -51,9 +51,7 @@ public class Pick5Activity extends AppCompatActivity {
         if(count==5)
         {
             Intent it=new Intent(Pick5Activity.this,ButtonRecord.class);
-            it.putExtra("pid",pid);
-            it.putExtra("numbers",numbers);
-            it.putExtra("chks",chks);
+
             startActivity(it);
         }
         else
