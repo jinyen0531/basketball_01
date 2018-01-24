@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void click1(View v)
     {
+//        Intent it=new Intent(MainActivity.this,SummaryActivity.class);
+//        startActivity(it);
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setTitle("請輸入隊伍名稱");
         LayoutInflater inflater = LayoutInflater.from(MainActivity.this);

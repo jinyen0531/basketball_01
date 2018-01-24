@@ -20,6 +20,7 @@
         <activity android:name=".ButtonRecord" />
         //android:screenOrientation="landscape"
         <activity android:name=".Pick5Activity"></activity>
+        <activity android:name=".SummaryActivity"></activity>
     </application>
 
 </manifest>
