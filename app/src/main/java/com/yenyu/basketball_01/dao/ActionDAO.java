@@ -15,15 +15,16 @@ import java.util.ArrayList;
 public class ActionDAO {
 
     Context context;
+    SQLiteDatabase database;
     public ActionDAO(Context context)
     {
         this.context=context;
+        database=new MyDBHelper(context).getWritableDatabase();
     }
 
     //新增
     public boolean insertAction(Action action)
     {
-        SQLiteDatabase database=new MyDBHelper(context).getWritableDatabase();
         ContentValues values=new ContentValues();
         values.put("pid",action.getPid());
         values.put("section",action.getSection());
@@ -33,7 +34,6 @@ public class ActionDAO {
         Log.d("ADD","id : "+id+" pid : "+action.getPid()+
                 " section : "+action.getSection()+" number : "+action.getNumber()+
                 " move : "+action.getMove());
-        database.close();
         if(id>0)
         {
             return true;
@@ -48,8 +48,7 @@ public class ActionDAO {
     public ArrayList<Action> getActions(String pid)
     {
         ArrayList<Action> mylist=new ArrayList<>();
-        SQLiteDatabase database=new MyDBHelper(context).getWritableDatabase();
-        String strSql="select * from actions where pid=?";
+        String strSql="select * from actions where pid=? order by section,CAST(number as integer), CAST(move as integer)";
         Cursor c=database.rawQuery(strSql,new String[]{pid});
         c.moveToFirst();
         do
@@ -66,10 +65,14 @@ public class ActionDAO {
         return mylist;
     }
 
-    //刪除
+    //刪除最後一筆
     public boolean delAction()
     {
-
-        return true;
+        Cursor c=database.rawQuery("select _id from actions order by _id desc",null);
+        c.moveToFirst();
+        int id=c.getInt(0);
+        Log.d("Del_id : ",String.valueOf(id));
+        int i=database.delete("actions","_id=?",new String[]{String.valueOf(id)});
+        return (i>0) ? true : false;
     }
 }
