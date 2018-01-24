@@ -15,16 +15,15 @@ import java.util.ArrayList;
 public class PlayerDAO {
 
     Context context;
-    SQLiteDatabase database;
     public PlayerDAO(Context context)
     {
         this.context=context;
-        database=new MyDBHelper(context).getWritableDatabase();
     }
     //新增
     public boolean insertPlayers(ArrayList<Player> myData)
     {
         int count=0;
+        SQLiteDatabase database=new MyDBHelper(context).getWritableDatabase();
         ContentValues values;
         for(int i=0;i<myData.size();i++)
         {
@@ -48,6 +47,7 @@ public class PlayerDAO {
         ArrayList<Player> list=new ArrayList<>();
         int _id;
         String number,name;
+        SQLiteDatabase database=new MyDBHelper(context).getWritableDatabase();
         String strSql="select * from players where pid=?";
         Cursor c=database.rawQuery(strSql,new String[]{pid});
         c.moveToFirst();
