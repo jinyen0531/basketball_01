@@ -1,6 +1,7 @@
 package com.yenyu.basketball_01;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,15 +28,16 @@ import static com.yenyu.basketball_01.RecordAction.Action_player1;
 public class ButtonRecord extends AppCompatActivity {
     Button bt2in, bt2out, bt3in, bt3out, btFTin, btFTout, btOR, btDR, btST, btAS, btBS, btTO, btFoul, btNextSection;
     RadioButton rbNumber1, rbNumber2, rbNumber3, rbNumber4, rbNumber5, rbOP;
-    TextView tvScore1, tvScore2, tvSectionFoul1, tvSectionFoul2, tvSection;
+    TextView tvScore1, tvScore2, tvSectionFoul1, tvSectionFoul2, tvSection,tvOnline;
     RadioGroup rg1, rg2;
     public int Player;
     public int Action;
     public int Section=RecordAction.Section1;
     ListView lv;
-    String pid="1";
+//    String pid="1";
     ArrayList<com.yenyu.basketball_01.dao.Player> mylist;
-    boolean[] chks;
+    boolean []chks;
+    String[] numbers;
 
 
 
@@ -50,6 +52,7 @@ public class ButtonRecord extends AppCompatActivity {
         tvSectionFoul1 = (TextView) findViewById(R.id.tvSectionFoul1); //自己的團犯
         tvSectionFoul2 = (TextView) findViewById(R.id.tvSectionFoul2);  //對方的團犯
         tvSection = (TextView) findViewById(R.id.tvSection);    //節次
+        tvOnline = (TextView) findViewById(R.id.tvOnline); //跑馬燈
 
         rg1 = (RadioGroup) findViewById(R.id.rg1);
         rg2 = (RadioGroup) findViewById(R.id.rg2);
@@ -125,6 +128,7 @@ public class ButtonRecord extends AppCompatActivity {
                         Player=0;
                     }
                     else {Player=0;}
+                    tvOnline.setText("兩分球進");
                     break;
                 case R.id.bt2out:
                     if (Player <= 105 && Player >= 101) {
@@ -134,6 +138,7 @@ public class ButtonRecord extends AppCompatActivity {
                         Player=0;
                     }
                     else {Player=0;}
+                    tvOnline.setText("兩分球不進");
                     break;
                 case R.id.bt3in:
                     Action = RecordAction.Action_3point_in;
@@ -286,6 +291,7 @@ public class ButtonRecord extends AppCompatActivity {
                      rg2.clearCheck();
                      Player = RecordAction.Action_player1;
                      Log.d("player", Player + "");
+                     tvOnline.setText("1號選手");
                      break;
                 case R.id.rbNumber2:
                     if(101<=Player && Player<=106 && Player != 102)
@@ -343,24 +349,41 @@ public class ButtonRecord extends AppCompatActivity {
     public void clickChange(View v)
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(ButtonRecord.this);
-        builder.setTitle("請選擇五位上場球員");
-        LayoutInflater inflater=LayoutInflater.from(ButtonRecord.this);
-        View v1=inflater.inflate(R.layout.activity_changeplayer,null);
-//        lv = v1.findViewById(R.id.listView);
-//        PlayerDAO dp=new PlayerDAO(ButtonRecord.this);
-//        mylist=dp.getPlayers(pid);
-//        chks=new boolean[mylist.size()];
-//
-//        MyAdapter adapter=new MyAdapter(mylist,ButtonRecord.this,chks);
-//        lv.setAdapter(adapter);
-        builder.setView(v1);
+        builder.setTitle("請勾選上場球員名單(5)");
+        Intent it = getIntent();
+        Bundle b=it.getExtras();
+        String pid=it.getStringExtra("pid");
+        numbers = b.getStringArray("numbers");
+        chks = b.getBooleanArray("chks");
+        Log.d("numbers",numbers[1]);
+        builder.setMultiChoiceItems(numbers, chks, new DialogInterface.OnMultiChoiceClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+                for(int i=0;i<numbers.length;i++)
+                {
+                    if(chks[i])
+                    {
+
+                    }
+                }
+            }
+        });
         builder.setPositiveButton("確定", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
             }
         });
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
         builder.show();
+
+
+
     }
 
 }
