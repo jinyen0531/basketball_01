@@ -38,6 +38,7 @@ public class ButtonRecord extends AppCompatActivity {
     ArrayList<com.yenyu.basketball_01.dao.Player> mylist;
     boolean []chks;
     String[] numbers;
+    ArrayList<String> Playerlist;
 
 
 
@@ -118,14 +119,10 @@ public class ButtonRecord extends AppCompatActivity {
                     if (Player <= 105 && Player >= 101) {
                         //當按下按鈕時，將RecordAction的Action_2point_in指定給Action
                         tvScore1.setText(String.valueOf(Integer.valueOf(tvScore1.getText().toString()) + 2));
-                        rg1.clearCheck(); //新增完清空radiogroup
-                        rg2.clearCheck();
-                        Player=0;
+                        clickCancel();
                     } else if (Player == 106) {
                         tvScore2.setText(String.valueOf(Integer.valueOf(tvScore2.getText().toString()) + 2));
-                        rg1.clearCheck();
-                        rg2.clearCheck();
-                        Player=0;
+                        clickCancel();
                     }
                     else {Player=0;}
                     tvOnline.setText("兩分球進");
@@ -133,108 +130,94 @@ public class ButtonRecord extends AppCompatActivity {
                 case R.id.bt2out:
                     if (Player <= 105 && Player >= 101) {
                         Action = RecordAction.Action_2point_out;
-                        rg1.clearCheck();
-                        rg2.clearCheck();
-                        Player=0;
+                        clickCancel();
                     }
-                    else {Player=0;}
+                    else {clickCancel();}
                     tvOnline.setText("兩分球不進");
                     break;
                 case R.id.bt3in:
                     Action = RecordAction.Action_3point_in;
                     if (Player <= 105 && Player >= 101) {
                         tvScore1.setText(String.valueOf(Integer.valueOf(tvScore1.getText().toString()) + 3));
-                        rg1.clearCheck();
-                        rg2.clearCheck();
-                        Player=0;
+                        clickCancel();
                     } else if (Player == 106) {
                         tvScore2.setText(String.valueOf(Integer.valueOf(tvScore2.getText().toString()) + 3));
-                        rg1.clearCheck();
-                        rg2.clearCheck();
-                        Player=0;
-                    } else {Player=0;}
+                        clickCancel();
+                    } else {clickCancel();}
+                    tvOnline.setText("三分球進");
                     break;
                 case R.id.bt3out:
                     Action = RecordAction.Action_3point_out;
                     if (Player <= 105 && Player >= 101) {
-                        rg1.clearCheck();
-                        rg2.clearCheck();
-                        Player=0;
+                        clickCancel();
                     }
-                    else {Player=0;}
+                    else {clickCancel();}
+                    tvOnline.setText("三分球不進");
                     break;
                 case R.id.btFTin:
                     Action = RecordAction.Action_FT_in;
                     if (Player <= 105 && Player >= 101) {
                         tvScore1.setText(String.valueOf(Integer.valueOf(tvScore1.getText().toString()) + 1));
-                        rg1.clearCheck();
-                        rg2.clearCheck();
-                        Player=0;
+                        clickCancel();
                     } else if (Player == 106) {
                         tvScore2.setText(String.valueOf(Integer.valueOf(tvScore2.getText().toString()) + 1));
-                        rg1.clearCheck();
-                        rg2.clearCheck();
-                        Player=0;
+                        clickCancel();
                     }
-                    else {Player=0;}
+                    else {clickCancel();}
+                    tvOnline.setText("罰球進");
                     break;
                 case R.id.btFTout:
                     Action = RecordAction.Action_FT_out;
+                    Log.d("罰球",Action+"");
                     if (Player <= 105 && Player >= 101) {
-                        rg1.clearCheck();
-                        rg2.clearCheck();
-                        Player=0;
+                        clickCancel();
                     }
-                    else{Player=0;}
+                    else{clickCancel();}
+                    Log.d("罰球",Action+"");
+                    tvOnline.setText("罰球不進");
                     break;
                 case R.id.btOR:
                     Action = RecordAction.Action_OR;
                     if (Player <= 105 && Player >= 101) {
-                    rg1.clearCheck();
-                    rg2.clearCheck();
-                    Player=0;
+                    clickCancel();
                     }
-                    else {Player=0;}
+                    else {clickCancel();}
+                    tvOnline.setText("進攻籃板");
                     break;
                 case R.id.btDR:
                     Action = RecordAction.Action_DR;
-                    if (Player <= 105 && Player >= 101) {
-                    rg1.clearCheck();
-                    rg2.clearCheck();
-                    Player=0;}
-                    else {Player=0;}
+                    if(Player <= 105 && Player >= 101) {
+                    clickCancel();}
+                    else {clickCancel();}
+                    tvOnline.setText("防守籃板");
                     break;
                 case R.id.btST:
                     Action = RecordAction.Action_ST;
                     if (Player <= 105 && Player >= 101) {
-                    rg1.clearCheck();
-                    rg2.clearCheck();
-                    Player=0;}
-                    else {Player=0;}
+                    clickCancel();}
+                    else {clickCancel();}
+                    tvOnline.setText("抄截");
                     break;
                 case R.id.btAS:
                     Action = RecordAction.Action_AS;
                     if (Player <= 105 && Player >= 101) {
-                    rg1.clearCheck();
-                    rg2.clearCheck();
-                    Player=0;}
-                    else {Player=0;}
+                        clickCancel();}
+                    else {clickCancel();}
+                    tvOnline.setText("助攻");
                     break;
                 case R.id.btBS:
                     Action = RecordAction.Action_BS;
                     if (Player <= 105 && Player >= 101) {
-                    rg1.clearCheck();
-                    rg2.clearCheck();
-                    Player=0;}
-                    else {Player=0;}
+                    clickCancel();}
+                    else {clickCancel();}
+                    tvOnline.setText("阻攻");
                     break;
                 case R.id.btTO:
                     Action = RecordAction.Action_TO;
                     if (Player <= 105 && Player >= 101) {
-                    rg1.clearCheck();
-                    rg2.clearCheck();
-                    Player=0;}
-                    else {Player=0;}
+                    clickCancel();}
+                    else {clickCancel();}
+                    tvOnline.setText("失誤");
                     break;
                 case R.id.btFoul:
                     Action = RecordAction.Action_Foul;
@@ -242,27 +225,27 @@ public class ButtonRecord extends AppCompatActivity {
                         int sectionfoul1 = Integer.valueOf(tvSectionFoul1.getText().toString());
                         if(sectionfoul1<5)
                             tvSectionFoul1.setText(String.valueOf(sectionfoul1+1));
-                        rg1.clearCheck();
-                        rg2.clearCheck();
-                        Player=0;}
+                        clickCancel();}
                     else if(Player ==106)
                     {
                         int sectionfoul2 = Integer.valueOf(tvSectionFoul2.getText().toString());
                         if(sectionfoul2<5)
                             tvSectionFoul2.setText(String.valueOf(sectionfoul2+1));
-                        rg1.clearCheck();
-                        rg2.clearCheck();
-                        Player=0;
+                        clickCancel();
                     }
-                    else {Player=0;}
+                    else {clickCancel();}
+                    tvOnline.setText("犯規");
                     break;
                 case R.id.btNextSection:
                     if(Section == 1111)
-                        Section = RecordAction.Section2;
+                    { Section = RecordAction.Section2;
+                    tvOnline.setText("第二節開始");}
                     else if (Section == 2222)
-                        Section = RecordAction.Section3;
+                {Section = RecordAction.Section3;
+                    tvOnline.setText("第三節開始");}
                     else if (Section == 3333)
-                        Section = RecordAction.Section4;
+                {Section = RecordAction.Section4;
+                    tvOnline.setText("第四節開始");}
                     Log.d("Section",Section+"");
                     tvSectionFoul1.setText("0");
                     tvSectionFoul2.setText("0");
@@ -299,6 +282,7 @@ public class ButtonRecord extends AppCompatActivity {
                     rg2.clearCheck();
                     Player = RecordAction.Action_player2;
                     Log.d("player",Player+"");
+                    tvOnline.setText("2號選手");
                     break;
                 case R.id.rbNumber3:
                     if(101<=Player && Player<=106 && Player != 103)
@@ -306,6 +290,7 @@ public class ButtonRecord extends AppCompatActivity {
                     rg2.clearCheck();
                     Player = RecordAction.Action_player3;
                     Log.d("player",Player+"");
+                    tvOnline.setText("3號選手");
                     break;
                 case R.id.rbNumber4:
                     if(101<=Player && Player<=106 && Player != 104)
@@ -313,6 +298,7 @@ public class ButtonRecord extends AppCompatActivity {
                     rg1.clearCheck();
                     Player = RecordAction.Action_player4;
                     Log.d("player",Player+"");
+                    tvOnline.setText("4號選手");
                     break;
                 case R.id.rbNumber5:
                     if(101<=Player && Player<=106 && Player != 105)
@@ -320,6 +306,7 @@ public class ButtonRecord extends AppCompatActivity {
                     rg1.clearCheck();
                     Player = RecordAction.Action_player5;
                     Log.d("player",Player+"");
+                    tvOnline.setText("5號選手");
                     break;
                 case R.id.rbOP:
                     if(101<=Player && Player<=105 )
@@ -327,6 +314,7 @@ public class ButtonRecord extends AppCompatActivity {
                     rg1.clearCheck();
                     Player = RecordAction.Action_playerOP;
                     Log.d("player",Player+"");
+                    tvOnline.setText("對手");
                     break;
 
 
@@ -340,7 +328,7 @@ public class ButtonRecord extends AppCompatActivity {
 
     public void clickCancel()
     {
-        Player = 0;
+        Player = RecordAction.Action_playerEmpty;
         rg1.clearCheck();
         rg2.clearCheck();
     }
@@ -359,19 +347,27 @@ public class ButtonRecord extends AppCompatActivity {
         builder.setMultiChoiceItems(numbers, chks, new DialogInterface.OnMultiChoiceClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which, boolean isChecked) {
-                for(int i=0;i<numbers.length;i++)
+                for(int i=0;i<chks.length;i++)
                 {
-                    if(chks[i])
+                    Log.d("i",i+"");
+                    while(chks[i])
                     {
-
+                        if(chks[i] == false) continue;
+//                        Playerlist.add((numbers.toString()));
+//                        Log.d("Playerlist",Playerlist+"");
                     }
                 }
+
             }
         });
         builder.setPositiveButton("確定", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
+//                rbNumber1.setText(Playerlist.get(0));
+//                rbNumber2.setText(Playerlist.get(1));
+//                rbNumber3.setText(Playerlist.get(2));
+//                rbNumber4.setText(Playerlist.get(3));
+//                rbNumber5.setText(Playerlist.get(4));
             }
         });
         builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
@@ -383,6 +379,26 @@ public class ButtonRecord extends AppCompatActivity {
         builder.show();
 
 
+
+    }
+
+    public void clickUndo(View v)
+    {
+        AlertDialog.Builder builder= new AlertDialog.Builder(ButtonRecord.this);
+        builder.setTitle("確定取消上一步嗎");
+        builder.setPositiveButton("確定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                tvOnline.setText("你已收回前一個步驟");
+            }
+        });
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        builder.show();
 
     }
 

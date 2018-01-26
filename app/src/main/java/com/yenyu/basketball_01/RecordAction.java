@@ -12,6 +12,7 @@ public class RecordAction {
     final static int Action_player4=104;
     final static int Action_player5=105;
     final static int Action_playerOP=106;
+    final static int Action_playerEmpty=0;
     final static int Action_2point_in=1;
     final static int Action_2point_out=2;
     final static int Action_3point_in=3;

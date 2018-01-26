@@ -109,9 +109,17 @@
                 android:id="@+id/tvOnline"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="6dp"
                 android:layout_weight="0"
-                android:text="TextView"
-                android:textAlignment="center" />
+                android:background="@android:color/darker_gray"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:visibility="visible" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -128,13 +136,16 @@
                         android:id="@+id/tvScore1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="40dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
                         android:layout_marginTop="0dp"
                         android:layout_weight="1"
                         android:text="0"
-                        android:textAlignment="textStart"
+                        android:textAlignment="center"
                         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                        android:textColor="@android:color/holo_red_dark"
                         android:textSize="50sp"
+                        android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -142,13 +153,16 @@
                         android:id="@+id/tvScore2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="40dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
                         android:layout_marginTop="0dp"
                         android:layout_weight="1"
                         android:text="0"
-                        android:textAlignment="textEnd"
+                        android:textAlignment="center"
                         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                        android:textColor="@android:color/holo_red_dark"
                         android:textSize="50sp"
+                        android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.629"
                         app:layout_constraintStart_toEndOf="@+id/textView3"
@@ -211,7 +225,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="下一節"
+                        android:text="@string/NextSection"
                         android:textSize="12sp" />
 
                     <ImageButton
@@ -221,6 +235,7 @@
                         android:layout_weight="1"
                         android:adjustViewBounds="false"
                         android:elevation="0dp"
+                        android:onClick="clickUndo"
                         app:srcCompat="@android:drawable/ic_menu_revert" />
 
                     <Button
@@ -314,7 +329,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:button="@android:drawable/screen_background_dark_transparent"
-                        android:text="對手"
+                        android:text="@string/Opponent"
                         android:textSize="18sp" />
 
                 </RadioGroup>

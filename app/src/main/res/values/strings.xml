@@ -19,6 +19,8 @@
     <string name="OR">進攻籃板</string>
     <string name="DR">防守籃板</string>
     <string name="change">換球員</string>
+    <string name="Opponent">對手</string>
+    <string name="NextSection">下一節</string>
 
     <string name="start">start</string>
 
