@@ -24,6 +24,13 @@ public class Game {
     private int to;            //失誤
     private int foul;          //犯規
 
+    public Game(String pid,int section,String number)
+    {
+        this.pid=pid;
+        this.section=section;
+        this.number=number;
+    }
+
     public Game(String pid,int section,String number,int score,
                 int point2in,int point2out,int point3in,int point3out,int ftin,int ftout,
                 int or,int dr,int st,int as,int bs,int to,int foul)
@@ -213,5 +220,12 @@ public class Game {
 
     public void setFoul(int foul) {
         this.foul = foul;
+    }
+
+    @Override
+    public String toString() {
+        return "_id : "+ _id+" "+pid+" "+section+" "+number+" s"+score+" a"+
+                point2in+" "+point2out+" b"+point3in+" "+point3out+" c"+ftin+" "+ftout+" "+
+                or+" "+dr+" "+st+" "+as+" "+bs+" "+to+" "+foul;
     }
 }

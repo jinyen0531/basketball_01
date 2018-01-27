@@ -66,4 +66,8 @@ public class Action {
         this.move = move;
     }
 
+    @Override
+    public String toString() {
+        return "_id : "+ _id+", pid : "+pid+" section : "+section+" number : "+number+" move : "+move;
+    }
 }

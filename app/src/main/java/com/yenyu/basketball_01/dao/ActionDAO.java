@@ -34,14 +34,7 @@ public class ActionDAO {
                 " section : "+action.getSection()+" number : "+action.getNumber()+
                 " move : "+action.getMove());
         database.close();
-        if(id>0)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return id>0 ? true:false;
     }
 
     //取得全部動作
@@ -49,7 +42,7 @@ public class ActionDAO {
     {
         ArrayList<Action> mylist=new ArrayList<>();
         SQLiteDatabase database=new MyDBHelper(context).getWritableDatabase();
-        String strSql="select * from actions where pid=?";
+        String strSql="select * from actions where pid=?order by section,CAST(number as integer),CAST(move as integer)";
         Cursor c=database.rawQuery(strSql,new String[]{pid});
         c.moveToFirst();
         do
