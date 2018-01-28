@@ -322,14 +322,18 @@ public class MainActivity extends AppCompatActivity {
         dao.insertAction(action);
 
         ArrayList<Player> list=new ArrayList<>();
-        list.add(new Player("1","1","Name1"));
-        list.add(new Player("1","2","Name2"));
-        list.add(new Player("1","3","Name3"));
-        list.add(new Player("1","4","Name4"));
-        list.add(new Player("1","5","Name5"));
-        list.add(new Player("1","6","Name6"));
-        list.add(new Player("1","7","Name7"));
-        list.add(new Player("1","8","Name8"));
+        list.add(new Player("1","3","Name1"));
+        list.add(new Player("1","6","Name2"));
+        list.add(new Player("1","7","Name3"));
+        list.add(new Player("1","8","Name4"));
+        list.add(new Player("1","11","Name5"));
+        list.add(new Player("1","14","Name6"));
+        list.add(new Player("1","16","Name7"));
+        list.add(new Player("1","20","Name8"));
+        list.add(new Player("1","24","Name9"));
+        list.add(new Player("1","25","Name10"));
+        list.add(new Player("1","40","Name11"));
+        list.add(new Player("1","17","Name12"));
         PlayerDAO playerDAO=new PlayerDAO(MainActivity.this);
         playerDAO.insertPlayers(list);
     }
