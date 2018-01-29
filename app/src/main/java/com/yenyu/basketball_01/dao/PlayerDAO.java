@@ -48,7 +48,7 @@ public class PlayerDAO {
         int _id;
         String number,name;
         SQLiteDatabase database=new MyDBHelper(context).getWritableDatabase();
-        String strSql="select * from players where pid=?";
+        String strSql="select * from players where pid=? order by CAST(number as integer)";
         Cursor c=database.rawQuery(strSql,new String[]{pid});
         c.moveToFirst();
         do {

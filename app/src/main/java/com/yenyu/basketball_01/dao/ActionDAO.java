@@ -34,33 +34,46 @@ public class ActionDAO {
                 " section : "+action.getSection()+" number : "+action.getNumber()+
                 " move : "+action.getMove());
         database.close();
-        if(id>0)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return id>0 ? true:false;
     }
 
     //取得全部動作
-    public ArrayList<Action> getActions(String pid)
+    public ArrayList<Action> getActions(String pid,int sec,String num)
     {
+        String strSql="";
+        Cursor c=null;
         ArrayList<Action> mylist=new ArrayList<>();
         SQLiteDatabase database=new MyDBHelper(context).getWritableDatabase();
-        String strSql="select * from actions where pid=?";
-        Cursor c=database.rawQuery(strSql,new String[]{pid});
-        c.moveToFirst();
-        do
+        if(sec==0 && num.equals("")) {
+            strSql="select * from actions where pid=?order by section,CAST(number as integer),CAST(move as integer)";
+            c=database.rawQuery(strSql,new String[]{pid});
+        } else if(sec==0 && !num.equals(""))
         {
-            int _id=c.getInt(c.getColumnIndex("_id"));
-            int section=c.getInt(c.getColumnIndex("section"));
-            String number=c.getString(c.getColumnIndex("number"));
-            int move=c.getInt(c.getColumnIndex("move"));
-            mylist.add(new Action(_id,pid,section,number,move));
-            Log.d("LoadAction","id : "+_id+", section : "+section+", number : "+number+", move : "+move);
-        }while(c.moveToNext());
+            strSql="select * from actions where pid=? and number=? order by section,CAST(number as integer),CAST(move as integer)";
+            c=database.rawQuery(strSql,new String[]{pid,num});
+        } else if(sec!=0 && num.equals(""))
+        {
+            strSql="select * from actions where pid=? and section=? order by section,CAST(number as integer),CAST(move as integer)";
+            c=database.rawQuery(strSql,new String[]{pid,String.valueOf(sec)});
+        } else
+        {
+            strSql="select * from actions where pid=? and section=? and number=? order by section,CAST(number as integer),CAST(move as integer)";
+            c=database.rawQuery(strSql,new String[]{pid,String.valueOf(sec),num});
+        }
+
+        if(c.moveToFirst())
+        {
+            do
+            {
+                int _id=c.getInt(c.getColumnIndex("_id"));
+                int section=c.getInt(c.getColumnIndex("section"));
+                String number=c.getString(c.getColumnIndex("number"));
+                int move=c.getInt(c.getColumnIndex("move"));
+                mylist.add(new Action(_id,pid,section,number,move));
+                Log.d("LoadAction","id : "+_id+", section : "+section+", number : "+number+", move : "+move);
+            }while(c.moveToNext());
+        }
+
         Log.d("Action_Count",mylist.size()+"");
         database.close();
         return mylist;
@@ -69,7 +82,12 @@ public class ActionDAO {
     //刪除
     public boolean delAction()
     {
-
-        return true;
+        SQLiteDatabase database=new MyDBHelper(context).getWritableDatabase();
+        String strSql="select * from actions order by _id desc limit 1";
+        Cursor c=database.rawQuery(strSql,null);
+        c.moveToFirst();
+        int id=c.getInt(c.getColumnIndex("_id"));
+        int i=database.delete("actions","_id=?",new String[]{String.valueOf(id)});
+        return i>0 ? true : false;
     }
 }

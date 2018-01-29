@@ -39,12 +39,12 @@ public class ParseHTML {
 
             //建立表頭
             Element tr=doc.createElement("tr");
-            Element th=doc.createElement("th");
-            th.setAttribute("rowspan","2");
-            th.appendChild(doc.createTextNode("埸次"));
-            tr.appendChild(th);
+//            Element th=doc.createElement("th");
+//            th.setAttribute("rowspan","2");
+//            th.appendChild(doc.createTextNode("埸次"));
+//            tr.appendChild(th);
 
-            th=doc.createElement("th");
+            Element th=doc.createElement("th");
             th.setAttribute("rowspan","2");
             th.appendChild(doc.createTextNode("節次"));
             tr.appendChild(th);
@@ -144,10 +144,10 @@ public class ParseHTML {
             for(int i=0;i<mylist.size();i++)
             {
                 tr=doc.createElement("tr");
-                td=doc.createElement("td");
-                td.setAttribute("align","center");
-                td.appendChild(doc.createTextNode(mylist.get(i).getPid()));
-                tr.appendChild(td);
+//                td=doc.createElement("td");
+//                td.setAttribute("align","center");
+//                td.appendChild(doc.createTextNode(mylist.get(i).getPid()));
+//                tr.appendChild(td);
 
                 td=doc.createElement("td");
                 td.setAttribute("align","center");
