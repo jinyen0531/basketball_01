@@ -35,12 +35,33 @@ public class MyDBHelper extends SQLiteOpenHelper {
                 "`number` TEXT, "+
                 "`move` INTEGER, "+
                 "PRIMARY KEY(`_id`) )");
+        sqLiteDatabase.execSQL("CREATE TABLE `games` "+
+                "( `_id` INTEGER, "+
+                "`pid` TEXT, "+
+                "`section` INTEGER, "+
+                "`number` TEXT, "+
+                "`score` INTEGER, "+
+                "`point2in` INTEGER, "+
+                "`point2out` INTEGER, "+
+                "`point3in` INTEGER, "+
+                "`point3out` INTEGER, "+
+                "`ftin` INTEGER, "+
+                "`ftout` INTEGER, "+
+                "`or` INTEGER, "+
+                "`dr` INTEGER, "+
+                "`st` INTEGER, "+
+                "`as` INTEGER, "+
+                "`bs` INTEGER, "+
+                "`to` INTEGER, "+
+                "`foul` INTEGER, "+
+                "PRIMARY KEY(`_id`) )");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         sqLiteDatabase.execSQL("DROP TABLE players");
         sqLiteDatabase.execSQL("DROP TABLE actions");
+        sqLiteDatabase.execSQL("DROP TABLE games");
         onCreate(sqLiteDatabase);
     }
 

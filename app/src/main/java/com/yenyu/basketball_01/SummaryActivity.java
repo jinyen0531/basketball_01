@@ -15,6 +15,7 @@ import android.widget.Spinner;
 import com.yenyu.basketball_01.dao.Action;
 import com.yenyu.basketball_01.dao.ActionDAO;
 import com.yenyu.basketball_01.dao.Game;
+import com.yenyu.basketball_01.dao.GameDAO;
 import com.yenyu.basketball_01.dao.Player;
 import com.yenyu.basketball_01.dao.PlayerDAO;
 
@@ -99,7 +100,10 @@ public class SummaryActivity extends AppCompatActivity {
                 builder.setPositiveButton("確定", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-
+                        actions=actionDAO.getActions(pid,0,"");
+                        games=parseHTML.getSummary(actions);
+                        GameDAO gameDAO=new GameDAO(SummaryActivity.this);
+                        gameDAO.insertGames(games);
                     }
                 });
                 builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
@@ -108,6 +112,7 @@ public class SummaryActivity extends AppCompatActivity {
 
                     }
                 });
+                builder.setCancelable(false);
                 builder.show();
         }
         return super.onOptionsItemSelected(item);
