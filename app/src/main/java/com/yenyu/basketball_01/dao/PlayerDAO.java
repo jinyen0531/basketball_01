@@ -62,9 +62,11 @@ public class PlayerDAO {
         return list;
     }
     //刪除
-    public boolean delPlayer()
+    public int delPlayer(String pid)
     {
-
-        return true;
+        SQLiteDatabase database=new MyDBHelper(context).getWritableDatabase();
+        int count=database.delete("players","pid=?",new String[]{pid});
+        database.close();
+        return count;
     }
 }

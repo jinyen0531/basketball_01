@@ -37,7 +37,7 @@ public class ActionDAO {
         return id>0 ? true:false;
     }
 
-    //取得全部動作
+    //取得全部動作,依場次 節次 背號
     public ArrayList<Action> getActions(String pid,int sec,String num)
     {
         String strSql="";
@@ -79,7 +79,7 @@ public class ActionDAO {
         return mylist;
     }
 
-    //刪除
+    //刪除最後一筆
     public boolean delAction()
     {
         SQLiteDatabase database=new MyDBHelper(context).getWritableDatabase();
@@ -88,6 +88,15 @@ public class ActionDAO {
         c.moveToFirst();
         int id=c.getInt(c.getColumnIndex("_id"));
         int i=database.delete("actions","_id=?",new String[]{String.valueOf(id)});
+        database.close();
         return i>0 ? true : false;
+    }
+    //依場次,刪除actions
+    public int delActionByPid(String pid)
+    {
+        SQLiteDatabase database=new MyDBHelper(context).getWritableDatabase();
+        int count=database.delete("actions","pid=?",new String[]{pid});
+        database.close();
+        return count;
     }
 }

@@ -1,6 +1,9 @@
 package com.yenyu.basketball_01;
 
 
+import android.util.Log;
+
+import com.yenyu.basketball_01.dao.Action;
 import com.yenyu.basketball_01.dao.Game;
 
 import org.w3c.dom.Document;
@@ -23,8 +26,10 @@ import javax.xml.transform.stream.StreamResult;
 
 public class ParseHTML {
 
+    Game total=null;
     public String getString(ArrayList<Game> mylist)
     {
+        if(mylist.size() ==0) return null;
         DocumentBuilderFactory df=DocumentBuilderFactory.newInstance();
         DocumentBuilder builder= null;
         Document doc=null;
@@ -232,6 +237,86 @@ public class ParseHTML {
                 table.appendChild(tr);
             }
 
+            //將Total寫入
+            tr=doc.createElement("tr");
+
+            td=doc.createElement("td");
+            td.setAttribute("align","center");
+            td.setAttribute("colspan","2");
+            td.appendChild(doc.createTextNode("Sum"));
+            tr.appendChild(td);
+
+            td=doc.createElement("td");
+            td.setAttribute("align","center");
+            td.appendChild(doc.createTextNode(String.valueOf(total.getScore())));
+            tr.appendChild(td);
+
+            td=doc.createElement("td");
+            td.setAttribute("align","center");
+            td.appendChild(doc.createTextNode(String.valueOf(total.getPoint2in())));
+            tr.appendChild(td);
+
+            td=doc.createElement("td");
+            td.setAttribute("align","center");
+            td.appendChild(doc.createTextNode(String.valueOf(total.getPoint2out())));
+            tr.appendChild(td);
+
+            td=doc.createElement("td");
+            td.setAttribute("align","center");
+            td.appendChild(doc.createTextNode(String.valueOf(total.getPoint3in())));
+            tr.appendChild(td);
+
+            td=doc.createElement("td");
+            td.setAttribute("align","center");
+            td.appendChild(doc.createTextNode(String.valueOf(total.getPoint3out())));
+            tr.appendChild(td);
+
+            td=doc.createElement("td");
+            td.setAttribute("align","center");
+            td.appendChild(doc.createTextNode(String.valueOf(total.getFtin())));
+            tr.appendChild(td);
+
+            td=doc.createElement("td");
+            td.setAttribute("align","center");
+            td.appendChild(doc.createTextNode(String.valueOf(total.getFtout())));
+            tr.appendChild(td);
+
+            td=doc.createElement("td");
+            td.setAttribute("align","center");
+            td.appendChild(doc.createTextNode(String.valueOf(total.getOr())));
+            tr.appendChild(td);
+
+            td=doc.createElement("td");
+            td.setAttribute("align","center");
+            td.appendChild(doc.createTextNode(String.valueOf(total.getDr())));
+            tr.appendChild(td);
+
+            td=doc.createElement("td");
+            td.setAttribute("align","center");
+            td.appendChild(doc.createTextNode(String.valueOf(total.getSt())));
+            tr.appendChild(td);
+
+            td=doc.createElement("td");
+            td.setAttribute("align","center");
+            td.appendChild(doc.createTextNode(String.valueOf(total.getAs())));
+            tr.appendChild(td);
+
+            td=doc.createElement("td");
+            td.setAttribute("align","center");
+            td.appendChild(doc.createTextNode(String.valueOf(total.getBs())));
+            tr.appendChild(td);
+
+            td=doc.createElement("td");
+            td.setAttribute("align","center");
+            td.appendChild(doc.createTextNode(String.valueOf(total.getTo())));
+            tr.appendChild(td);
+
+            td=doc.createElement("td");
+            td.setAttribute("align","center");
+            td.appendChild(doc.createTextNode(String.valueOf(total.getFoul())));
+            tr.appendChild(td);
+            table.appendChild(tr);
+
             body.appendChild(table);
             html.appendChild(body);
             doc.appendChild(html);
@@ -243,6 +328,7 @@ public class ParseHTML {
         return parse(doc);
     }
 
+    //將Document轉為字串
     private String parse(Document document)
     {
         DOMSource domSource=new DOMSource(document);
@@ -260,5 +346,90 @@ public class ParseHTML {
             e.printStackTrace();
         }
         return writer.toString();
+    }
+
+    //將actions轉換為games
+    public ArrayList<Game> getSummary(ArrayList<Action> actions)
+    {
+        String pid=SummaryActivity.pid;
+        total=new Game(pid,0,"");//總合
+        ArrayList<Game> games=new ArrayList<>();
+        //先指定第一筆資料
+        int section=actions.get(0).getSection();
+        String number=actions.get(0).getNumber();
+        int count=0;
+        games.add(new Game(pid,section,number));
+
+        for(int i=0;i<actions.size();i++) {
+            //Log.d("action",mylist.get(i).toString());
+            if (section != actions.get(i).getSection() || !actions.get(i).getNumber().equals(number)) {
+                section = actions.get(i).getSection();
+                number = actions.get(i).getNumber();
+                games.add(new Game(pid, section, number));
+                count++;
+            }
+            switch (actions.get(i).getMove()) {
+                case RecordAction.Action_2point_in:
+                    games.get(count).setPoint2in(games.get(count).getPoint2in() + 1);
+                    games.get(count).setScore(games.get(count).getScore() + 2);
+                    total.setPoint2in(total.getPoint2in() + 1);
+                    total.setScore(total.getScore() + 2);
+                    break;
+                case RecordAction.Action_2point_out:
+                    games.get(count).setPoint2out(games.get(count).getPoint2out() + 1);
+                    total.setPoint2out(total.getPoint2out() + 1);
+                    break;
+                case RecordAction.Action_3point_in:
+                    games.get(count).setPoint3in(games.get(count).getPoint3in() + 1);
+                    games.get(count).setScore(games.get(count).getScore() + 3);
+                    total.setPoint3in(total.getPoint3in() + 1);
+                    total.setScore(total.getScore() + 3);
+                    break;
+                case RecordAction.Action_3point_out:
+                    games.get(count).setPoint3out(games.get(count).getPoint3out() + 1);
+                    total.setPoint3out(total.getPoint3out() + 1);
+                    break;
+                case RecordAction.Action_FT_in:
+                    games.get(count).setFtin(games.get(count).getFtin() + 1);
+                    games.get(count).setScore(games.get(count).getScore() + 1);
+                    total.setFtin(total.getFtin() + 1);
+                    total.setScore(total.getScore() + 1);
+                    break;
+                case RecordAction.Action_FT_out:
+                    games.get(count).setFtout(games.get(count).getFtout() + 1);
+                    total.setFtout(total.getFtout() + 1);
+                    break;
+                case RecordAction.Action_OR:
+                    games.get(count).setOr(games.get(count).getOr() + 1);
+                    total.setOr(total.getOr() + 1);
+                    break;
+                case RecordAction.Action_DR:
+                    games.get(count).setDr(games.get(count).getDr() + 1);
+                    total.setDr(total.getDr() + 1);
+                    break;
+                case RecordAction.Action_ST:
+                    games.get(count).setSt(games.get(count).getSt() + 1);
+                    total.setSt(total.getSt() + 1);
+                    break;
+                case RecordAction.Action_AS:
+                    games.get(count).setAs(games.get(count).getAs() + 1);
+                    total.setAs(total.getAs() + 1);
+                    break;
+                case RecordAction.Action_BS:
+                    games.get(count).setBs(games.get(count).getBs() + 1);
+                    total.setBs(total.getBs() + 1);
+                    break;
+                case RecordAction.Action_TO:
+                    games.get(count).setTo(games.get(count).getTo() + 1);
+                    total.setTo(total.getTo() + 1);
+                    break;
+                case RecordAction.Action_Foul:
+                    games.get(count).setFoul(games.get(count).getFoul() + 1);
+                    total.setFoul(total.getFoul() + 1);
+                    break;
+            }
+        }
+        //Log.d("P total",total.toString());
+        return games;
     }
 }
