@@ -55,4 +55,9 @@ public class Player {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return "_id : "+_id+", pid : "+pid+", Number : "+number+", Name : "+name;
+    }
 }

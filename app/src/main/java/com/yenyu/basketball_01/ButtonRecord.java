@@ -140,22 +140,24 @@ public class ButtonRecord extends AppCompatActivity {
         }
 
     }
-
+    @Override
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.recordmenu,menu);
         return super.onCreateOptionsMenu(menu);
     }
+    @Override
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId())
         {
             case R.id.menu_record:
 
+                Intent it=new Intent(ButtonRecord.this,SummaryActivity.class);
+                startActivity(it);
                 break;
         }
 
         return super.onOptionsItemSelected(item);
     }
-
 
     class MyOnClickListener implements View.OnClickListener {
         @Override

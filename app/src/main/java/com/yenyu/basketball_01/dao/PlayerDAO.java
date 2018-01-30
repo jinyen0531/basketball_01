@@ -32,7 +32,7 @@ public class PlayerDAO {
             values.put("number",myData.get(i).getNumber());
             values.put("name",myData.get(i).getName());
             long id=database.insert("players",null,values);
-            Log.d("ADD","id "+id+" pid "+myData.get(i).getPid()+
+            Log.d("insertPlayer","id "+id+" pid "+myData.get(i).getPid()+
                     " number "+myData.get(i).getNumber()+" name "+myData.get(i).getName());
             count++;
         }
@@ -56,17 +56,19 @@ public class PlayerDAO {
             number=c.getString(c.getColumnIndex("number"));
             name=c.getString(c.getColumnIndex("name"));
             list.add(new Player(_id,pid,number,name));
+            Log.d("Team","_id : "+_id+", pid : "+pid+", number : "+number+", name : "+name);
         }while(c.moveToNext());
-        //Log.d("DP_Count",list.size()+"");
+        Log.d("Player_Count",list.size()+"");
         database.close();
         return list;
     }
-    //刪除
+    //依場次刪除球員
     public int delPlayer(String pid)
     {
         SQLiteDatabase database=new MyDBHelper(context).getWritableDatabase();
         int count=database.delete("players","pid=?",new String[]{pid});
         database.close();
+        Log.d("delPlayer",count+"");
         return count;
     }
 }

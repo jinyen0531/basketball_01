@@ -50,7 +50,7 @@ public class GameDAO {
             Log.d("_id",c+"");
             count++;
         }
-        Log.d("insertGame",count+"");
+        Log.d("insertGame","_id : "+count);
         return (count>0)? true : false;
     }
 
@@ -100,10 +100,10 @@ public class GameDAO {
                 int to=c.getInt(c.getColumnIndex("toto"));
                 int foul=c.getInt(c.getColumnIndex("foul"));
                 mylist.add(new Game(_id,pid,section,number,score,point2in,point2out,point3in,point3out,ftin,ftout,or,dr,st,as,bs,to,foul));
-                //Log.d("LoadGame","id : "+_id+", section : "+section+", number : "+number);
+                Log.d("LoadGame","id : "+_id+", section : "+section+", number : "+number);
             }while(c.moveToNext());
         }
-        //Log.d("Game_Count",mylist.size()+"");
+        Log.d("Game_Count",mylist.size()+"");
         database.close();
         return mylist;
     }
@@ -114,6 +114,7 @@ public class GameDAO {
         SQLiteDatabase database=new MyDBHelper(context).getWritableDatabase();
         int count=database.delete("games","pid=?",new String[]{pid});
         database.close();
+        Log.d("delGames",count+"");
         return count;
     }
 }
