@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="	#B22222"
     tools:context="com.yenyu.basketball_01.ButtonRecord">
 
     <LinearLayout
@@ -31,20 +32,31 @@
                     android:id="@+id/bt2in"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_margin="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
                     android:layout_weight="1"
-                    android:backgroundTint="@android:color/holo_orange_light"
                     android:text="@string/point2_in"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textColor="#B22222"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <Button
                     android:id="@+id/bt2out"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_margin="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
                     android:layout_weight="1"
-                    android:backgroundTint="@android:color/holo_green_light"
-                    android:text="@string/point2_out" />
+                    android:text="@string/point2_out"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="#B22222"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
@@ -57,44 +69,59 @@
                     android:id="@+id/bt3in"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_margin="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
                     android:layout_weight="1"
-                    android:backgroundTint="@android:color/holo_green_light"
-                    android:text="@string/point3_in" />
+                    android:text="@string/point3_in"
+                    android:textColor="#B22222"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <Button
                     android:id="@+id/bt3out"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_margin="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginRight="5dp"
                     android:layout_weight="1"
-                    android:backgroundTint="@android:color/holo_orange_light"
-                    android:text="@string/point3_out" />
+                    android:text="@string/point3_out"
+                    android:textColor="#B22222"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingTop="10dp">
 
                 <Button
                     android:id="@+id/btFTin"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_margin="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
                     android:layout_weight="1"
-                    android:backgroundTint="@android:color/holo_orange_light"
-                    android:text="@string/FT_in" />
+                    android:text="@string/FT_in"
+                    android:textColor="#B22222"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <Button
                     android:id="@+id/btFTout"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_margin="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginRight="5dp"
                     android:layout_weight="1"
-                    android:backgroundTint="@android:color/holo_green_light"
-                    android:text="@string/FT_out" />
+                    android:text="@string/FT_out"
+                    android:textColor="#B22222"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
         </LinearLayout>
@@ -114,9 +141,9 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="6dp"
                 android:layout_weight="0"
-                android:background="@android:color/darker_gray"
+                android:background="@android:color/black"
                 android:textAlignment="center"
-                android:textColor="@android:color/black"
+                android:textColor="#FFFF00"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:visibility="visible" />
@@ -143,7 +170,7 @@
                         android:text="0"
                         android:textAlignment="center"
                         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                        android:textColor="@android:color/holo_red_dark"
+                        android:textColor="@android:color/background_light"
                         android:textSize="50sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
@@ -160,7 +187,7 @@
                         android:text="0"
                         android:textAlignment="center"
                         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                        android:textColor="@android:color/holo_red_dark"
+                        android:textColor="@android:color/background_light"
                         android:textSize="50sp"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -183,6 +210,7 @@
                         android:layout_weight="1"
                         android:text="0"
                         android:textAlignment="center"
+                        android:textColor="@android:color/background_light"
                         android:textSize="36sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/tvScore1" />
@@ -196,7 +224,9 @@
                         android:layout_weight="1"
                         android:text="1"
                         android:textAlignment="center"
+                        android:textColor="@android:color/background_light"
                         android:textSize="30sp"
+                        android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -209,6 +239,7 @@
                         android:layout_weight="1"
                         android:text="0"
                         android:textAlignment="center"
+                        android:textColor="@android:color/background_light"
                         android:textSize="36sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/tvScore2" />
@@ -224,9 +255,17 @@
                         android:id="@+id/btNextSection"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"
                         android:layout_weight="1"
+                        android:autoText="false"
+                        android:background="	#FFD700"
                         android:text="@string/NextSection"
-                        android:textSize="12sp" />
+                        android:textAllCaps="false"
+                        android:textColor="#B22222"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
                     <ImageButton
                         android:id="@+id/imageButton"
@@ -234,17 +273,27 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:adjustViewBounds="false"
+                        android:background="@android:color/transparent"
                         android:elevation="0dp"
                         android:onClick="clickUndo"
+                        android:scaleType="fitCenter"
                         app:srcCompat="@android:drawable/ic_menu_revert" />
 
                     <Button
                         android:id="@+id/button6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"
                         android:layout_weight="1"
+                        android:background="	#FFD700"
                         android:onClick="clickChange"
-                        android:text="@string/change" />
+                        android:text="@string/change"
+                        android:textAllCaps="false"
+                        android:textColor="#B22222"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -253,7 +302,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="5dp"
                 android:orientation="vertical">
 
                 <RadioGroup
@@ -270,7 +319,6 @@
                         android:layout_weight="1"
                         android:button="@android:drawable/screen_background_dark_transparent"
                         android:checked="false"
-                        android:text="1"
                         android:textSize="18sp" />
 
                     <RadioButton
@@ -280,7 +328,6 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:button="@android:drawable/screen_background_dark_transparent"
-                        android:text="2"
                         android:textSize="18sp" />
 
                     <RadioButton
@@ -291,7 +338,6 @@
                         android:layout_weight="1"
                         android:button="@android:drawable/screen_background_dark_transparent"
                         android:duplicateParentState="false"
-                        android:text="3"
                         android:textSize="18sp" />
 
                 </RadioGroup>
@@ -309,7 +355,6 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:button="@android:drawable/screen_background_dark_transparent"
-                        android:text="4"
                         android:textSize="18sp" />
 
                     <RadioButton
@@ -319,7 +364,6 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:button="@android:drawable/screen_background_dark_transparent"
-                        android:text="5"
                         android:textSize="18sp" />
 
                     <RadioButton
@@ -353,25 +397,36 @@
                     android:id="@+id/btOR"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
                     android:layout_weight="1"
-                    android:backgroundTint="@android:color/holo_orange_dark"
-                    android:text="@string/OR" />
+                    android:text="@string/OR"
+                    android:textAllCaps="false"
+                    android:textColor="#B22222"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <Button
                     android:id="@+id/btDR"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="1"
-                    android:backgroundTint="@android:color/holo_orange_dark"
-                    android:text="@string/DR" />
+                    android:text="@string/DR"
+                    android:textColor="#B22222"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <Button
                 android:id="@+id/btST"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@android:color/holo_red_light"
-                android:text="@string/ST" />
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:text="@string/ST"
+                android:textColor="#B22222"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -382,33 +437,48 @@
                     android:id="@+id/btAS"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
                     android:layout_weight="1"
-                    android:backgroundTint="@android:color/holo_orange_light"
-                    android:text="@string/AS" />
+                    android:text="@string/AS"
+                    android:textColor="#B22222"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <Button
                     android:id="@+id/btBS"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="1"
-                    android:backgroundTint="@android:color/holo_orange_light"
-                    android:text="@string/BS" />
+                    android:text="@string/BS"
+                    android:textColor="#B22222"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <Button
                 android:id="@+id/btTO"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@android:color/holo_orange_dark"
-                android:text="@string/TO" />
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:text="@string/TO"
+                android:textColor="#B22222"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/btFoul"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_weight="1"
-                android:backgroundTint="@android:color/holo_red_light"
-                android:text="@string/foul" />
+                android:text="@string/foul"
+                android:textColor="#B22222"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 

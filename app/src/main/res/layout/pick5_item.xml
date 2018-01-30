@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="	#B22222"
     android:orientation="horizontal">
 
     <CheckBox
@@ -17,7 +18,9 @@
         android:layout_weight="3"
         android:text="23"
         android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="@android:color/background_light"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textView7"
@@ -25,5 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="5"
         android:text="PONG"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="@android:color/background_light"
+        android:textStyle="bold" />
 </LinearLayout>
