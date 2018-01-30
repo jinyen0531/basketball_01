@@ -92,6 +92,7 @@ public class SummaryActivity extends AppCompatActivity {
         {
             case R.id.menu_back:
                 finish();
+                break;
             case R.id.menu_save:
                 AlertDialog.Builder builder=new AlertDialog.Builder(this);
                 builder.setTitle("儲存資料");
@@ -114,6 +115,7 @@ public class SummaryActivity extends AppCompatActivity {
                 });
                 builder.setCancelable(false);
                 builder.show();
+                break;
         }
         return super.onOptionsItemSelected(item);
     }

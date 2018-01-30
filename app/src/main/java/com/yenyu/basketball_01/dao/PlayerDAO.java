@@ -41,7 +41,7 @@ public class PlayerDAO {
         return (count>0) ? true:false;
     }
 
-    //取得全部球員
+    //依背號取得全部球員
     public ArrayList<Player> getPlayers(String pid)
     {
         ArrayList<Player> list=new ArrayList<>();

@@ -47,13 +47,20 @@ public class MyDBHelper extends SQLiteOpenHelper {
                 "`point3out` INTEGER, "+
                 "`ftin` INTEGER, "+
                 "`ftout` INTEGER, "+
-                "`or` INTEGER, "+
+                "`oror` INTEGER, "+
                 "`dr` INTEGER, "+
                 "`st` INTEGER, "+
-                "`as` INTEGER, "+
+                "`asas` INTEGER, "+
                 "`bs` INTEGER, "+
-                "`to` INTEGER, "+
+                "`toto` INTEGER, "+
                 "`foul` INTEGER, "+
+                "PRIMARY KEY(`_id`) )");
+        sqLiteDatabase.execSQL("CREATE TABLE `teams` "+
+                "( `_id` INTEGER, "+
+                "`team1` TEXT, "+
+                "`team2` TEXT, "+
+                "`score1` INTEGER, "+
+                "`score2` INTEGER, "+
                 "PRIMARY KEY(`_id`) )");
     }
 
@@ -62,6 +69,7 @@ public class MyDBHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("DROP TABLE players");
         sqLiteDatabase.execSQL("DROP TABLE actions");
         sqLiteDatabase.execSQL("DROP TABLE games");
+        sqLiteDatabase.execSQL("DROP TABLE teams");
         onCreate(sqLiteDatabase);
     }
 

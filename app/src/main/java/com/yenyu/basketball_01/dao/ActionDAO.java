@@ -70,7 +70,7 @@ public class ActionDAO {
                 String number=c.getString(c.getColumnIndex("number"));
                 int move=c.getInt(c.getColumnIndex("move"));
                 mylist.add(new Action(_id,pid,section,number,move));
-                Log.d("LoadAction","id : "+_id+", section : "+section+", number : "+number+", move : "+move);
+                Log.d("LoadAction","id : "+_id+", section : "+section+", pid : "+pid+", number : "+number+", move : "+move);
             }while(c.moveToNext());
         }
 

@@ -238,84 +238,87 @@ public class ParseHTML {
             }
 
             //將Total寫入
-            tr=doc.createElement("tr");
+            if(total !=null)
+            {
+                tr=doc.createElement("tr");
 
-            td=doc.createElement("td");
-            td.setAttribute("align","center");
-            td.setAttribute("colspan","2");
-            td.appendChild(doc.createTextNode("Sum"));
-            tr.appendChild(td);
+                td=doc.createElement("td");
+                td.setAttribute("align","center");
+                td.setAttribute("colspan","2");
+                td.appendChild(doc.createTextNode("Sum"));
+                tr.appendChild(td);
 
-            td=doc.createElement("td");
-            td.setAttribute("align","center");
-            td.appendChild(doc.createTextNode(String.valueOf(total.getScore())));
-            tr.appendChild(td);
+                td=doc.createElement("td");
+                td.setAttribute("align","center");
+                td.appendChild(doc.createTextNode(String.valueOf(total.getScore())));
+                tr.appendChild(td);
 
-            td=doc.createElement("td");
-            td.setAttribute("align","center");
-            td.appendChild(doc.createTextNode(String.valueOf(total.getPoint2in())));
-            tr.appendChild(td);
+                td=doc.createElement("td");
+                td.setAttribute("align","center");
+                td.appendChild(doc.createTextNode(String.valueOf(total.getPoint2in())));
+                tr.appendChild(td);
 
-            td=doc.createElement("td");
-            td.setAttribute("align","center");
-            td.appendChild(doc.createTextNode(String.valueOf(total.getPoint2out())));
-            tr.appendChild(td);
+                td=doc.createElement("td");
+                td.setAttribute("align","center");
+                td.appendChild(doc.createTextNode(String.valueOf(total.getPoint2out())));
+                tr.appendChild(td);
 
-            td=doc.createElement("td");
-            td.setAttribute("align","center");
-            td.appendChild(doc.createTextNode(String.valueOf(total.getPoint3in())));
-            tr.appendChild(td);
+                td=doc.createElement("td");
+                td.setAttribute("align","center");
+                td.appendChild(doc.createTextNode(String.valueOf(total.getPoint3in())));
+                tr.appendChild(td);
 
-            td=doc.createElement("td");
-            td.setAttribute("align","center");
-            td.appendChild(doc.createTextNode(String.valueOf(total.getPoint3out())));
-            tr.appendChild(td);
+                td=doc.createElement("td");
+                td.setAttribute("align","center");
+                td.appendChild(doc.createTextNode(String.valueOf(total.getPoint3out())));
+                tr.appendChild(td);
 
-            td=doc.createElement("td");
-            td.setAttribute("align","center");
-            td.appendChild(doc.createTextNode(String.valueOf(total.getFtin())));
-            tr.appendChild(td);
+                td=doc.createElement("td");
+                td.setAttribute("align","center");
+                td.appendChild(doc.createTextNode(String.valueOf(total.getFtin())));
+                tr.appendChild(td);
 
-            td=doc.createElement("td");
-            td.setAttribute("align","center");
-            td.appendChild(doc.createTextNode(String.valueOf(total.getFtout())));
-            tr.appendChild(td);
+                td=doc.createElement("td");
+                td.setAttribute("align","center");
+                td.appendChild(doc.createTextNode(String.valueOf(total.getFtout())));
+                tr.appendChild(td);
 
-            td=doc.createElement("td");
-            td.setAttribute("align","center");
-            td.appendChild(doc.createTextNode(String.valueOf(total.getOr())));
-            tr.appendChild(td);
+                td=doc.createElement("td");
+                td.setAttribute("align","center");
+                td.appendChild(doc.createTextNode(String.valueOf(total.getOr())));
+                tr.appendChild(td);
 
-            td=doc.createElement("td");
-            td.setAttribute("align","center");
-            td.appendChild(doc.createTextNode(String.valueOf(total.getDr())));
-            tr.appendChild(td);
+                td=doc.createElement("td");
+                td.setAttribute("align","center");
+                td.appendChild(doc.createTextNode(String.valueOf(total.getDr())));
+                tr.appendChild(td);
 
-            td=doc.createElement("td");
-            td.setAttribute("align","center");
-            td.appendChild(doc.createTextNode(String.valueOf(total.getSt())));
-            tr.appendChild(td);
+                td=doc.createElement("td");
+                td.setAttribute("align","center");
+                td.appendChild(doc.createTextNode(String.valueOf(total.getSt())));
+                tr.appendChild(td);
 
-            td=doc.createElement("td");
-            td.setAttribute("align","center");
-            td.appendChild(doc.createTextNode(String.valueOf(total.getAs())));
-            tr.appendChild(td);
+                td=doc.createElement("td");
+                td.setAttribute("align","center");
+                td.appendChild(doc.createTextNode(String.valueOf(total.getAs())));
+                tr.appendChild(td);
 
-            td=doc.createElement("td");
-            td.setAttribute("align","center");
-            td.appendChild(doc.createTextNode(String.valueOf(total.getBs())));
-            tr.appendChild(td);
+                td=doc.createElement("td");
+                td.setAttribute("align","center");
+                td.appendChild(doc.createTextNode(String.valueOf(total.getBs())));
+                tr.appendChild(td);
 
-            td=doc.createElement("td");
-            td.setAttribute("align","center");
-            td.appendChild(doc.createTextNode(String.valueOf(total.getTo())));
-            tr.appendChild(td);
+                td=doc.createElement("td");
+                td.setAttribute("align","center");
+                td.appendChild(doc.createTextNode(String.valueOf(total.getTo())));
+                tr.appendChild(td);
 
-            td=doc.createElement("td");
-            td.setAttribute("align","center");
-            td.appendChild(doc.createTextNode(String.valueOf(total.getFoul())));
-            tr.appendChild(td);
-            table.appendChild(tr);
+                td=doc.createElement("td");
+                td.setAttribute("align","center");
+                td.appendChild(doc.createTextNode(String.valueOf(total.getFoul())));
+                tr.appendChild(td);
+                table.appendChild(tr);
+            }
 
             body.appendChild(table);
             html.appendChild(body);
