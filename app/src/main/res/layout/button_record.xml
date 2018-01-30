@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="	#B22222"
+    android:background="	#A52A2A"
     tools:context="com.yenyu.basketball_01.ButtonRecord">
 
     <LinearLayout
@@ -284,7 +284,7 @@
                         android:background="	#FFD700"
                         android:text="@string/NextSection"
                         android:textAllCaps="false"
-                        android:textColor="#B22222"
+                        android:textColor="	#A52A2A"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
@@ -311,7 +311,7 @@
                         android:onClick="clickChange"
                         android:text="@string/change"
                         android:textAllCaps="false"
-                        android:textColor="#B22222"
+                        android:textColor="	#A52A2A"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 

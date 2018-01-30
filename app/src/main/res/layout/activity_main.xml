@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="	#B22222"
+    android:background="	#A52A2A"
     tools:context="com.yenyu.basketball_01.MainActivity">
 
 
@@ -27,7 +27,7 @@
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="135dp"
+        android:layout_width="159dp"
         android:layout_height="58dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -35,7 +35,7 @@
         android:background="	#FFD700"
         android:onClick="click1"
         android:text="@string/gameStart"
-        android:textColor="	#B22222"
+        android:textColor="	#A52A2A"
         android:textSize="24sp"
         android:textStyle="bold"
         android:typeface="monospace"
@@ -46,7 +46,7 @@
 
     <Button
         android:id="@+id/button4"
-        android:layout_width="132dp"
+        android:layout_width="158dp"
         android:layout_height="60dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -54,7 +54,7 @@
         android:background="	#FFD700"
         android:onClick="clickTest"
         android:text="@string/query"
-        android:textColor="	#B22222"
+        android:textColor="	#A52A2A"
         android:textSize="24sp"
         android:textStyle="bold"
         android:typeface="serif"
