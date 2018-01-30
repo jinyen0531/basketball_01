@@ -135,22 +135,23 @@ public class ButtonRecord extends AppCompatActivity {
         }
 
     }
-
+    @Override
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.recordmenu,menu);
         return super.onCreateOptionsMenu(menu);
     }
+    @Override
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId())
         {
             case R.id.menu_record:
-                Toast.makeText(ButtonRecord.this,"預覽紀錄",Toast.LENGTH_SHORT).show();
+                Intent it=new Intent(ButtonRecord.this,SummaryActivity.class);
+                startActivity(it);
                 break;
         }
 
         return super.onOptionsItemSelected(item);
     }
-
 
     class MyOnClickListener implements View.OnClickListener {
         @Override
@@ -451,19 +452,5 @@ public class ButtonRecord extends AppCompatActivity {
         builder.show();
 
     }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        menu.add(0,1,0,"查詢");
-        return super.onCreateOptionsMenu(menu);
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId()==1)
-        {
-            Intent it=new Intent(ButtonRecord.this,SummaryActivity.class);
-            startActivity(it);
-        }
-        return super.onOptionsItemSelected(item);
-    }
 }

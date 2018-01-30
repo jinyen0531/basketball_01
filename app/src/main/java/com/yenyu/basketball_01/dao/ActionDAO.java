@@ -30,7 +30,7 @@ public class ActionDAO {
         values.put("number",action.getNumber());
         values.put("move",action.getMove());
         long id=database.insert("actions",null,values);
-        Log.d("ADD","id : "+id+" pid : "+action.getPid()+
+        Log.d("AddAction","id : "+id+" pid : "+action.getPid()+
                 " section : "+action.getSection()+" number : "+action.getNumber()+
                 " move : "+action.getMove());
         database.close();
@@ -87,7 +87,7 @@ public class ActionDAO {
         Cursor c=database.rawQuery(strSql,null);
         c.moveToFirst();
         int id=c.getInt(c.getColumnIndex("_id"));
-        int i=database.delete("actions","_id=?",new String[]{String.valueOf(id)});
+        int i=database.delete("DelAction","_id=?",new String[]{String.valueOf(id)});
         database.close();
         return i>0 ? true : false;
     }
@@ -97,6 +97,7 @@ public class ActionDAO {
         SQLiteDatabase database=new MyDBHelper(context).getWritableDatabase();
         int count=database.delete("actions","pid=?",new String[]{pid});
         database.close();
+        Log.d("delActions",count+"");
         return count;
     }
 }

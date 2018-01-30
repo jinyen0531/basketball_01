@@ -19,6 +19,8 @@ import com.yenyu.basketball_01.dao.Game;
 import com.yenyu.basketball_01.dao.GameDAO;
 import com.yenyu.basketball_01.dao.Player;
 import com.yenyu.basketball_01.dao.PlayerDAO;
+import com.yenyu.basketball_01.dao.Team;
+import com.yenyu.basketball_01.dao.TeamDAO;
 
 import java.util.ArrayList;
 
@@ -362,5 +364,12 @@ public class MainActivity extends AppCompatActivity {
         g=new Game("3",4,"45",5,1,1,2,2,3,3,1,1,1,1,1,1,5);
         games.add(g);
         gameDAO.insertGames(games);
+
+        TeamDAO teamDAO=new TeamDAO(this);
+        teamDAO.insertTeam(new Team("Team1","Team2",100,87));
+        teamDAO.insertTeam(new Team("隊伍1","隊伍2",90,90));
+        teamDAO.insertTeam(new Team("隊伍3","隊伍4",80,75));
+        teamDAO.insertTeam(new Team("隊伍5","隊伍6",89,88));
+
     }
 }
