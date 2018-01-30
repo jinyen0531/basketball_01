@@ -6,13 +6,17 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.yenyu.basketball_01.dao.Action;
 import com.yenyu.basketball_01.dao.ActionDAO;
+import com.yenyu.basketball_01.dao.Game;
+import com.yenyu.basketball_01.dao.GameDAO;
 import com.yenyu.basketball_01.dao.Player;
 import com.yenyu.basketball_01.dao.PlayerDAO;
 
@@ -28,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void click1(View v)
     {
+
 //        Intent it=new Intent(MainActivity.this,SummaryActivity.class);
 //        startActivity(it);
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
@@ -49,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         builder.show();
 
     }
+
     public void clickTest(View v)
     {
         ActionDAO dao=new ActionDAO(MainActivity.this);
@@ -336,5 +342,25 @@ public class MainActivity extends AppCompatActivity {
         list.add(new Player("1","17","Name12"));
         PlayerDAO playerDAO=new PlayerDAO(MainActivity.this);
         playerDAO.insertPlayers(list);
+
+        GameDAO gameDAO=new GameDAO(MainActivity.this);
+        ArrayList<Game> games=new ArrayList<>();
+        Game g=new Game("2",1,"3",5,1,1,2,2,3,3,1,1,1,1,1,1,5);
+        games.add(g);
+        g=new Game("2",2,"3",4,1,1,2,2,3,3,1,1,1,1,1,1,5);
+        games.add(g);
+        g=new Game("2",3,"5",8,1,1,2,2,3,3,1,1,1,1,1,1,5);
+        games.add(g);
+        g=new Game("2",4,"9",4,1,1,2,2,3,3,1,1,1,1,1,1,5);
+        games.add(g);
+        g=new Game("3",1,"23",5,1,1,2,2,3,3,1,1,1,1,1,1,5);
+        games.add(g);
+        g=new Game("3",2,"65",5,1,1,2,2,3,3,1,1,1,1,1,1,5);
+        games.add(g);
+        g=new Game("3",3,"3",5,1,1,2,2,3,3,1,1,1,1,1,1,5);
+        games.add(g);
+        g=new Game("3",4,"45",5,1,1,2,2,3,3,1,1,1,1,1,1,5);
+        games.add(g);
+        gameDAO.insertGames(games);
     }
 }

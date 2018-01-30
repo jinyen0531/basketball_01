@@ -6,6 +6,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -449,5 +450,20 @@ public class ButtonRecord extends AppCompatActivity {
         });
         builder.show();
 
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        menu.add(0,1,0,"查詢");
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId()==1)
+        {
+            Intent it=new Intent(ButtonRecord.this,SummaryActivity.class);
+            startActivity(it);
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
