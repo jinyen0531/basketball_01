@@ -57,6 +57,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void clickQuery(View v)
+    {
+        Intent it=new Intent(MainActivity.this,QueryActivity.class);
+        startActivity(it);
+    }
+
     public void clickTest(View v)
     {
         ActionDAO dao=new ActionDAO(MainActivity.this);

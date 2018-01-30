@@ -19,8 +19,9 @@
         <activity android:name=".ActivityCheck" />
         <activity android:name=".ButtonRecord" />
         //android:screenOrientation="landscape"
-        <activity android:name=".Pick5Activity"></activity>
-        <activity android:name=".SummaryActivity"></activity>
+        <activity android:name=".Pick5Activity" />
+        <activity android:name=".SummaryActivity" />
+        <activity android:name=".QueryActivity"></activity>
     </application>
 
 </manifest>
