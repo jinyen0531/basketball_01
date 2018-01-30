@@ -18,13 +18,16 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.yenyu.basketball_01.dao.Action;
+import com.yenyu.basketball_01.dao.ActionDAO;
+
 import java.io.BufferedReader;
 
 
 public class ButtonRecord extends AppCompatActivity {
     Button bt2in, bt2out, bt3in, bt3out, btFTin, btFTout, btOR, btDR, btST, btAS, btBS, btTO, btFoul, btNextSection;
     RadioButton rbNumber1, rbNumber2, rbNumber3, rbNumber4, rbNumber5, rbOP;
-    TextView tvScore1, tvScore2, tvSectionFoul1, tvSectionFoul2, tvSection,tvOnline;
+    TextView tvScore1, tvScore2, tvSectionFoul1, tvSectionFoul2, tvSection,tvOnlineN,tvOnlineA;
     RadioGroup rg1, rg2;
     public String Player="";
     public int Action;
@@ -32,6 +35,7 @@ public class ButtonRecord extends AppCompatActivity {
     boolean []chks;
     String[] numbers;
     int count;
+    boolean flag=false;
 
 
 
@@ -46,7 +50,8 @@ public class ButtonRecord extends AppCompatActivity {
         tvSectionFoul1 = (TextView) findViewById(R.id.tvSectionFoul1); //自己的團犯
         tvSectionFoul2 = (TextView) findViewById(R.id.tvSectionFoul2);  //對方的團犯
         tvSection = (TextView) findViewById(R.id.tvSection);    //節次
-        tvOnline = (TextView) findViewById(R.id.tvOnline); //跑馬燈
+        tvOnlineN = (TextView) findViewById(R.id.tvOnlineN); //跑馬燈
+        tvOnlineA = (TextView) findViewById(R.id.tvOnlineA); //跑馬燈
 
         rg1 = (RadioGroup) findViewById(R.id.rg1);
         rg2 = (RadioGroup) findViewById(R.id.rg2);
@@ -144,7 +149,7 @@ public class ButtonRecord extends AppCompatActivity {
         switch (item.getItemId())
         {
             case R.id.menu_record:
-                Toast.makeText(ButtonRecord.this,"預覽紀錄",Toast.LENGTH_SHORT).show();
+
                 break;
         }
 
@@ -161,126 +166,147 @@ public class ButtonRecord extends AppCompatActivity {
                         Action = RecordAction.Action_2point_in;
                         if (Player.equals("106")) {
                             tvScore2.setText(String.valueOf(Integer.valueOf(tvScore2.getText().toString()) + 2));
-                            clickCancel();
                         } else {
                             tvScore1.setText(String.valueOf(Integer.valueOf(tvScore1.getText().toString()) + 2));
-                            clickCancel();
                         }
-                        tvOnline.setText("兩分球進");
+                        tvOnlineA.setText("兩分球進");
+                        insertSQL();
+                        clickCancel();
                     }
                     else {
-                        Toast.makeText(ButtonRecord.this,"請選擇球員!",Toast.LENGTH_SHORT).show();}
+                        tvOnlineN.setText("請選擇");
+                        tvOnlineA.setText("球員!!!!");}
                     break;
                 case R.id.bt2out:
                     if (!Player.equals("")) {
                         Action = RecordAction.Action_2point_out;
+                        tvOnlineA.setText("兩分球不進");
+                        insertSQL();
                         clickCancel();
-                        tvOnline.setText("兩分球不進");
                     }
                     else {
-                        Toast.makeText(ButtonRecord.this,"請選擇球員!",Toast.LENGTH_SHORT).show();}
+                        tvOnlineN.setText("請選擇");
+                        tvOnlineA.setText("球員!!!!");}
                     break;
                 case R.id.bt3in:
                     if (!Player.equals("")) {
                         Action = RecordAction.Action_3point_in;
                         if (Player.equals("106")) {
                             tvScore2.setText(String.valueOf(Integer.valueOf(tvScore2.getText().toString()) + 3));
-                            clickCancel();
                         } else{
                             tvScore1.setText(String.valueOf(Integer.valueOf(tvScore1.getText().toString()) + 3));
-                            clickCancel();
                         }
-                        tvOnline.setText("三分球進");
+                        tvOnlineA.setText("三分球進");
+                        insertSQL();
+                        clickCancel();
                     }
                     else {
-                        Toast.makeText(ButtonRecord.this,"請選擇球員!",Toast.LENGTH_SHORT).show();}
+                        tvOnlineN.setText("請選擇");
+                        tvOnlineA.setText("球員!!!");}
                     break;
                 case R.id.bt3out:
                     if(!Player.equals("")) {
                         Action = RecordAction.Action_3point_out;
+                        tvOnlineA.setText("三分球不進");
+                        insertSQL();
                         clickCancel();
-                        tvOnline.setText("三分球不進");
                     }
                     else {
-                        Toast.makeText(ButtonRecord.this,"請選擇球員!",Toast.LENGTH_SHORT).show();}
+                        tvOnlineN.setText("請選擇");
+                        tvOnlineA.setText("球員!!!");}
                     break;
                 case R.id.btFTin:
                     if (!Player.equals("")) {
                         Action = RecordAction.Action_FT_in;
                         if (Player.equals("106")) {
                             tvScore2.setText(String.valueOf(Integer.valueOf(tvScore2.getText().toString()) + 1));
-                            clickCancel();
                         } else{
                             tvScore1.setText(String.valueOf(Integer.valueOf(tvScore1.getText().toString()) + 1));
-                            clickCancel();
                         }
-                        tvOnline.setText("罰球進");
+                        tvOnlineA.setText("罰球進");
+                        insertSQL();
+                        clickCancel();
                     }
                     else {
-                        Toast.makeText(ButtonRecord.this,"請選擇球員!",Toast.LENGTH_SHORT).show();}
+                        tvOnlineN.setText("請選擇");
+                        tvOnlineA.setText("球員!!!");}
                     break;
                 case R.id.btFTout:
                     if (!Player.equals("")) {
                         Action = RecordAction.Action_FT_out;
+                        tvOnlineA.setText("罰球不進");
+                        insertSQL();
                         clickCancel();
-                        tvOnline.setText("罰球不進");
                     }
                     else {
-                        Toast.makeText(ButtonRecord.this,"請選擇球員!",Toast.LENGTH_SHORT).show();}
+                        tvOnlineN.setText("請選擇");
+                        tvOnlineA.setText("球員!!!");}
                     break;
                 case R.id.btOR:
                     if (!Player.equals("")) {
                         Action = RecordAction.Action_OR;
+                        tvOnlineA.setText("進攻籃板");
+                        insertSQL();
                         clickCancel();
-                        tvOnline.setText("進攻籃板");
                     }
                     else {
-                        Toast.makeText(ButtonRecord.this,"請選擇球員!",Toast.LENGTH_SHORT).show();}
+                        tvOnlineN.setText("請選擇");
+                        tvOnlineA.setText("球員!!!");}
                     break;
                 case R.id.btDR:
                     if (!Player.equals("")) {
                         Action = RecordAction.Action_DR;
+                        tvOnlineA.setText("防守籃板");
+                        insertSQL();
                         clickCancel();
-                        tvOnline.setText("防守籃板");
                     }
                     else {
-                        Toast.makeText(ButtonRecord.this,"請選擇球員!",Toast.LENGTH_SHORT).show();}
+                        tvOnlineN.setText("請選擇");
+                        tvOnlineA.setText("球員!!!");}
                     break;
                 case R.id.btST:
                     if (!Player.equals("")) {
                         Action = RecordAction.Action_ST;
+                        tvOnlineA.setText("抄截");
+                        insertSQL();
                         clickCancel();
-                        tvOnline.setText("抄截");
                     }
                     else {
-                        Toast.makeText(ButtonRecord.this,"請選擇球員!",Toast.LENGTH_SHORT).show();}
+                        tvOnlineN.setText("請選擇");
+                        tvOnlineA.setText("球員!!!");}
                     break;
                 case R.id.btAS:
                     if (!Player.equals("")) {
                         Action = RecordAction.Action_AS;
+                        tvOnlineA.setText("助攻");
+                        insertSQL();
                         clickCancel();
-                        tvOnline.setText("助攻");
                     }
                     else {
-                        Toast.makeText(ButtonRecord.this,"請選擇球員!",Toast.LENGTH_SHORT).show();}
+                        tvOnlineN.setText("請選擇");
+                        tvOnlineA.setText("球員!!!");}
                     break;
                 case R.id.btBS:
                     if (!Player.equals("")) {
                         Action = RecordAction.Action_BS;
+                        tvOnlineA.setText("阻攻");
+                        insertSQL();
                         clickCancel();
-                        tvOnline.setText("阻攻");
                     }
                     else {
-                        Toast.makeText(ButtonRecord.this,"請選擇球員!",Toast.LENGTH_SHORT).show();}
+                        tvOnlineN.setText("請選擇");
+                        tvOnlineA.setText("球員!!!");}
                     break;
                 case R.id.btTO:
                     if (!Player.equals("")) {
                         Action = RecordAction.Action_TO;
+                        tvOnlineA.setText("失誤");
+                        insertSQL();
                         clickCancel();
-                        tvOnline.setText("失誤");
                     }
                     else {
-                        Toast.makeText(ButtonRecord.this,"請選擇球員!",Toast.LENGTH_SHORT).show();}
+                        tvOnlineN.setText("請選擇");
+                        tvOnlineA.setText("球員!!!");}
                     break;
                 case R.id.btFoul:
                     if (!Player.equals("")) {
@@ -288,29 +314,32 @@ public class ButtonRecord extends AppCompatActivity {
                         if (Player.equals("106")) {
                             int sectionfoul2 = Integer.valueOf(tvSectionFoul2.getText().toString());
                             if(sectionfoul2<5)
-                                tvSectionFoul2.setText(String.valueOf(sectionfoul2+1));
-                            clickCancel();}
+                                tvSectionFoul2.setText(String.valueOf(sectionfoul2+1));}
                         else {
                             int sectionfoul1 = Integer.valueOf(tvSectionFoul1.getText().toString());
                             if(sectionfoul1<5)
-                                tvSectionFoul1.setText(String.valueOf(sectionfoul1+1));
-                            clickCancel();
-                        }
-                        tvOnline.setText("犯規");
+                                tvSectionFoul1.setText(String.valueOf(sectionfoul1+1));}
+                        tvOnlineA.setText("犯規");
+                        insertSQL();
+                        clickCancel();
                     }
                     else {
-                        Toast.makeText(ButtonRecord.this,"請選擇球員!",Toast.LENGTH_SHORT).show();}
+                        tvOnlineN.setText("請選擇");
+                        tvOnlineA.setText("球員!!!");}
                     break;
                 case R.id.btNextSection:
-                    if(Section == 1111)
+                    if(Section == 1)
                     { Section = RecordAction.Section2;
-                        tvOnline.setText("第二節開始");}
-                    else if (Section == 2222)
+                        tvOnlineN.setText("第二節");
+                        tvOnlineA.setText("開始");}
+                    else if (Section == 2)
                     {Section = RecordAction.Section3;
-                        tvOnline.setText("第三節開始");}
-                    else if (Section == 3333)
+                        tvOnlineN.setText("第三節");
+                        tvOnlineA.setText("開始");}
+                    else if (Section == 3)
                     {Section = RecordAction.Section4;
-                        tvOnline.setText("第四節開始");}
+                        tvOnlineN.setText("第四節");
+                        tvOnlineA.setText("開始");}
                     Log.d("Section",Section+"");
                     tvSectionFoul1.setText("0");
                     tvSectionFoul2.setText("0");
@@ -322,6 +351,13 @@ public class ButtonRecord extends AppCompatActivity {
                     break;
             }
         }
+        public void insertSQL()
+        {
+            ActionDAO dao= new ActionDAO(ButtonRecord.this);
+            dao.insertAction(new Action("1",Section,Player,Action));
+            flag=true;
+            Log.d("FLAG",flag+"");
+        }
     }
 
 
@@ -332,32 +368,38 @@ public class ButtonRecord extends AppCompatActivity {
                 case R.id.rbNumber1:
                     rg2.clearCheck();
                     Player = rbNumber1.getText().toString();
-                    tvOnline.setText(Player + "號選手");
+                    tvOnlineN.setText(Player + "號選手");
+                    tvOnlineA.setText("");
                     break;
                 case R.id.rbNumber2:
                     rg2.clearCheck();
                     Player = rbNumber2.getText().toString();
-                    tvOnline.setText(Player + "號選手");
+                    tvOnlineN.setText(Player + "號選手");
+                    tvOnlineA.setText("");
                     break;
                 case R.id.rbNumber3:
                     rg2.clearCheck();
                     Player = rbNumber3.getText().toString();
-                    tvOnline.setText(Player + "號選手");
+                    tvOnlineN.setText(Player + "號選手");
+                    tvOnlineA.setText("");
                     break;
                 case R.id.rbNumber4:
                     rg1.clearCheck();
                     Player = rbNumber4.getText().toString();
-                    tvOnline.setText(Player + "號選手");
+                    tvOnlineN.setText(Player + "號選手");
+                    tvOnlineA.setText("");
                     break;
                 case R.id.rbNumber5:
                     rg1.clearCheck();
                     Player = rbNumber5.getText().toString();
-                    tvOnline.setText(Player + "號選手");
+                    tvOnlineN.setText(Player + "號選手");
+                    tvOnlineA.setText("");
                     break;
                 case R.id.rbOP:
                     Player = String.valueOf(RecordAction.Action_playerOP);
                     rg1.clearCheck();
-                    tvOnline.setText("對手");
+                    tvOnlineN.setText("對手");
+                    tvOnlineA.setText("");
                     break;
 
             }
@@ -416,9 +458,11 @@ public class ButtonRecord extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 if (count != 5) {
                     Toast.makeText(ButtonRecord.this, "請勾選五位球員", Toast.LENGTH_SHORT).show();
-                    tvOnline.setText("");
+                    tvOnlineN.setText("球員需");
+                    tvOnlineA.setText("勾選五人!!!");
                 }
-                else{tvOnline.setText("您已更改球員名單");}
+                else{tvOnlineN.setText("您已更改");
+                tvOnlineA.setText("球員名單");}
 //
             }
         });
@@ -439,7 +483,17 @@ public class ButtonRecord extends AppCompatActivity {
         builder.setPositiveButton("確定", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                tvOnline.setText("你已收回前一個步驟");
+                if(flag) {
+                    tvOnlineN.setText("你已收回");
+                    tvOnlineA.setText("前一個步驟!");
+                    ActionDAO dao = new ActionDAO(ButtonRecord.this);
+                    dao.delAction();
+                    flag=false;
+                    Log.d("FLAG",flag+"");
+                }
+                else{
+                    tvOnlineN.setText("只能取消");
+                    tvOnlineA.setText("一個步驟");}
             }
         });
         builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
@@ -451,19 +505,6 @@ public class ButtonRecord extends AppCompatActivity {
         builder.show();
 
     }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        menu.add(0,1,0,"查詢");
-        return super.onCreateOptionsMenu(menu);
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId()==1)
-        {
-            Intent it=new Intent(ButtonRecord.this,SummaryActivity.class);
-            startActivity(it);
-        }
-        return super.onOptionsItemSelected(item);
-    }
+
 }
