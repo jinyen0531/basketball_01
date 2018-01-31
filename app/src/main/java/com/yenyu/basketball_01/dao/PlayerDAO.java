@@ -45,18 +45,18 @@ public class PlayerDAO {
     public ArrayList<Player> getPlayers(String pid)
     {
         ArrayList<Player> list=new ArrayList<>();
-        int _id;
+        int id=0;
         String number,name;
         SQLiteDatabase database=new MyDBHelper(context).getWritableDatabase();
         String strSql="select * from players where pid=? order by CAST(number as integer)";
         Cursor c=database.rawQuery(strSql,new String[]{pid});
         c.moveToFirst();
         do {
-            _id=c.getInt(c.getColumnIndex("_id"));
+            id=c.getInt(c.getColumnIndex("_id"));
             number=c.getString(c.getColumnIndex("number"));
             name=c.getString(c.getColumnIndex("name"));
-            list.add(new Player(_id,pid,number,name));
-            Log.d("Team","_id : "+_id+", pid : "+pid+", number : "+number+", name : "+name);
+            list.add(new Player(id,pid,number,name));
+            Log.d("Player get","_id : "+id+", pid : "+pid+", number : "+number+", name : "+name);
         }while(c.moveToNext());
         Log.d("Player_Count",list.size()+"");
         database.close();

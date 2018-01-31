@@ -82,7 +82,7 @@ public class GameDAO {
         {
             do
             {
-                int _id=c.getInt(c.getColumnIndex("_id"));
+                int id=c.getInt(c.getColumnIndex("_id"));
                 int section=c.getInt(c.getColumnIndex("section"));
                 String number=c.getString(c.getColumnIndex("number"));
                 int score=c.getInt(c.getColumnIndex("score"));
@@ -99,8 +99,8 @@ public class GameDAO {
                 int bs=c.getInt(c.getColumnIndex("bs"));
                 int to=c.getInt(c.getColumnIndex("toto"));
                 int foul=c.getInt(c.getColumnIndex("foul"));
-                mylist.add(new Game(_id,pid,section,number,score,point2in,point2out,point3in,point3out,ftin,ftout,or,dr,st,as,bs,to,foul));
-                Log.d("LoadGame","id : "+_id+", section : "+section+", number : "+number);
+                mylist.add(new Game(id,pid,section,number,score,point2in,point2out,point3in,point3out,ftin,ftout,or,dr,st,as,bs,to,foul));
+                Log.d("LoadGame","id : "+id+", section : "+section+", number : "+number);
             }while(c.moveToNext());
         }
         Log.d("Game_Count",mylist.size()+"");

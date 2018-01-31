@@ -1,6 +1,7 @@
 package com.yenyu.basketball_01;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -25,8 +26,8 @@ public class SummaryActivity extends AppCompatActivity {
 
     WebView wv;
     Spinner sp1,sp2;
-    static String pid;     //場次
     ArrayList<Game> games=null;
+    static String pid="";  //場次
     int sec=0;      //spinner1的節次,0(全部),1,2,3,4
     String num="";  //spinner2的背號,""為全部,其餘為背號
     ArrayList<Player> players;  //取得球員
@@ -38,7 +39,9 @@ public class SummaryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_summary);
-        pid="1";
+        Intent it=getIntent();
+        pid=it.getStringExtra("pid");
+        Log.d("summary pid",pid);
         wv=findViewById(R.id.webView);
         sp1=findViewById(R.id.spinner);
         sp2=findViewById(R.id.spinner2);
@@ -54,13 +57,14 @@ public class SummaryActivity extends AppCompatActivity {
         //選擇球員
         PlayerDAO dao=new PlayerDAO(this);
         players=dao.getPlayers(pid);
-        String[] names=new String[players.size()+1];
+        String[] names=new String[players.size()+2];
         int c=0;
         names[c++]="全部";
         for(Player p:players)
         {
             names[c++]=p.getNumber()+" "+p.getName();
         }
+        names[c++]="Guest";
         final ArrayAdapter<String> adapterName=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,names);
         sp2.setAdapter(adapterName);
         sp2.setOnItemSelectedListener(new MyListener());
@@ -76,7 +80,6 @@ public class SummaryActivity extends AppCompatActivity {
         {
             wv.loadData("無資料","text/html;charset=UTF-8",null);
         }
-
 
     }
 
@@ -131,13 +134,21 @@ public class SummaryActivity extends AppCompatActivity {
                     sec=i;
                     break;
                 case R.id.spinner2:
+                    Log.d("guest","i = "+i+" Player.size"+players.size());
                     if(i==0)
                     {
                         num="";
                     }
                     else
                     {
-                        num=players.get(i-1).getNumber();
+                        if(i==players.size()+1)
+                        {
+                            num="G";
+                        }
+                        else
+                        {
+                            num=players.get(i-1).getNumber();
+                        }
                     }
                     break;
             }

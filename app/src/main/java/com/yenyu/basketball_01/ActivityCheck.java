@@ -16,11 +16,18 @@ import java.util.ArrayList;
 
 public class ActivityCheck extends AppCompatActivity {
 
-    String pid="1";
+    String pid="";
+    String team1="",team2="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check);
+        Intent it=getIntent();
+        pid=it.getStringExtra("pid");
+        team1=it.getStringExtra("Team1");
+        team2=it.getStringExtra("Team2");
+        setTitle(team1+"v.s."+team2);
+        Log.d("2TeamId",pid);
     }
 
     public void clickOK(View v)
@@ -59,8 +66,12 @@ public class ActivityCheck extends AppCompatActivity {
         }
         if(count>=5)
         {
-        //dp.insertPlayers(list);       //測試,故標記
+            dp.insertPlayers(list);       //測試,故標記
             Intent it = new Intent(ActivityCheck.this,Pick5Activity.class);
+            it.putExtra("pid",pid);
+            Log.d("Check pid",pid);
+            it.putExtra("Team1",team1);
+            it.putExtra("Team2",team2);
             startActivity(it);
         }
         else

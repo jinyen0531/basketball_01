@@ -1,6 +1,5 @@
 package com.yenyu.basketball_01;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -48,8 +47,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 Intent it= new Intent(MainActivity.this, ActivityCheck.class);
-                it.putExtra("Team1",ed1.toString());
-                it.putExtra("Team2",ed2.toString());
+                String team1=ed1.getText().toString();
+                String team2=ed2.getText().toString();
+                TeamDAO teamDAO=new TeamDAO(MainActivity.this);
+                int id=teamDAO.insertTeam(new Team(team1,team2));
+                it.putExtra("pid",String.valueOf(id));
+                it.putExtra("Team1",team1);
+                it.putExtra("Team2",team2);
+                Log.d("1TeamId",id+"");
                 startActivity(it);
             }
         });

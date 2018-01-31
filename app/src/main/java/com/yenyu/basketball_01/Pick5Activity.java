@@ -16,7 +16,8 @@ import java.util.ArrayList;
 public class Pick5Activity extends AppCompatActivity {
 
     ListView lv;
-    String pid="1";
+    String pid="";
+    String team1="",team2="";
     ArrayList<Player> mylist;
     boolean[] chks;
     String[] numbers;
@@ -26,8 +27,15 @@ public class Pick5Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pick5);
         lv=findViewById(R.id.listView);
-        PlayerDAO dp=new PlayerDAO(Pick5Activity.this);
-        mylist=dp.getPlayers(pid);
+        Intent it=getIntent();
+        pid=it.getStringExtra("pid");
+        team1=it.getStringExtra("Team1");
+        team2=it.getStringExtra("Team2");
+        setTitle(team1+"v.s."+team2);
+        Log.d("pick pid",pid);
+
+        PlayerDAO playerDAO=new PlayerDAO(Pick5Activity.this);
+        mylist=playerDAO.getPlayers(pid);
         chks=new boolean[mylist.size()];
         numbers=new String[mylist.size()];
         for(int i=0;i<mylist.size();i++)
@@ -52,8 +60,9 @@ public class Pick5Activity extends AppCompatActivity {
         {
             Intent it=new Intent(Pick5Activity.this,ButtonRecord.class);
             Bundle b= new Bundle();
-            it.putExtra("pid",pid);
-
+            b.putString("pid",pid);
+            b.putString("Team1",team1);
+            b.putString("Team2",team2);
 
             b.putStringArray("numbers",numbers);
             b.putBooleanArray("chks",chks);

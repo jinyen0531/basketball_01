@@ -36,7 +36,8 @@ public class ButtonRecord extends AppCompatActivity {
     String[] numbers;
     int count;
     boolean flag=false;
-
+    String pid="";
+    String team1="",team2="";
 
 
     @Override
@@ -108,7 +109,11 @@ public class ButtonRecord extends AppCompatActivity {
         //抓取前面輸入的球員號碼
         Intent it = getIntent();
         Bundle b=it.getExtras();
-        String pid=it.getStringExtra("pid");
+        pid=b.getString("pid");
+        team1=b.getString("Team1");
+        team2=b.getString("Team2");
+        setTitle(team1+"v.s."+team2);
+        Log.d("button record pid",pid);
         numbers = b.getStringArray("numbers");
         chks = b.getBooleanArray("chks");
 
@@ -152,6 +157,7 @@ public class ButtonRecord extends AppCompatActivity {
             case R.id.menu_record:
 
                 Intent it=new Intent(ButtonRecord.this,SummaryActivity.class);
+                it.putExtra("pid",pid);
                 startActivity(it);
                 break;
         }
@@ -166,7 +172,7 @@ public class ButtonRecord extends AppCompatActivity {
                 case R.id.bt2in:
                     if (!Player.equals("")) {
                         Action = RecordAction.Action_2point_in;
-                        if (Player.equals("106")) {
+                        if (Player.equals("G")) {
                             tvScore2.setText(String.valueOf(Integer.valueOf(tvScore2.getText().toString()) + 2));
                         } else {
                             tvScore1.setText(String.valueOf(Integer.valueOf(tvScore1.getText().toString()) + 2));
@@ -193,7 +199,7 @@ public class ButtonRecord extends AppCompatActivity {
                 case R.id.bt3in:
                     if (!Player.equals("")) {
                         Action = RecordAction.Action_3point_in;
-                        if (Player.equals("106")) {
+                        if (Player.equals("G")) {
                             tvScore2.setText(String.valueOf(Integer.valueOf(tvScore2.getText().toString()) + 3));
                         } else{
                             tvScore1.setText(String.valueOf(Integer.valueOf(tvScore1.getText().toString()) + 3));
@@ -220,7 +226,7 @@ public class ButtonRecord extends AppCompatActivity {
                 case R.id.btFTin:
                     if (!Player.equals("")) {
                         Action = RecordAction.Action_FT_in;
-                        if (Player.equals("106")) {
+                        if (Player.equals("G")) {
                             tvScore2.setText(String.valueOf(Integer.valueOf(tvScore2.getText().toString()) + 1));
                         } else{
                             tvScore1.setText(String.valueOf(Integer.valueOf(tvScore1.getText().toString()) + 1));
@@ -313,7 +319,7 @@ public class ButtonRecord extends AppCompatActivity {
                 case R.id.btFoul:
                     if (!Player.equals("")) {
                         Action = RecordAction.Action_Foul;
-                        if (Player.equals("106")) {
+                        if (Player.equals("G")) {
                             int sectionfoul2 = Integer.valueOf(tvSectionFoul2.getText().toString());
                             if(sectionfoul2<5)
                                 tvSectionFoul2.setText(String.valueOf(sectionfoul2+1));}
@@ -356,7 +362,7 @@ public class ButtonRecord extends AppCompatActivity {
         public void insertSQL()
         {
             ActionDAO dao= new ActionDAO(ButtonRecord.this);
-            dao.insertAction(new Action("1",Section,Player,Action));
+            dao.insertAction(new Action(pid,Section,Player,Action));
             flag=true;
             Log.d("FLAG",flag+"");
         }
@@ -398,7 +404,7 @@ public class ButtonRecord extends AppCompatActivity {
                     tvOnlineA.setText("");
                     break;
                 case R.id.rbOP:
-                    Player = String.valueOf(RecordAction.Action_playerOP);
+                    Player = "G";
                     rg1.clearCheck();
                     tvOnlineN.setText("對手");
                     tvOnlineA.setText("");
