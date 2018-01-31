@@ -82,7 +82,7 @@ public class ActionDAO {
     public int getFoul(String pid,String number)
     {
         SQLiteDatabase database=new MyDBHelper(context).getWritableDatabase();
-        String strSql="select count(*) from actions where pid=? and number=?";
+        String strSql="select count(*) from actions where move=13 and pid=? and number=?";
         Cursor c=database.rawQuery(strSql,new String[]{pid,number});
         c.moveToFirst();
         int i=c.getInt(0);

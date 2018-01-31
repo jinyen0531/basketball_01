@@ -179,7 +179,10 @@ public class ButtonRecord extends AppCompatActivity {
                             tvScore1.setText(String.valueOf(Integer.valueOf(tvScore1.getText().toString()) + 2));
                         }
                         tvOnlineA.setText("兩分球進");
-                        insertSQL();
+                        int foul=new ActionDAO(ButtonRecord.this).getFoul(pid, Player);
+                        if(!Player.equals("G") && foul==5){}
+                        else{
+                            insertSQL();} //五犯的球員不再存取進資料庫
                         clickCancel();
                     }
                     else {
@@ -190,7 +193,10 @@ public class ButtonRecord extends AppCompatActivity {
                     if (!Player.equals("")) {
                         Action = RecordAction.Action_2point_out;
                         tvOnlineA.setText("兩分球不進");
-                        insertSQL();
+                        int foul=new ActionDAO(ButtonRecord.this).getFoul(pid, Player);
+                        if(!Player.equals("G") && foul==5){}
+                        else{
+                            insertSQL();}
                         clickCancel();
                     }
                     else {
@@ -206,7 +212,10 @@ public class ButtonRecord extends AppCompatActivity {
                             tvScore1.setText(String.valueOf(Integer.valueOf(tvScore1.getText().toString()) + 3));
                         }
                         tvOnlineA.setText("三分球進");
-                        insertSQL();
+                        int foul=new ActionDAO(ButtonRecord.this).getFoul(pid, Player);
+                        if(!Player.equals("G") && foul==5){}
+                        else{
+                            insertSQL();}
                         clickCancel();
                     }
                     else {
@@ -217,7 +226,10 @@ public class ButtonRecord extends AppCompatActivity {
                     if(!Player.equals("")) {
                         Action = RecordAction.Action_3point_out;
                         tvOnlineA.setText("三分球不進");
-                        insertSQL();
+                        int foul=new ActionDAO(ButtonRecord.this).getFoul(pid, Player);
+                        if(!Player.equals("G") && foul==5){}
+                        else{
+                            insertSQL();}
                         clickCancel();
                     }
                     else {
@@ -233,7 +245,10 @@ public class ButtonRecord extends AppCompatActivity {
                             tvScore1.setText(String.valueOf(Integer.valueOf(tvScore1.getText().toString()) + 1));
                         }
                         tvOnlineA.setText("罰球進");
-                        insertSQL();
+                        int foul=new ActionDAO(ButtonRecord.this).getFoul(pid, Player);
+                        if(!Player.equals("G") && foul==5){}
+                        else{
+                            insertSQL();}
                         clickCancel();
                     }
                     else {
@@ -244,7 +259,10 @@ public class ButtonRecord extends AppCompatActivity {
                     if (!Player.equals("")) {
                         Action = RecordAction.Action_FT_out;
                         tvOnlineA.setText("罰球不進");
-                        insertSQL();
+                        int foul=new ActionDAO(ButtonRecord.this).getFoul(pid, Player);
+                        if(!Player.equals("G") && foul==5){}
+                        else{
+                            insertSQL();}
                         clickCancel();
                     }
                     else {
@@ -255,7 +273,10 @@ public class ButtonRecord extends AppCompatActivity {
                     if (!Player.equals("")) {
                         Action = RecordAction.Action_OR;
                         tvOnlineA.setText("進攻籃板");
-                        insertSQL();
+                        int foul=new ActionDAO(ButtonRecord.this).getFoul(pid, Player);
+                        if(!Player.equals("G") && foul==5){}
+                        else{
+                            insertSQL();}
                         clickCancel();
                     }
                     else {
@@ -266,7 +287,10 @@ public class ButtonRecord extends AppCompatActivity {
                     if (!Player.equals("")) {
                         Action = RecordAction.Action_DR;
                         tvOnlineA.setText("防守籃板");
-                        insertSQL();
+                        int foul=new ActionDAO(ButtonRecord.this).getFoul(pid, Player);
+                        if(!Player.equals("G") && foul==5){}
+                        else{
+                            insertSQL();}
                         clickCancel();
                     }
                     else {
@@ -277,7 +301,10 @@ public class ButtonRecord extends AppCompatActivity {
                     if (!Player.equals("")) {
                         Action = RecordAction.Action_ST;
                         tvOnlineA.setText("抄截");
-                        insertSQL();
+                        int foul=new ActionDAO(ButtonRecord.this).getFoul(pid, Player);
+                        if(!Player.equals("G") && foul==5){}
+                        else{
+                            insertSQL();}
                         clickCancel();
                     }
                     else {
@@ -288,7 +315,10 @@ public class ButtonRecord extends AppCompatActivity {
                     if (!Player.equals("")) {
                         Action = RecordAction.Action_AS;
                         tvOnlineA.setText("助攻");
-                        insertSQL();
+                        int foul=new ActionDAO(ButtonRecord.this).getFoul(pid, Player);
+                        if(!Player.equals("G") && foul==5){}
+                        else{
+                            insertSQL();}
                         clickCancel();
                     }
                     else {
@@ -299,7 +329,10 @@ public class ButtonRecord extends AppCompatActivity {
                     if (!Player.equals("")) {
                         Action = RecordAction.Action_BS;
                         tvOnlineA.setText("阻攻");
-                        insertSQL();
+                        int foul=new ActionDAO(ButtonRecord.this).getFoul(pid, Player);
+                        if(!Player.equals("G") && foul==5){}
+                        else{
+                            insertSQL();}
                         clickCancel();
                     }
                     else {
@@ -310,7 +343,10 @@ public class ButtonRecord extends AppCompatActivity {
                     if (!Player.equals("")) {
                         Action = RecordAction.Action_TO;
                         tvOnlineA.setText("失誤");
-                        insertSQL();
+                        int foul=new ActionDAO(ButtonRecord.this).getFoul(pid, Player);
+                        if(!Player.equals("G") && foul==5){}
+                        else{
+                            insertSQL();}
                         clickCancel();
                     }
                     else {
@@ -329,8 +365,33 @@ public class ButtonRecord extends AppCompatActivity {
                             if(sectionfoul1<5)
                                 tvSectionFoul1.setText(String.valueOf(sectionfoul1+1));}
                         tvOnlineA.setText("犯規");
-                        insertSQL();
-                        new ActionDAO(ButtonRecord.this).getFoul(pid, Player);
+                        int foul2=new ActionDAO(ButtonRecord.this).getFoul(pid, Player);
+                        if(!Player.equals("G") && foul2==5){}  //五犯的球員不再記錄到資料庫
+                        else{
+                            insertSQL();}
+                        Log.d("PLAYER",pid+","+Player);
+                        int foul=new ActionDAO(ButtonRecord.this).getFoul(pid, Player);
+                        if(foul>2) //如果三犯以上，跳出警告
+                        {
+                            if(!Player.equals("G"))
+                            {
+                                AlertDialog.Builder builder = new AlertDialog.Builder(ButtonRecord.this);
+                                builder.setTitle("球員"+Player+"號已經犯規"+foul+"次!!");
+                                if(foul==5)
+                                {
+                                    builder.setMessage("\n畢業快樂!!!\n你必須換上另一個球員!");
+                                }
+                                builder.setPositiveButton("確定", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+
+                                    }
+                                });
+                                builder.setCancelable(false);
+                                builder.show();
+                            }
+
+                        }
                         clickCancel();
                     }
                     else {
@@ -493,18 +554,12 @@ public class ButtonRecord extends AppCompatActivity {
         builder.setPositiveButton("確定", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                if(flag) {
                     tvOnlineN.setText("你已收回");
                     tvOnlineA.setText("前一個步驟!");
                     ActionDAO dao = new ActionDAO(ButtonRecord.this);
                     dao.delAction();
                     flag=false;
-                    Log.d("FLAG",flag+"");
-                }
-                else{
-                    tvOnlineN.setText("只能取消");
-                    tvOnlineA.setText("一個步驟");}
-            }
+                    Log.d("FLAG",flag+"");}
         });
         builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
             @Override
@@ -512,7 +567,10 @@ public class ButtonRecord extends AppCompatActivity {
 
             }
         });
-        builder.show();
+        if(flag)
+            builder.show();
+        else{tvOnlineN.setText("只能取消");
+            tvOnlineA.setText("一個步驟");}
 
     }
 
