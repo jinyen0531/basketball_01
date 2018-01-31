@@ -79,6 +79,16 @@ public class ActionDAO {
         return mylist;
     }
 
+    public int getFoul(String pid,String number)
+    {
+        SQLiteDatabase database=new MyDBHelper(context).getWritableDatabase();
+        String strSql="select count(*) from actions where pid=? and number=?";
+        Cursor c=database.rawQuery(strSql,new String[]{pid,number});
+        c.moveToFirst();
+        int i=c.getInt(0);
+        Log.d("foul",i+"");
+        return i;
+    }
     //刪除最後一筆
     public boolean delAction()
     {

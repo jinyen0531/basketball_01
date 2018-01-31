@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import com.yenyu.basketball_01.dao.Action;
 import com.yenyu.basketball_01.dao.ActionDAO;
+import com.yenyu.basketball_01.dao.Player;
 
 import java.io.BufferedReader;
 
@@ -329,6 +330,7 @@ public class ButtonRecord extends AppCompatActivity {
                                 tvSectionFoul1.setText(String.valueOf(sectionfoul1+1));}
                         tvOnlineA.setText("犯規");
                         insertSQL();
+                        new ActionDAO(ButtonRecord.this).getFoul(pid, Player);
                         clickCancel();
                     }
                     else {
