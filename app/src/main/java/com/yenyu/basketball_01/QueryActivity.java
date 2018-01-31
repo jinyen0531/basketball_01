@@ -26,6 +26,7 @@ public class QueryActivity extends AppCompatActivity {
         QueryAdapter adapter=new QueryAdapter(teams,QueryActivity.this);
         queryView.setAdapter(adapter);
 
+        //長按,刪除
         queryView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -34,6 +35,7 @@ public class QueryActivity extends AppCompatActivity {
             }
         });
 
+        //查詢各場數據
         queryView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {

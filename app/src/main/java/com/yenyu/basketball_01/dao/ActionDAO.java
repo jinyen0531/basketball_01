@@ -87,7 +87,7 @@ public class ActionDAO {
         Cursor c=database.rawQuery(strSql,null);
         c.moveToFirst();
         int id=c.getInt(c.getColumnIndex("_id"));
-        int i=database.delete("DelAction","_id=?",new String[]{String.valueOf(id)});
+        int i=database.delete("actions","_id=?",new String[]{String.valueOf(id)});
         database.close();
         return i>0 ? true : false;
     }

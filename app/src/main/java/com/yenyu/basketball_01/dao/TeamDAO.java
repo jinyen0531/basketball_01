@@ -20,7 +20,7 @@ public class TeamDAO {
     }
 
     //新增隊伍
-    public boolean insertTeam(Team team)
+    public int insertTeam(Team team)
     {
         SQLiteDatabase database=new MyDBHelper(context).getWritableDatabase();
         ContentValues values;
@@ -29,10 +29,10 @@ public class TeamDAO {
         values.put("team2",team.getTeam2());
         values.put("score1",team.getScore1());
         values.put("score2",team.getScore2());
-        long id=database.insert("teams",null,values);
+        int id=(int)database.insert("teams",null,values);
         Log.d("insertTeam","id : "+id+", team1 : "+team.getTeam1()+", team2 : "+team.getTeam2()+", score1 : "+team.getScore1()+", score2 : "+team.getScore2());
         database.close();
-        return id>0 ? true : false;
+        return id;
     }
 
     //查詢全部隊伍
@@ -44,13 +44,13 @@ public class TeamDAO {
         if(c.moveToFirst())
         {
             do {
-                int _id=c.getInt(c.getColumnIndex("_id"));
+                int id=c.getInt(c.getColumnIndex("_id"));
                 String team1=c.getString(c.getColumnIndex("team1"));
                 String team2=c.getString(c.getColumnIndex("team2"));
                 int score1=c.getInt(c.getColumnIndex("score1"));
                 int score2=c.getInt(c.getColumnIndex("score2"));
-                teams.add(new Team(_id,team1,team2,score1,score2));
-                Log.d("Team","_id : "+_id+", team1 : "+team1+", team2 : "+team2+", score1 : "+score1+", score2 : "+score2);
+                teams.add(new Team(id,team1,team2,score1,score2));
+                Log.d("Team","_id : "+id+", team1 : "+team1+", team2 : "+team2+", score1 : "+score1+", score2 : "+score2);
             }while(c.moveToNext());
         }
         database.close();
