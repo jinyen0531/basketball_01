@@ -9,7 +9,7 @@
     <string name="point2_out">兩分球\n不進</string>
     <string name="point3_in">三分\n球進</string>
     <string name="point3_out">三分球\n不進</string>
-    <string name="FT_in">罰球進</string>
+    <string name="FT_in">罰球\n進</string>
     <string name="FT_out">罰球\n不進</string>
     <string name="foul">犯規</string>
     <string name="AS">助攻</string>

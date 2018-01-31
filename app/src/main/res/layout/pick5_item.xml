@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="	#B22222"
+    android:backgroundTint="#FDF5E6"
     android:orientation="horizontal">
 
     <CheckBox
@@ -19,7 +20,7 @@
         android:text="23"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="@android:color/background_light"
+        android:textColor="#A52A2A"
         android:textStyle="bold" />
 
     <TextView
@@ -29,6 +30,6 @@
         android:layout_weight="5"
         android:text="PONG"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="@android:color/background_light"
+        android:textColor="#A52A2A"
         android:textStyle="bold" />
 </LinearLayout>

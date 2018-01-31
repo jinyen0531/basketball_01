@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#B22222"
+    android:background="#FDF5E6"
     tools:context="com.yenyu.basketball_01.ActivityCheck">
 
     <ScrollView
@@ -29,7 +29,8 @@
                 android:text="@string/group"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                android:textColor="@android:color/background_light"
+                android:textColor="#A52A2A"
+                android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -43,7 +44,7 @@
                 android:text="最少5人，最多12人"
                 android:textAlignment="textEnd"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                android:textColor="@android:color/background_light"
+                android:textColor="#A52A2A"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -62,7 +63,7 @@
                     android:ems="10"
                     android:inputType="number"
                     android:text="1"
-                    android:textColor="@android:color/background_light" />
+                    android:textColor="#A52A2A" />
 
                 <EditText
                     android:id="@+id/edName1"
@@ -75,7 +76,7 @@
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:text="Name1"
-                    android:textColor="@android:color/background_light" />
+                    android:textColor="#A52A2A" />
 
             </LinearLayout>
 
@@ -94,7 +95,7 @@
                     android:ems="10"
                     android:inputType="number"
                     android:text="2"
-                    android:textColor="@android:color/background_light" />
+                    android:textColor="#A52A2A" />
 
                 <EditText
                     android:id="@+id/edName2"
@@ -107,7 +108,7 @@
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:text="Name2"
-                    android:textColor="@android:color/background_light" />
+                    android:textColor="#A52A2A" />
 
             </LinearLayout>
 
@@ -126,7 +127,7 @@
                     android:ems="10"
                     android:inputType="number"
                     android:text="3"
-                    android:textColor="@android:color/background_light" />
+                    android:textColor="#A52A2A" />
 
                 <EditText
                     android:id="@+id/edName3"
@@ -139,7 +140,7 @@
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:text="Name3"
-                    android:textColor="@android:color/background_light" />
+                    android:textColor="#A52A2A" />
             </LinearLayout>
 
             <LinearLayout
@@ -157,7 +158,7 @@
                     android:ems="10"
                     android:inputType="number"
                     android:text="4"
-                    android:textColor="@android:color/background_light" />
+                    android:textColor="#A52A2A" />
 
                 <EditText
                     android:id="@+id/edName4"
@@ -170,7 +171,7 @@
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:text="Name4"
-                    android:textColor="@android:color/background_light" />
+                    android:textColor="#A52A2A" />
             </LinearLayout>
 
             <LinearLayout
@@ -188,7 +189,7 @@
                     android:ems="10"
                     android:inputType="number"
                     android:text="5"
-                    android:textColor="@android:color/background_light" />
+                    android:textColor="#A52A2A" />
 
                 <EditText
                     android:id="@+id/edName5"
@@ -201,7 +202,7 @@
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:text="Name5"
-                    android:textColor="@android:color/background_light" />
+                    android:textColor="#A52A2A" />
             </LinearLayout>
 
             <LinearLayout
@@ -219,7 +220,7 @@
                     android:ems="10"
                     android:inputType="number"
                     android:text="6"
-                    android:textColor="@android:color/background_light" />
+                    android:textColor="#A52A2A" />
 
                 <EditText
                     android:id="@+id/edName6"
@@ -232,7 +233,7 @@
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:text="Name6"
-                    android:textColor="@android:color/background_light" />
+                    android:textColor="#A52A2A" />
             </LinearLayout>
 
             <LinearLayout
@@ -250,7 +251,7 @@
                     android:ems="10"
                     android:inputType="number"
                     android:text="7"
-                    android:textColor="@android:color/background_light" />
+                    android:textColor="#A52A2A" />
 
                 <EditText
                     android:id="@+id/edName7"
@@ -263,7 +264,7 @@
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:text="Name7"
-                    android:textColor="@android:color/background_light" />
+                    android:textColor="#A52A2A" />
             </LinearLayout>
 
             <LinearLayout
@@ -281,7 +282,7 @@
                     android:ems="10"
                     android:inputType="number"
                     android:text="8"
-                    android:textColor="@android:color/background_light" />
+                    android:textColor="#A52A2A" />
 
                 <EditText
                     android:id="@+id/edName8"
@@ -294,7 +295,7 @@
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:text="Name8"
-                    android:textColor="@android:color/background_light" />
+                    android:textColor="#A52A2A" />
             </LinearLayout>
 
             <LinearLayout
@@ -312,7 +313,7 @@
                     android:ems="10"
                     android:inputType="number"
                     android:textAlignment="viewStart"
-                    android:textColor="@android:color/background_light"
+                    android:textColor="#A52A2A"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/edNum10" />
 
@@ -327,7 +328,7 @@
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:text="Name"
-                    android:textColor="@android:color/background_light"
+                    android:textColor="#A52A2A"
                     app:layout_constraintBaseline_toBaselineOf="@+id/edNum1"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -347,7 +348,7 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:inputType="number"
-                    android:textColor="@android:color/background_light"
+                    android:textColor="#A52A2A"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/edNum11" />
 
@@ -362,7 +363,7 @@
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:text="Name"
-                    android:textColor="@android:color/background_light"
+                    android:textColor="#A52A2A"
                     app:layout_constraintBaseline_toBaselineOf="@+id/edNum12"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -383,7 +384,7 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:inputType="number"
-                    android:textColor="@android:color/background_light"
+                    android:textColor="#A52A2A"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -398,7 +399,7 @@
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:text="Name"
-                    android:textColor="@android:color/background_light"
+                    android:textColor="#A52A2A"
                     app:layout_constraintBaseline_toBaselineOf="@+id/edNum9"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -421,7 +422,7 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:inputType="number"
-                    android:textColor="@android:color/background_light"
+                    android:textColor="#A52A2A"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/edNum1" />
 
@@ -436,7 +437,7 @@
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:text="Name"
-                    android:textColor="@android:color/background_light"
+                    android:textColor="#A52A2A"
                     app:layout_constraintBaseline_toBaselineOf="@+id/edNum10"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -451,10 +452,10 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:background="	#FFD700"
+                android:background="#A52A2A"
                 android:onClick="clickOK"
                 android:text="@android:string/VideoView_error_button"
-                android:textColor="#B22222"
+                android:textColor="#FFD700"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
