@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="	#A52A2A"
+    android:background="	#FDF5E6"
     tools:context="com.yenyu.basketball_01.ButtonRecord">
 
     <LinearLayout
@@ -23,109 +23,112 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/bt2in"
+                    style="@android:style/Widget.Material.Light.Button.Toggle"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="5dp"
                     android:layout_weight="1"
-                    android:backgroundTint="@android:color/background_light"
+                    android:backgroundTint="#A52A2A"
+                    android:fontFamily="casual"
                     android:text="@string/point2_in"
-                    android:textAlignment="center"
-                    android:textColor="#B22222"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="	#FDF5E6"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <Button
                     android:id="@+id/bt2out"
+                    style="@android:style/Widget.Material.Light.Button.Toggle"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="1"
-                    android:backgroundTint="@android:color/background_light"
+                    android:backgroundTint="#A52A2A"
+                    android:fontFamily="casual"
                     android:text="@string/point2_out"
-                    android:textAlignment="center"
-                    android:textAllCaps="false"
-                    android:textColor="#B22222"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="	#FDF5E6"
                     android:textSize="18sp"
                     android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/bt3in"
+                    style="@android:style/Widget.Material.Light.Button.Toggle"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="5dp"
                     android:layout_weight="1"
-                    android:backgroundTint="@android:color/background_light"
+                    android:backgroundTint="#A52A2A"
+                    android:fontFamily="casual"
                     android:text="@string/point3_in"
-                    android:textColor="#B22222"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="	#FDF5E6"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <Button
                     android:id="@+id/bt3out"
+                    style="@android:style/Widget.Material.Light.Button.Toggle"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="1"
-                    android:backgroundTint="@android:color/background_light"
+                    android:backgroundTint="#A52A2A"
+                    android:fontFamily="casual"
                     android:text="@string/point3_out"
-                    android:textColor="#B22222"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="	#FDF5E6"
                     android:textSize="18sp"
                     android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="horizontal"
-                android:paddingTop="10dp">
+                android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/btFTin"
+                    style="@android:style/Widget.Material.Light.Button.Toggle"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="5dp"
                     android:layout_weight="1"
-                    android:backgroundTint="@android:color/background_light"
+                    android:backgroundTint="#A52A2A"
+                    android:fontFamily="casual"
                     android:text="@string/FT_in"
-                    android:textColor="#B22222"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="	#FDF5E6"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <Button
                     android:id="@+id/btFTout"
+                    style="@android:style/Widget.Material.Light.Button.Toggle"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="5dp"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="1"
-                    android:backgroundTint="@android:color/background_light"
+                    android:backgroundTint="#A52A2A"
+                    android:fontFamily="casual"
                     android:text="@string/FT_out"
-                    android:textColor="#B22222"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="	#FDF5E6"
                     android:textSize="18sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -133,52 +136,53 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="267dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="2"
+            android:layout_weight="1"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/tvOnlineN"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_weight="1"
-                    android:background="@android:color/black"
-                    android:textAlignment="textEnd"
-                    android:textColor="#FFFF00"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:visibility="visible" />
-
-                <TextView
-                    android:id="@+id/tvOnlineA"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    android:background="@android:color/background_dark"
-                    android:textAlignment="textStart"
-                    android:textColor="#FFFF00"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="2."
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="0.1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvOnlineN"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:background="@android:color/black"
+                        android:textAlignment="textEnd"
+                        android:textColor="#FFFF00"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:visibility="visible" />
+
+                    <TextView
+                        android:id="@+id/tvOnlineA"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@android:color/background_dark"
+                        android:textAlignment="textStart"
+                        android:textColor="#FFFF00"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
                     android:orientation="horizontal">
 
                     <TextView
@@ -190,8 +194,7 @@
                         android:layout_weight="1"
                         android:text="0"
                         android:textAlignment="center"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                        android:textColor="@android:color/background_light"
+                        android:textColor="#A52A2A"
                         android:textSize="50sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
@@ -207,7 +210,7 @@
                         android:text="0"
                         android:textAlignment="center"
                         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                        android:textColor="@android:color/background_light"
+                        android:textColor="#A52A2A"
                         android:textSize="50sp"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -220,7 +223,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="0.1"
                     android:orientation="horizontal">
 
                     <TextView
@@ -231,8 +234,8 @@
                         android:layout_weight="1"
                         android:text="0"
                         android:textAlignment="center"
-                        android:textColor="@android:color/background_light"
-                        android:textSize="30sp"
+                        android:textColor="#A52A2A"
+                        android:textSize="36sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/tvScore1" />
 
@@ -240,13 +243,12 @@
                         android:id="@+id/tvSection"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="3dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="2dp"
                         android:layout_weight="1"
                         android:text="1"
                         android:textAlignment="center"
-                        android:textColor="@android:color/background_light"
-                        android:textSize="28sp"
+                        android:textColor="#A52A2A"
+                        android:textSize="30sp"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -260,8 +262,8 @@
                         android:layout_weight="1"
                         android:text="0"
                         android:textAlignment="center"
-                        android:textColor="@android:color/background_light"
-                        android:textSize="30sp"
+                        android:textColor="#A52A2A"
+                        android:textSize="36sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/tvScore2" />
 
@@ -270,22 +272,24 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="0.5"
+                    android:gravity="center_vertical"
                     android:orientation="horizontal">
 
                     <Button
                         android:id="@+id/btNextSection"
+                        style="@android:style/Widget.Material.Light.Button.Inset"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="3dp"
                         android:layout_marginRight="3dp"
                         android:layout_weight="1"
                         android:autoText="false"
-                        android:background="	#FFD700"
+                        android:backgroundTint="#A52A2A"
                         android:text="@string/NextSection"
-                        android:textAllCaps="false"
-                        android:textColor="	#A52A2A"
-                        android:textSize="14sp"
+                        android:textAppearance="@style/TextAppearance.AppCompat"
+                        android:textColor="#FFD700"
+                        android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <ImageButton
@@ -294,7 +298,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:adjustViewBounds="false"
-                        android:background="@android:color/transparent"
+                        android:background="@android:drawable/screen_background_light_transparent"
                         android:elevation="0dp"
                         android:onClick="clickUndo"
                         android:scaleType="fitCenter"
@@ -302,101 +306,121 @@
 
                     <Button
                         android:id="@+id/button6"
+                        style="@android:style/Widget.Material.Light.Button.Inset"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="3dp"
                         android:layout_marginRight="3dp"
                         android:layout_weight="1"
-                        android:background="	#FFD700"
+                        android:backgroundTint="#A52A2A"
                         android:onClick="clickChange"
                         android:text="@string/change"
-                        android:textAllCaps="false"
-                        android:textColor="	#A52A2A"
-                        android:textSize="14sp"
+                        android:textAppearance="@style/TextAppearance.AppCompat"
+                        android:textColor="#FFD700"
+                        android:textSize="18sp"
                         android:textStyle="bold" />
 
                 </LinearLayout>
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:orientation="vertical">
-
-                <RadioGroup
-                    android:id="@+id/rg1"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_marginBottom="2dp"
+                    android:layout_weight="0.1"
+                    android:orientation="vertical">
 
-                    <RadioButton
-                        android:id="@+id/rbNumber1"
-                        style="@android:style/Widget.Button.Toggle"
+                    <RadioGroup
+                        android:id="@+id/rg1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:button="@android:drawable/screen_background_light_transparent"
-                        android:checked="false"
-                        android:textSize="18sp" />
+                        android:orientation="horizontal">
 
-                    <RadioButton
-                        android:id="@+id/rbNumber2"
-                        style="@android:style/Widget.Button.Toggle"
+                        <RadioButton
+                            android:id="@+id/rbNumber1"
+                            style="@android:style/Widget.Button.Toggle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:button="@android:drawable/screen_background_light_transparent"
+                            android:checked="false"
+                            android:textAlignment="center"
+                            android:textColor="#A52A2A"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <RadioButton
+                            android:id="@+id/rbNumber2"
+                            style="@android:style/Widget.Button.Toggle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:button="@android:drawable/screen_background_dark_transparent"
+                            android:textAlignment="center"
+                            android:textColor="#A52A2A"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <RadioButton
+                            android:id="@+id/rbNumber3"
+                            style="@android:style/Widget.Button.Toggle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:button="@android:drawable/screen_background_dark_transparent"
+                            android:duplicateParentState="false"
+                            android:textAlignment="center"
+                            android:textColor="#A52A2A"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                    </RadioGroup>
+
+                    <RadioGroup
+                        android:id="@+id/rg2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:button="@android:drawable/screen_background_dark_transparent"
-                        android:textSize="18sp" />
+                        android:orientation="horizontal">
 
-                    <RadioButton
-                        android:id="@+id/rbNumber3"
-                        style="@android:style/Widget.Button.Toggle"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:button="@android:drawable/screen_background_dark_transparent"
-                        android:duplicateParentState="false"
-                        android:textSize="18sp" />
+                        <RadioButton
+                            android:id="@+id/rbNumber4"
+                            style="@android:style/Widget.Button.Toggle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:button="@android:drawable/screen_background_dark_transparent"
+                            android:textAlignment="center"
+                            android:textColor="#A52A2A"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
 
-                </RadioGroup>
+                        <RadioButton
+                            android:id="@+id/rbNumber5"
+                            style="@android:style/Widget.Button.Toggle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:button="@android:drawable/screen_background_dark_transparent"
+                            android:textAlignment="center"
+                            android:textColor="#A52A2A"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
 
-                <RadioGroup
-                    android:id="@+id/rg2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                        <RadioButton
+                            android:id="@+id/rbOP"
+                            style="@android:style/Widget.Button.Toggle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:button="@android:drawable/screen_background_dark_transparent"
+                            android:text="@string/Opponent"
+                            android:textAlignment="center"
+                            android:textColor="#A52A2A"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
 
-                    <RadioButton
-                        android:id="@+id/rbNumber4"
-                        style="@android:style/Widget.Button.Toggle"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:button="@android:drawable/screen_background_dark_transparent"
-                        android:textSize="18sp" />
+                    </RadioGroup>
 
-                    <RadioButton
-                        android:id="@+id/rbNumber5"
-                        style="@android:style/Widget.Button.Toggle"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:button="@android:drawable/screen_background_dark_transparent"
-                        android:textSize="18sp" />
-
-                    <RadioButton
-                        android:id="@+id/rbOP"
-                        style="@android:style/Widget.Button.Toggle"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:button="@android:drawable/screen_background_dark_transparent"
-                        android:text="@string/Opponent"
-                        android:textSize="18sp" />
-
-                </RadioGroup>
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -405,51 +429,59 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="0.5"
+            android:layout_weight="0.1"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="101dp"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/btOR"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
+                    style="@android:style/Widget.Material.Light.Button.Inset"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:backgroundTint="@android:color/background_light"
+                    android:backgroundTint="#A52A2A"
+                    android:fontFamily="serif"
                     android:text="@string/OR"
-                    android:textAllCaps="false"
-                    android:textColor="#B22222"
+                    android:textColor="	#FDF5E6"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:typeface="normal" />
 
                 <Button
                     android:id="@+id/btDR"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginRight="10dp"
+                    style="@android:style/Widget.Material.Light.Button.Inset"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
                     android:layout_weight="1"
-                    android:backgroundTint="@android:color/background_light"
+                    android:backgroundTint="#A52A2A"
+                    android:fontFamily="serif"
                     android:text="@string/DR"
-                    android:textColor="#B22222"
+                    android:textAllCaps="false"
+                    android:textColor="	#FDF5E6"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:typeface="normal" />
             </LinearLayout>
 
             <Button
                 android:id="@+id/btST"
+                style="@android:style/Widget.Material.Light.Button.Inset"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:backgroundTint="@android:color/background_light"
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="5dp"
+                android:backgroundTint="#A52A2A"
+                android:fontFamily="sans-serif"
                 android:text="@string/ST"
-                android:textColor="#B22222"
+                android:textColor="	#FDF5E6"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:typeface="normal" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -458,54 +490,66 @@
 
                 <Button
                     android:id="@+id/btAS"
+                    style="@android:style/Widget.Material.Light.Button.Inset"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
                     android:layout_weight="1"
-                    android:backgroundTint="@android:color/background_light"
+                    android:backgroundTint="#A52A2A"
+                    android:elevation="0dp"
+                    android:fontFamily="serif"
                     android:text="@string/AS"
-                    android:textColor="#B22222"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textAppearance="@style/TextAppearance.AppCompat"
+                    android:textColor="	#FDF5E6"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:typeface="normal" />
 
                 <Button
                     android:id="@+id/btBS"
+                    style="@android:style/Widget.Material.Light.Button.Inset"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginRight="5dp"
                     android:layout_weight="1"
-                    android:backgroundTint="@android:color/background_light"
+                    android:backgroundTint="#A52A2A"
+                    android:fontFamily="serif"
                     android:text="@string/BS"
-                    android:textColor="#B22222"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textAppearance="@style/TextAppearance.AppCompat"
+                    android:textColor="	#FDF5E6"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:typeface="normal" />
             </LinearLayout>
 
             <Button
                 android:id="@+id/btTO"
+                style="@android:style/Widget.Material.Light.Button.Inset"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:backgroundTint="@android:color/background_light"
+                android:layout_marginRight="5dp"
+                android:backgroundTint="#A52A2A"
+                android:fontFamily="serif"
                 android:text="@string/TO"
-                android:textColor="#B22222"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textColor="	#FDF5E6"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:typeface="normal" />
 
             <Button
                 android:id="@+id/btFoul"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginRight="5dp"
                 android:layout_weight="1"
-                android:backgroundTint="@android:color/background_light"
+                android:backgroundTint="#A52A2A"
+                android:fontFamily="serif"
                 android:text="@string/foul"
-                android:textColor="#B22222"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textColor="	#FDF5E6"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:typeface="normal" />
 
         </LinearLayout>
 

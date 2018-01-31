@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="	#B22222"
+    android:background="#FDF5E6"
     tools:context="com.yenyu.basketball_01.Pick5Activity">
 
     <ListView
@@ -24,14 +24,14 @@
     <Button
         android:id="@+id/button"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="42dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
-        android:background="	#FFD700"
+        android:background="#A52A2A"
         android:onClick="clickOk"
         android:text="@android:string/VideoView_error_button"
-        android:textColor="	#B22222"
+        android:textColor="#FFD700"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -47,7 +47,7 @@
         android:layout_marginTop="8dp"
         android:text="請選擇先發五人"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="@android:color/background_light"
+        android:textColor="#A52A2A"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
