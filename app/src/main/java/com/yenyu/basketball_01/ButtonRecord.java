@@ -21,6 +21,8 @@ import android.widget.Toast;
 import com.yenyu.basketball_01.dao.Action;
 import com.yenyu.basketball_01.dao.ActionDAO;
 import com.yenyu.basketball_01.dao.Player;
+import com.yenyu.basketball_01.dao.Team;
+import com.yenyu.basketball_01.dao.TeamDAO;
 
 import java.io.BufferedReader;
 
@@ -144,6 +146,7 @@ public class ButtonRecord extends AppCompatActivity {
                 }
             }
         }
+
 
     }
     @Override
@@ -574,5 +577,13 @@ public class ButtonRecord extends AppCompatActivity {
 
     }
 
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Team team=new TeamDAO(ButtonRecord.this).getTeam(pid);
+        if(team.getScore1() >0 || team.getScore2()>0)
+        {
+            finish();
+        }
+    }
 }

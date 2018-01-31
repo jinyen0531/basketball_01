@@ -13,12 +13,15 @@ import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
+
 import com.yenyu.basketball_01.dao.Action;
 import com.yenyu.basketball_01.dao.ActionDAO;
 import com.yenyu.basketball_01.dao.Game;
 import com.yenyu.basketball_01.dao.GameDAO;
 import com.yenyu.basketball_01.dao.Player;
 import com.yenyu.basketball_01.dao.PlayerDAO;
+import com.yenyu.basketball_01.dao.TeamDAO;
 
 import java.util.ArrayList;
 
@@ -105,9 +108,32 @@ public class SummaryActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         actions=actionDAO.getActions(pid,0,"");
-                        games=parseHTML.getSummary(actions);
-                        GameDAO gameDAO=new GameDAO(SummaryActivity.this);
-                        gameDAO.insertGames(games);
+                        if(actions.size()<1)
+                        {
+                            Toast.makeText(SummaryActivity.this,"尚未有比賽成績！",Toast.LENGTH_SHORT).show();
+                        }
+                        else
+                        {
+                            games=parseHTML.getSummary(actions);
+                            int score1=0;
+                            int score2=0;
+                            for(int a=0;a<games.size();a++)
+                            {
+                                if(games.get(a).getNumber().equals("G"))
+                                {
+                                    score2+=games.get(a).getScore();
+                                }
+                                else
+                                {
+                                    score1+=games.get(a).getScore();
+                                }
+                            }
+                            Log.d("score",score1+" "+score2);
+                            new TeamDAO(SummaryActivity.this).updateTeams(score1,score2,pid);
+                            GameDAO gameDAO=new GameDAO(SummaryActivity.this);
+                            gameDAO.insertGames(games);
+                            finish();
+                        }
                     }
                 });
                 builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {

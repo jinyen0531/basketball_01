@@ -35,6 +35,25 @@ public class TeamDAO {
         return id;
     }
 
+    //依場次查詢
+    public Team getTeam(String pid)
+    {
+        SQLiteDatabase database=new MyDBHelper(context).getWritableDatabase();
+        String strSql="select * from teams where _id=?";
+        Cursor c=database.rawQuery(strSql,new String[]{pid});
+        Team team=null;
+        if(c.moveToFirst())
+        {
+            int id=c.getInt(c.getColumnIndex("_id"));
+            String team1=c.getString(c.getColumnIndex("team1"));
+            String team2=c.getString(c.getColumnIndex("team2"));
+            int score1=c.getInt(c.getColumnIndex("score1"));
+            int score2=c.getInt(c.getColumnIndex("score2"));
+            team=new Team(id,team1,team2,score1,score2);
+        }
+        return team;
+    }
+
     //查詢全部隊伍
     public ArrayList<Team> getTeams()
     {
@@ -55,6 +74,18 @@ public class TeamDAO {
         }
         database.close();
         return teams;
+    }
+
+    //修改
+    public boolean updateTeams(int score1,int score2,String pid)
+    {
+        SQLiteDatabase database=new MyDBHelper(context).getWritableDatabase();
+        ContentValues values=new ContentValues();
+        values.put("score1",score1);
+        values.put("score2",score2);
+        int i=database.update("teams",values,"_id=?",new String[]{pid});
+        Log.d("teamUpdate","pid="+pid+"c= "+i);
+        return i>0 ?true : false;
     }
 
     //依埸次刪除隊伍

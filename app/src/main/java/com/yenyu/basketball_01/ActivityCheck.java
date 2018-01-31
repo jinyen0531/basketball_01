@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 import com.yenyu.basketball_01.dao.PlayerDAO;
 import com.yenyu.basketball_01.dao.Player;
+import com.yenyu.basketball_01.dao.Team;
+import com.yenyu.basketball_01.dao.TeamDAO;
 
 import java.util.ArrayList;
 
@@ -80,5 +82,13 @@ public class ActivityCheck extends AppCompatActivity {
         }
 
     }
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Team team=new TeamDAO(ActivityCheck.this).getTeam(pid);
+        if(team.getScore1() >0 || team.getScore2()>0)
+        {
+            finish();
+        }
+    }
 }
