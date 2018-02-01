@@ -564,7 +564,14 @@ public class ButtonRecord extends AppCompatActivity {
                     ActionDAO dao = new ActionDAO(ButtonRecord.this);
                     dao.delAction();
                     flag=false;
-                    Log.d("FLAG",flag+"");}
+                    Log.d("FLAG",flag+"");
+                    int []Foul=dao.getFoulBySection(pid,Section);
+                    int []Scores=dao.getScores(pid);
+                    tvScore1.setText(String.valueOf(Scores[0]));
+                    tvScore2.setText(String.valueOf(Scores[1]));
+                    tvSectionFoul1.setText(String.valueOf(Foul[0]));
+                    tvSectionFoul2.setText(String.valueOf(Foul[1]));
+            }
         });
         builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
             @Override
