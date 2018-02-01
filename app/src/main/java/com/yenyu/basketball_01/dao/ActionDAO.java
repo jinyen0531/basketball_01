@@ -113,4 +113,58 @@ public class ActionDAO {
         Log.d("delActions",count+"");
         return count;
     }
+
+    //依場次,節次,取得雙方犯規
+    public int[] getFoulBySection(String pid,int section)
+    {
+        int[] fouls=new int[2];
+        SQLiteDatabase database=new MyDBHelper(context).getWritableDatabase();
+        String strSql="select * from actions where move=13 and pid=? and section=?";
+        Cursor c=database.rawQuery(strSql,new String[]{pid,String.valueOf(section)});
+        if(c.moveToFirst())
+        {
+            do {
+                if(c.getString(c.getColumnIndex("number")).equals("G"))
+                {
+                    fouls[1]+=1;
+                }
+                else
+                {
+                    fouls[0]+=1;
+                }
+
+            }while(c.moveToNext());
+        }
+        return fouls;
+    }
+    //依場次取得雙方分數
+    public int[] getScores(String pid)
+    {
+        int[] scores=new int[2];
+
+        SQLiteDatabase database=new MyDBHelper(context).getWritableDatabase();
+        String strSql="select * from actions where pid=?";
+        Cursor c=database.rawQuery(strSql,new String[]{pid});
+        int i;
+        if(c.moveToFirst())
+        {
+            do{
+                String number=c.getString(c.getColumnIndex("number"));
+                i=(number.equals("G"))?1:0;
+                switch (c.getInt(c.getColumnIndex("move")))
+                {
+                    case 1:
+                        scores[i]+=2;
+                        break;
+                    case 3:
+                        scores[i]+=3;
+                        break;
+                    case 5:
+                        scores[i]+=1;
+                        break;
+                }
+            }while(c.moveToNext());
+        }
+        return scores;
+    }
 }

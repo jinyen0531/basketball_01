@@ -553,6 +553,7 @@ public class ButtonRecord extends AppCompatActivity {
     }
 
     public void clickUndo(View v) {
+
         AlertDialog.Builder builder = new AlertDialog.Builder(ButtonRecord.this);
         builder.setTitle("確定取消上一步嗎");
         builder.setPositiveButton("確定", new DialogInterface.OnClickListener() {
