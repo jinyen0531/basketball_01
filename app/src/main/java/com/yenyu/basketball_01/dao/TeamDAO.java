@@ -51,6 +51,7 @@ public class TeamDAO {
             int score2=c.getInt(c.getColumnIndex("score2"));
             team=new Team(id,team1,team2,score1,score2);
         }
+        database.close();
         return team;
     }
 
@@ -59,7 +60,7 @@ public class TeamDAO {
     {
         ArrayList<Team> teams=new ArrayList<>();
         SQLiteDatabase database=new MyDBHelper(context).getWritableDatabase();
-        Cursor c=database.rawQuery("select * from teams",null);
+        Cursor c=database.rawQuery("select * from teams order by _id desc",null);
         if(c.moveToFirst())
         {
             do {
@@ -69,7 +70,7 @@ public class TeamDAO {
                 int score1=c.getInt(c.getColumnIndex("score1"));
                 int score2=c.getInt(c.getColumnIndex("score2"));
                 teams.add(new Team(id,team1,team2,score1,score2));
-                Log.d("Team","_id : "+id+", team1 : "+team1+", team2 : "+team2+", score1 : "+score1+", score2 : "+score2);
+                Log.d("dao Team","_id : "+id+", team1 : "+team1+", team2 : "+team2+", score1 : "+score1+", score2 : "+score2);
             }while(c.moveToNext());
         }
         database.close();
@@ -85,6 +86,7 @@ public class TeamDAO {
         values.put("score2",score2);
         int i=database.update("teams",values,"_id=?",new String[]{pid});
         Log.d("teamUpdate","pid="+pid+"c= "+i);
+        database.close();
         return i>0 ?true : false;
     }
 

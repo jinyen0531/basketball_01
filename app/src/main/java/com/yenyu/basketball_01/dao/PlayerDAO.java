@@ -19,6 +19,7 @@ public class PlayerDAO {
     {
         this.context=context;
     }
+
     //新增
     public boolean insertPlayers(ArrayList<Player> myData)
     {
@@ -62,6 +63,7 @@ public class PlayerDAO {
         database.close();
         return list;
     }
+
     //依場次刪除球員
     public int delPlayer(String pid)
     {

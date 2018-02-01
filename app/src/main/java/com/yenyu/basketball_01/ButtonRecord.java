@@ -162,6 +162,7 @@ public class ButtonRecord extends AppCompatActivity {
 
                 Intent it=new Intent(ButtonRecord.this,SummaryActivity.class);
                 it.putExtra("pid",pid);
+                it.putExtra("sour","Button");
                 startActivity(it);
                 break;
         }

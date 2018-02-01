@@ -1,9 +1,14 @@
 package com.yenyu.basketball_01;
 
+import android.app.DownloadManager;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -49,7 +54,12 @@ public class QueryActivity extends AppCompatActivity {
                         new PlayerDAO(QueryActivity.this).delPlayer(pid);
                         new ActionDAO(QueryActivity.this).delActionByPid(pid);
                         new GameDAO(QueryActivity.this).delGameByPid(pid);
-                        refreshData();
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                refreshData();
+                            }
+                        });
                     }
                 });
                 builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
@@ -68,15 +78,38 @@ public class QueryActivity extends AppCompatActivity {
         queryView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(QueryActivity.this,"onclick",Toast.LENGTH_SHORT).show();
+                Intent it=new Intent(QueryActivity.this,SummaryActivity.class);
+                it.putExtra("pid",String.valueOf(teams.get(i).get_id()));
+                it.putExtra("sour","Query");
+                startActivity(it);
             }
         });
+
 
     }
     public void refreshData()
     {
         teams.clear();
         teams=teamDAO.getTeams();
+        Log.d("Q teamsize",teams.size()+"");
         adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.summenu,menu);
+        menu.getItem(1).setVisible(false);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId())
+        {
+            case R.id.menu_back:
+                finish();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

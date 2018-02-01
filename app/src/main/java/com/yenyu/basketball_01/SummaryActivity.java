@@ -1,5 +1,6 @@
 package com.yenyu.basketball_01;
 
+import android.content.ClipData;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
@@ -31,6 +32,7 @@ public class SummaryActivity extends AppCompatActivity {
     Spinner sp1,sp2;
     ArrayList<Game> games=null;
     static String pid="";  //場次
+    String sour="";
     int sec=0;      //spinner1的節次,0(全部),1,2,3,4
     String num="";  //spinner2的背號,""為全部,其餘為背號
     ArrayList<Player> players;  //取得球員
@@ -44,6 +46,7 @@ public class SummaryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_summary);
         Intent it=getIntent();
         pid=it.getStringExtra("pid");
+        sour=it.getStringExtra("sour");
         Log.d("summary pid",pid);
         wv=findViewById(R.id.webView);
         sp1=findViewById(R.id.spinner);
@@ -67,21 +70,29 @@ public class SummaryActivity extends AppCompatActivity {
         {
             names[c++]=p.getNumber()+" "+p.getName();
         }
-        names[c++]="Guest";
+        names[c++]="G 客隊";
         final ArrayAdapter<String> adapterName=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,names);
         sp2.setAdapter(adapterName);
         sp2.setOnItemSelectedListener(new MyListener());
 
-        actions=actionDAO.getActions(pid,sec,num);
-        if(actions.size()!=0)
+        if(sour.equals("Button"))
         {
-            games=parseHTML.getSummary(actions);
+            actions=actionDAO.getActions(pid,sec,num);
+            if(actions.size()!=0)
+            {
+                games=parseHTML.getSummary(actions);
 
-            wv.loadData(parseHTML.getString(games),"text/html;charset=UTF-8",null);
+                wv.loadData(parseHTML.getString(games),"text/html;charset=UTF-8",null);
+            }
+            else
+            {
+                wv.loadData("無資料","text/html;charset=UTF-8",null);
+            }
         }
-        else
+        else if(sour.equals("Query"))
         {
-            wv.loadData("無資料","text/html;charset=UTF-8",null);
+            games=new GameDAO(SummaryActivity.this).getGames(pid,sec,num);
+            wv.loadData(parseHTML.getString(games),"text/html;charset=UTF-8",null);
         }
 
     }
@@ -89,6 +100,11 @@ public class SummaryActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.summenu,menu);
+        if(sour.equals("Query"))
+        {
+            menu.getItem(1).setVisible(false);
+        }
+
         return super.onCreateOptionsMenu(menu);
     }
 

@@ -79,6 +79,7 @@ public class ActionDAO {
         return mylist;
     }
 
+    //依場次 背號取得犯規次數
     public int getFoul(String pid,String number)
     {
         SQLiteDatabase database=new MyDBHelper(context).getWritableDatabase();
@@ -89,6 +90,7 @@ public class ActionDAO {
         Log.d("foul",i+"");
         return i;
     }
+
     //刪除最後一筆
     public boolean delAction()
     {
@@ -101,6 +103,7 @@ public class ActionDAO {
         database.close();
         return i>0 ? true : false;
     }
+
     //依場次,刪除actions
     public int delActionByPid(String pid)
     {

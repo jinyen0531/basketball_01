@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.yenyu.basketball_01.dao.Team;
+import com.yenyu.basketball_01.dao.TeamDAO;
+
 import java.util.ArrayList;
 
 /**
@@ -26,7 +28,8 @@ public class QueryAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        Log.d("Team size",teams.size()+"");
+        teams=new TeamDAO(context).getTeams();
+        Log.d("QA Team size",teams.size()+"");
         return teams.size();
     }
 
