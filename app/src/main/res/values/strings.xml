@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Team Score</string>
-    <string name="Title">籃球全場紀錄版</string>
+    <string name="Title">Team Scroe</string>
     <string name="gameStart">比賽開始</string>
     <string name="query">紀錄查詢</string>
     <string name="group">請輸入球員背號及姓名</string>
@@ -22,6 +22,29 @@
     <string name="Opponent">對手</string>
     <string name="NextSection">下一節</string>
 
-    <string name="start">start</string>
+    <string name="start">開始</string>
+    <string name="Number">Number</string>
+    <string name="already_foul">號已經犯規</string>
+    <string name="foul_out">畢業快樂!!!</string>
+    <string name="change_other">你必須換上另一個球員!</string>
+    <string name="OK">確定</string>
+    <string name="cancel">取消</string>
+    <string name="cancel_question">確定取消上一步嗎</string>
+    <string name="one_step1">只能取消</string>
+    <string name="one_step2">一個步驟!!</string>
+    <string name="alreadycancel1">你已經收回</string>
+    <string name="alreadycancel2">上一個步驟!!</string>
+    <string name="choose1">You have to</string>
+    <string name="choose2">choose five players</string>
+    <string name="change1">You have changed</string>
+    <string name="change2">your player list</string>
+    <string name="player_list">at least 5,Up to 12</string>
+    <string name="starting_lineup">Please choose starting lineup</string>
+    <string name="choose">Please choose five Players</string>
+    <string name="section4">"section 4 "</string>
+    <string name="section3">section 3</string>
+    <string name="section2">section 2</string>
+    <string name="choosePlayer2">the players!!!</string>
+    <string name="choosePlayer1">Please choose</string>
 
 </resources>

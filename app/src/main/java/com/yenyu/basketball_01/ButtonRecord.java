@@ -12,7 +12,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
-import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -20,11 +19,8 @@ import android.widget.Toast;
 
 import com.yenyu.basketball_01.dao.Action;
 import com.yenyu.basketball_01.dao.ActionDAO;
-import com.yenyu.basketball_01.dao.Player;
 import com.yenyu.basketball_01.dao.Team;
 import com.yenyu.basketball_01.dao.TeamDAO;
-
-import java.io.BufferedReader;
 
 
 public class ButtonRecord extends AppCompatActivity {
@@ -182,7 +178,7 @@ public class ButtonRecord extends AppCompatActivity {
                         } else {
                             tvScore1.setText(String.valueOf(Integer.valueOf(tvScore1.getText().toString()) + 2));
                         }
-                        tvOnlineA.setText("兩分球進");
+                        tvOnlineA.setText(getResources().getString(R.string.point2_in));
                         int foul=new ActionDAO(ButtonRecord.this).getFoul(pid, Player);
                         if(!Player.equals("G") && foul==5){}
                         else{
@@ -190,13 +186,13 @@ public class ButtonRecord extends AppCompatActivity {
                         clickCancel();
                     }
                     else {
-                        tvOnlineN.setText("請選擇");
-                        tvOnlineA.setText("球員!!!!");}
+                        tvOnlineN.setText(getResources().getString(R.string.choosePlayer1));
+                        tvOnlineA.setText(getResources().getString(R.string.choosePlayer2));}
                     break;
                 case R.id.bt2out:
                     if (!Player.equals("")) {
                         Action = RecordAction.Action_2point_out;
-                        tvOnlineA.setText("兩分球不進");
+                        tvOnlineA.setText(getResources().getString(R.string.point2_out));
                         int foul=new ActionDAO(ButtonRecord.this).getFoul(pid, Player);
                         if(!Player.equals("G") && foul==5){}
                         else{
@@ -204,8 +200,8 @@ public class ButtonRecord extends AppCompatActivity {
                         clickCancel();
                     }
                     else {
-                        tvOnlineN.setText("請選擇");
-                        tvOnlineA.setText("球員!!!!");}
+                        tvOnlineN.setText(getResources().getString(R.string.choosePlayer1));
+                        tvOnlineA.setText(getResources().getString(R.string.choosePlayer2));}
                     break;
                 case R.id.bt3in:
                     if (!Player.equals("")) {
@@ -215,7 +211,7 @@ public class ButtonRecord extends AppCompatActivity {
                         } else{
                             tvScore1.setText(String.valueOf(Integer.valueOf(tvScore1.getText().toString()) + 3));
                         }
-                        tvOnlineA.setText("三分球進");
+                        tvOnlineA.setText(getResources().getString(R.string.point3_in));
                         int foul=new ActionDAO(ButtonRecord.this).getFoul(pid, Player);
                         if(!Player.equals("G") && foul==5){}
                         else{
@@ -223,13 +219,13 @@ public class ButtonRecord extends AppCompatActivity {
                         clickCancel();
                     }
                     else {
-                        tvOnlineN.setText("請選擇");
-                        tvOnlineA.setText("球員!!!");}
+                        tvOnlineN.setText(getResources().getString(R.string.choosePlayer1));
+                        tvOnlineA.setText(getResources().getString(R.string.choosePlayer2));}
                     break;
                 case R.id.bt3out:
                     if(!Player.equals("")) {
                         Action = RecordAction.Action_3point_out;
-                        tvOnlineA.setText("三分球不進");
+                        tvOnlineA.setText(getResources().getString(R.string.point3_out));
                         int foul=new ActionDAO(ButtonRecord.this).getFoul(pid, Player);
                         if(!Player.equals("G") && foul==5){}
                         else{
@@ -237,8 +233,8 @@ public class ButtonRecord extends AppCompatActivity {
                         clickCancel();
                     }
                     else {
-                        tvOnlineN.setText("請選擇");
-                        tvOnlineA.setText("球員!!!");}
+                        tvOnlineN.setText(getResources().getString(R.string.choosePlayer1));
+                        tvOnlineA.setText(getResources().getString(R.string.choosePlayer2));}
                     break;
                 case R.id.btFTin:
                     if (!Player.equals("")) {
@@ -248,7 +244,7 @@ public class ButtonRecord extends AppCompatActivity {
                         } else{
                             tvScore1.setText(String.valueOf(Integer.valueOf(tvScore1.getText().toString()) + 1));
                         }
-                        tvOnlineA.setText("罰球進");
+                        tvOnlineA.setText(getResources().getString(R.string.FT_in));
                         int foul=new ActionDAO(ButtonRecord.this).getFoul(pid, Player);
                         if(!Player.equals("G") && foul==5){}
                         else{
@@ -256,13 +252,13 @@ public class ButtonRecord extends AppCompatActivity {
                         clickCancel();
                     }
                     else {
-                        tvOnlineN.setText("請選擇");
-                        tvOnlineA.setText("球員!!!");}
+                        tvOnlineN.setText(getResources().getString(R.string.choosePlayer1));
+                        tvOnlineA.setText(getResources().getString(R.string.choosePlayer2));}
                     break;
                 case R.id.btFTout:
                     if (!Player.equals("")) {
                         Action = RecordAction.Action_FT_out;
-                        tvOnlineA.setText("罰球不進");
+                        tvOnlineA.setText(getResources().getString(R.string.FT_out));
                         int foul=new ActionDAO(ButtonRecord.this).getFoul(pid, Player);
                         if(!Player.equals("G") && foul==5){}
                         else{
@@ -270,13 +266,13 @@ public class ButtonRecord extends AppCompatActivity {
                         clickCancel();
                     }
                     else {
-                        tvOnlineN.setText("請選擇");
-                        tvOnlineA.setText("球員!!!");}
+                        tvOnlineN.setText(getResources().getString(R.string.choosePlayer1));
+                        tvOnlineA.setText(getResources().getString(R.string.choosePlayer2));}
                     break;
                 case R.id.btOR:
                     if (!Player.equals("")) {
                         Action = RecordAction.Action_OR;
-                        tvOnlineA.setText("進攻籃板");
+                        tvOnlineA.setText(getResources().getString(R.string.OR));
                         int foul=new ActionDAO(ButtonRecord.this).getFoul(pid, Player);
                         if(!Player.equals("G") && foul==5){}
                         else{
@@ -284,13 +280,13 @@ public class ButtonRecord extends AppCompatActivity {
                         clickCancel();
                     }
                     else {
-                        tvOnlineN.setText("請選擇");
-                        tvOnlineA.setText("球員!!!");}
+                        tvOnlineN.setText(getResources().getString(R.string.choosePlayer1));
+                        tvOnlineA.setText(getResources().getString(R.string.choosePlayer2));}
                     break;
                 case R.id.btDR:
                     if (!Player.equals("")) {
                         Action = RecordAction.Action_DR;
-                        tvOnlineA.setText("防守籃板");
+                        tvOnlineA.setText(getResources().getString(R.string.DR));
                         int foul=new ActionDAO(ButtonRecord.this).getFoul(pid, Player);
                         if(!Player.equals("G") && foul==5){}
                         else{
@@ -298,13 +294,13 @@ public class ButtonRecord extends AppCompatActivity {
                         clickCancel();
                     }
                     else {
-                        tvOnlineN.setText("請選擇");
-                        tvOnlineA.setText("球員!!!");}
+                        tvOnlineN.setText(getResources().getString(R.string.choosePlayer1));
+                        tvOnlineA.setText(getResources().getString(R.string.choosePlayer2));}
                     break;
                 case R.id.btST:
                     if (!Player.equals("")) {
                         Action = RecordAction.Action_ST;
-                        tvOnlineA.setText("抄截");
+                        tvOnlineA.setText(getResources().getString(R.string.ST));
                         int foul=new ActionDAO(ButtonRecord.this).getFoul(pid, Player);
                         if(!Player.equals("G") && foul==5){}
                         else{
@@ -312,13 +308,13 @@ public class ButtonRecord extends AppCompatActivity {
                         clickCancel();
                     }
                     else {
-                        tvOnlineN.setText("請選擇");
-                        tvOnlineA.setText("球員!!!");}
+                        tvOnlineN.setText(getResources().getString(R.string.choosePlayer1));
+                        tvOnlineA.setText(getResources().getString(R.string.choosePlayer2));}
                     break;
                 case R.id.btAS:
                     if (!Player.equals("")) {
                         Action = RecordAction.Action_AS;
-                        tvOnlineA.setText("助攻");
+                        tvOnlineA.setText(getResources().getString(R.string.AS));
                         int foul=new ActionDAO(ButtonRecord.this).getFoul(pid, Player);
                         if(!Player.equals("G") && foul==5){}
                         else{
@@ -326,13 +322,13 @@ public class ButtonRecord extends AppCompatActivity {
                         clickCancel();
                     }
                     else {
-                        tvOnlineN.setText("請選擇");
-                        tvOnlineA.setText("球員!!!");}
+                        tvOnlineN.setText(getResources().getString(R.string.choosePlayer1));
+                        tvOnlineA.setText(getResources().getString(R.string.choosePlayer2));}
                     break;
                 case R.id.btBS:
                     if (!Player.equals("")) {
                         Action = RecordAction.Action_BS;
-                        tvOnlineA.setText("阻攻");
+                        tvOnlineA.setText(getResources().getString(R.string.BS));
                         int foul=new ActionDAO(ButtonRecord.this).getFoul(pid, Player);
                         if(!Player.equals("G") && foul==5){}
                         else{
@@ -340,13 +336,13 @@ public class ButtonRecord extends AppCompatActivity {
                         clickCancel();
                     }
                     else {
-                        tvOnlineN.setText("請選擇");
-                        tvOnlineA.setText("球員!!!");}
+                        tvOnlineN.setText(getResources().getString(R.string.choosePlayer1));
+                        tvOnlineA.setText(getResources().getString(R.string.choosePlayer2));}
                     break;
                 case R.id.btTO:
                     if (!Player.equals("")) {
                         Action = RecordAction.Action_TO;
-                        tvOnlineA.setText("失誤");
+                        tvOnlineA.setText(getResources().getString(R.string.TO));
                         int foul=new ActionDAO(ButtonRecord.this).getFoul(pid, Player);
                         if(!Player.equals("G") && foul==5){}
                         else{
@@ -354,8 +350,8 @@ public class ButtonRecord extends AppCompatActivity {
                         clickCancel();
                     }
                     else {
-                        tvOnlineN.setText("請選擇");
-                        tvOnlineA.setText("球員!!!");}
+                        tvOnlineN.setText(getResources().getString(R.string.choosePlayer1));
+                        tvOnlineA.setText(getResources().getString(R.string.choosePlayer2));}
                     break;
                 case R.id.btFoul:
                     if (!Player.equals("")) {
@@ -368,7 +364,7 @@ public class ButtonRecord extends AppCompatActivity {
                             int sectionfoul1 = Integer.valueOf(tvSectionFoul1.getText().toString());
                             if(sectionfoul1<5)
                                 tvSectionFoul1.setText(String.valueOf(sectionfoul1+1));}
-                        tvOnlineA.setText("犯規");
+                        tvOnlineA.setText(getResources().getString(R.string.foul));
                         int foul2=new ActionDAO(ButtonRecord.this).getFoul(pid, Player);
                         if(!Player.equals("G") && foul2==5){}  //五犯的球員不再記錄到資料庫
                         else{
@@ -380,12 +376,14 @@ public class ButtonRecord extends AppCompatActivity {
                             if(!Player.equals("G"))
                             {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(ButtonRecord.this);
-                                builder.setTitle("球員"+Player+"號已經犯規"+foul+"次!!");
+                                builder.setTitle(getResources().getString(R.string.Number)+Player+
+                                        getResources().getString(R.string.already_foul)+foul);
                                 if(foul==5)
                                 {
-                                    builder.setMessage("\n畢業快樂!!!\n你必須換上另一個球員!");
+                                    builder.setMessage("\n"+getResources().getString(R.string.foul_out)+
+                                            "\n"+getResources().getString(R.string.change_other));
                                 }
-                                builder.setPositiveButton("確定", new DialogInterface.OnClickListener() {
+                                builder.setPositiveButton(getResources().getString(R.string.OK), new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
 
@@ -399,22 +397,22 @@ public class ButtonRecord extends AppCompatActivity {
                         clickCancel();
                     }
                     else {
-                        tvOnlineN.setText("請選擇");
-                        tvOnlineA.setText("球員!!!");}
+                        tvOnlineN.setText(getResources().getString(R.string.choosePlayer1));
+                        tvOnlineA.setText(getResources().getString(R.string.choosePlayer2));}
                     break;
                 case R.id.btNextSection:
                     if(Section == 1)
                     { Section = RecordAction.Section2;
-                        tvOnlineN.setText("第二節");
-                        tvOnlineA.setText("開始");}
+                        tvOnlineN.setText(getResources().getString(R.string.section2));
+                        tvOnlineA.setText(""+getResources().getString(R.string.start));}
                     else if (Section == 2)
                     {Section = RecordAction.Section3;
-                        tvOnlineN.setText("第三節");
-                        tvOnlineA.setText("開始");}
+                        tvOnlineN.setText(getResources().getString(R.string.section2));
+                        tvOnlineA.setText(""+getResources().getString(R.string.start));}
                     else if (Section == 3)
                     {Section = RecordAction.Section4;
-                        tvOnlineN.setText("第四節");
-                        tvOnlineA.setText("開始");}
+                        tvOnlineN.setText(getResources().getString(R.string.section2));
+                        tvOnlineA.setText(""+getResources().getString(R.string.start));}
                     Log.d("Section",Section+"");
                     tvSectionFoul1.setText("0");
                     tvSectionFoul2.setText("0");
@@ -443,37 +441,37 @@ public class ButtonRecord extends AppCompatActivity {
                 case R.id.rbNumber1:
                     rg2.clearCheck();
                     Player = rbNumber1.getText().toString();
-                    tvOnlineN.setText(Player + "號選手");
+                    tvOnlineN.setText(getResources().getString(R.string.Number)+Player+"");
                     tvOnlineA.setText("");
                     break;
                 case R.id.rbNumber2:
                     rg2.clearCheck();
                     Player = rbNumber2.getText().toString();
-                    tvOnlineN.setText(Player + "號選手");
+                    tvOnlineN.setText(getResources().getString(R.string.Number)+Player+"");
                     tvOnlineA.setText("");
                     break;
                 case R.id.rbNumber3:
                     rg2.clearCheck();
                     Player = rbNumber3.getText().toString();
-                    tvOnlineN.setText(Player + "號選手");
+                    tvOnlineN.setText(getResources().getString(R.string.Number)+Player+"");
                     tvOnlineA.setText("");
                     break;
                 case R.id.rbNumber4:
                     rg1.clearCheck();
                     Player = rbNumber4.getText().toString();
-                    tvOnlineN.setText(Player + "號選手");
+                    tvOnlineN.setText(getResources().getString(R.string.Number)+Player+"");
                     tvOnlineA.setText("");
                     break;
                 case R.id.rbNumber5:
                     rg1.clearCheck();
                     Player = rbNumber5.getText().toString();
-                    tvOnlineN.setText(Player + "號選手");
+                    tvOnlineN.setText(getResources().getString(R.string.Number)+Player+"");
                     tvOnlineA.setText("");
                     break;
                 case R.id.rbOP:
                     Player = "G";
                     rg1.clearCheck();
-                    tvOnlineN.setText("對手");
+                    tvOnlineN.setText(getResources().getString(R.string.Number)+Player+"");
                     tvOnlineA.setText("");
                     break;
 
@@ -491,7 +489,7 @@ public class ButtonRecord extends AppCompatActivity {
     public void clickChange(View v) {
         //換球員名單
         AlertDialog.Builder builder = new AlertDialog.Builder(ButtonRecord.this);
-        builder.setTitle("請勾選上場球員名單(5)");
+        builder.setTitle(getResources().getString(R.string.choose));
 
 //        Log.d("numbers",numbers[1]);
         builder.setMultiChoiceItems(numbers, chks, new DialogInterface.OnMultiChoiceClickListener() {
@@ -528,20 +526,20 @@ public class ButtonRecord extends AppCompatActivity {
                 }
             }
         });
-        builder.setPositiveButton("確定", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(getResources().getString(R.string.OK), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 if (count != 5) {
-                    Toast.makeText(ButtonRecord.this, "請勾選五位球員", Toast.LENGTH_SHORT).show();
-                    tvOnlineN.setText("球員需");
-                    tvOnlineA.setText("勾選五人!!!");
+                    Toast.makeText(ButtonRecord.this, getResources().getString(R.string.choose), Toast.LENGTH_SHORT).show();
+                    tvOnlineN.setText(getResources().getString(R.string.choose1));
+                    tvOnlineA.setText(getResources().getString(R.string.choose2));
                 }
-                else{tvOnlineN.setText("您已更改");
-                tvOnlineA.setText("球員名單");}
+                else{tvOnlineN.setText(getResources().getString(R.string.change1));
+                tvOnlineA.setText(getResources().getString(R.string.change2));}
 //
             }
         });
-        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(getResources().getString(R.string.cancel), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
@@ -555,12 +553,12 @@ public class ButtonRecord extends AppCompatActivity {
     public void clickUndo(View v) {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(ButtonRecord.this);
-        builder.setTitle("確定取消上一步嗎");
-        builder.setPositiveButton("確定", new DialogInterface.OnClickListener() {
+        builder.setTitle(getResources().getString(R.string.cancel_question));
+        builder.setPositiveButton(getResources().getString(R.string.OK), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                    tvOnlineN.setText("你已收回");
-                    tvOnlineA.setText("前一個步驟!");
+                    tvOnlineN.setText(getResources().getString(R.string.alreadycancel1));
+                    tvOnlineA.setText(getResources().getString(R.string.alreadycancel2));
                     ActionDAO dao = new ActionDAO(ButtonRecord.this);
                     dao.delAction();
                     flag=false;
@@ -573,7 +571,7 @@ public class ButtonRecord extends AppCompatActivity {
                     tvSectionFoul2.setText(String.valueOf(Foul[1]));
             }
         });
-        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(getResources().getString(R.string.cancel), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
 
@@ -581,8 +579,8 @@ public class ButtonRecord extends AppCompatActivity {
         });
         if(flag)
             builder.show();
-        else{tvOnlineN.setText("只能取消");
-            tvOnlineA.setText("一個步驟");}
+        else{tvOnlineN.setText(getResources().getString(R.string.one_step1));
+            tvOnlineA.setText(getResources().getString(R.string.one_step2));}
 
     }
 
