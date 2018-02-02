@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Basketball Record</string>
+    <string name="app_name">Team Score</string>
     <string name="Title">籃球全場紀錄版</string>
     <string name="gameStart">比賽開始</string>
     <string name="query">紀錄查詢</string>
