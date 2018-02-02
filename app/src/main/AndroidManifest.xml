@@ -4,9 +4,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/iscore"
+        android:icon="@drawable/basketball"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/iscore"
+        android:roundIcon="@drawable/basketball"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity" android:screenOrientation="portrait">
