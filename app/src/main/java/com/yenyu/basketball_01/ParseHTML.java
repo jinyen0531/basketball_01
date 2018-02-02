@@ -1,11 +1,7 @@
 package com.yenyu.basketball_01;
 
-
-import android.util.Log;
-
 import com.yenyu.basketball_01.dao.Action;
 import com.yenyu.basketball_01.dao.Game;
-
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import java.io.StringWriter;
@@ -28,7 +24,7 @@ public class ParseHTML {
 
     public String getString(ArrayList<Game> mylist)
     {
-        if(mylist.size() ==0) return null;
+        if(mylist.size() ==0 || mylist==null) return "<html><body bgcolor='#FDF5E6'>無資料</body></thml>";
         DocumentBuilderFactory df=DocumentBuilderFactory.newInstance();
         DocumentBuilder builder= null;
         Document doc=null;
@@ -38,15 +34,12 @@ public class ParseHTML {
 
             Element html=doc.createElement("html");
             Element body=doc.createElement("body");
+            body.setAttribute("bgcolor","#FDF5E6");
             Element table=doc.createElement("table");
             table.setAttribute("border","1");
 
             //建立表頭
             Element tr=doc.createElement("tr");
-//            Element th=doc.createElement("th");
-//            th.setAttribute("rowspan","2");
-//            th.appendChild(doc.createTextNode("埸次"));
-//            tr.appendChild(th);
 
             Element th=doc.createElement("th");
             th.setAttribute("rowspan","2");
@@ -148,10 +141,6 @@ public class ParseHTML {
             for(int i=0;i<mylist.size();i++)
             {
                 tr=doc.createElement("tr");
-//                td=doc.createElement("td");
-//                td.setAttribute("align","center");
-//                td.appendChild(doc.createTextNode(mylist.get(i).getPid()));
-//                tr.appendChild(td);
 
                 td=doc.createElement("td");
                 td.setAttribute("align","center");
