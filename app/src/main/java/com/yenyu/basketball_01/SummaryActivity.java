@@ -30,7 +30,7 @@ public class SummaryActivity extends AppCompatActivity {
 
     WebView wv;
     Spinner sp1,sp2;
-    ArrayList<Game> games=null;
+    ArrayList<Game> games=new ArrayList<>();
     static String pid="";  //場次
     String sour="";
     int sec=0;      //spinner1的節次,0(全部),1,2,3,4
@@ -75,25 +75,7 @@ public class SummaryActivity extends AppCompatActivity {
         sp2.setAdapter(adapterName);
         sp2.setOnItemSelectedListener(new MyListener());
 
-        if(sour.equals("Button"))
-        {
-            actions=actionDAO.getActions(pid,sec,num);
-            if(actions.size()!=0)
-            {
-                games=parseHTML.getSummary(actions);
-
-                wv.loadData(parseHTML.getString(games),"text/html;charset=UTF-8",null);
-            }
-            else
-            {
-                wv.loadData("無資料","text/html;charset=UTF-8",null);
-            }
-        }
-        else if(sour.equals("Query"))
-        {
-            games=new GameDAO(SummaryActivity.this).getGames(pid,sec,num);
-            wv.loadData(parseHTML.getString(games),"text/html;charset=UTF-8",null);
-        }
+        insertData();
 
     }
 
@@ -196,22 +178,39 @@ public class SummaryActivity extends AppCompatActivity {
             }
             Log.d("spinner","sec : "+ sec+" num : "+num);
 
-            actions=actionDAO.getActions(pid,sec,num);
-            if(actions.size()!=0)
-            {
-                games=parseHTML.getSummary(actions);
-
-                wv.loadData(parseHTML.getString(games),"text/html;charset=UTF-8",null);
-            }
-            else
-            {
-                wv.loadData("無資料","text/html;charset=UTF-8",null);
-            }
+            insertData();
         }
 
         @Override
         public void onNothingSelected(AdapterView<?> adapterView) {
             return;
+        }
+    }
+
+    public void insertData()
+    {
+        if(sour.equals("Button"))
+        {
+            actions=actionDAO.getActions(pid,sec,num);
+            if(actions.size()!=0)
+            {
+                games=parseHTML.getSummary(actions);
+                wv.loadUrl("about:blank");
+                wv.loadData(parseHTML.getString(games),"text/html;charset=UTF-8",null);
+            }
+            else
+            {
+                games=new ArrayList<>();
+                wv.loadUrl("about:blank");
+                wv.loadData(parseHTML.getString(games),"text/html;charset=UTF-8",null);
+            }
+        }
+        else if(sour.equals("Query"))
+        {
+            games=new GameDAO(SummaryActivity.this).getGames(pid,sec,num);
+            String data=parseHTML.getString(games);
+            wv.loadUrl("about:blank");
+            wv.loadData(data,"text/html;charset=UTF-8",null);
         }
     }
 }
