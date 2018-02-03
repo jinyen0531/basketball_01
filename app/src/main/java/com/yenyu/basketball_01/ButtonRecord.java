@@ -44,6 +44,7 @@ public class ButtonRecord extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.button_record);
 
+
         tvScore1 = (TextView) findViewById(R.id.tvScore1); //自己的得分
         tvScore2 = (TextView) findViewById(R.id.tvScore2); //對方的得分
         tvSectionFoul1 = (TextView) findViewById(R.id.tvSectionFoul1); //自己的團犯
@@ -110,7 +111,7 @@ public class ButtonRecord extends AppCompatActivity {
         pid=b.getString("pid");
         team1=b.getString("Team1");
         team2=b.getString("Team2");
-        setTitle(team1+" v.s. "+team2);
+        setTitle(team1+"v.s."+team2);
         Log.d("button record pid",pid);
         numbers = b.getStringArray("numbers");
         chks = b.getBooleanArray("chks");
@@ -177,7 +178,7 @@ public class ButtonRecord extends AppCompatActivity {
                         } else {
                             tvScore1.setText(String.valueOf(Integer.valueOf(tvScore1.getText().toString()) + 2));
                         }
-                        tvOnlineA.setText("   "+getResources().getString(R.string.point2_in));
+                        tvOnlineA.setText(getResources().getString(R.string.point2_in));
                         int foul=new ActionDAO(ButtonRecord.this).getFoul(pid, Player);
                         if(!Player.equals("G") && foul==5){}
                         else{
@@ -191,7 +192,7 @@ public class ButtonRecord extends AppCompatActivity {
                 case R.id.bt2out:
                     if (!Player.equals("")) {
                         Action = RecordAction.Action_2point_out;
-                        tvOnlineA.setText("   "+getResources().getString(R.string.point2_out));
+                        tvOnlineA.setText(getResources().getString(R.string.point2_out));
                         int foul=new ActionDAO(ButtonRecord.this).getFoul(pid, Player);
                         if(!Player.equals("G") && foul==5){}
                         else{
@@ -210,7 +211,7 @@ public class ButtonRecord extends AppCompatActivity {
                         } else{
                             tvScore1.setText(String.valueOf(Integer.valueOf(tvScore1.getText().toString()) + 3));
                         }
-                        tvOnlineA.setText("   "+getResources().getString(R.string.point3_in));
+                        tvOnlineA.setText(getResources().getString(R.string.point3_in));
                         int foul=new ActionDAO(ButtonRecord.this).getFoul(pid, Player);
                         if(!Player.equals("G") && foul==5){}
                         else{
@@ -224,7 +225,7 @@ public class ButtonRecord extends AppCompatActivity {
                 case R.id.bt3out:
                     if(!Player.equals("")) {
                         Action = RecordAction.Action_3point_out;
-                        tvOnlineA.setText("   "+getResources().getString(R.string.point3_out));
+                        tvOnlineA.setText(getResources().getString(R.string.point3_out));
                         int foul=new ActionDAO(ButtonRecord.this).getFoul(pid, Player);
                         if(!Player.equals("G") && foul==5){}
                         else{
@@ -243,7 +244,7 @@ public class ButtonRecord extends AppCompatActivity {
                         } else{
                             tvScore1.setText(String.valueOf(Integer.valueOf(tvScore1.getText().toString()) + 1));
                         }
-                        tvOnlineA.setText("   "+getResources().getString(R.string.FT_in));
+                        tvOnlineA.setText(getResources().getString(R.string.FT_in));
                         int foul=new ActionDAO(ButtonRecord.this).getFoul(pid, Player);
                         if(!Player.equals("G") && foul==5){}
                         else{
@@ -257,7 +258,7 @@ public class ButtonRecord extends AppCompatActivity {
                 case R.id.btFTout:
                     if (!Player.equals("")) {
                         Action = RecordAction.Action_FT_out;
-                        tvOnlineA.setText("   "+getResources().getString(R.string.FT_out));
+                        tvOnlineA.setText(getResources().getString(R.string.FT_out));
                         int foul=new ActionDAO(ButtonRecord.this).getFoul(pid, Player);
                         if(!Player.equals("G") && foul==5){}
                         else{
@@ -271,7 +272,7 @@ public class ButtonRecord extends AppCompatActivity {
                 case R.id.btOR:
                     if (!Player.equals("")) {
                         Action = RecordAction.Action_OR;
-                        tvOnlineA.setText("   "+getResources().getString(R.string.OR));
+                        tvOnlineA.setText(getResources().getString(R.string.OR));
                         int foul=new ActionDAO(ButtonRecord.this).getFoul(pid, Player);
                         if(!Player.equals("G") && foul==5){}
                         else{
@@ -285,7 +286,7 @@ public class ButtonRecord extends AppCompatActivity {
                 case R.id.btDR:
                     if (!Player.equals("")) {
                         Action = RecordAction.Action_DR;
-                        tvOnlineA.setText("   "+getResources().getString(R.string.DR));
+                        tvOnlineA.setText(getResources().getString(R.string.DR));
                         int foul=new ActionDAO(ButtonRecord.this).getFoul(pid, Player);
                         if(!Player.equals("G") && foul==5){}
                         else{
@@ -299,7 +300,7 @@ public class ButtonRecord extends AppCompatActivity {
                 case R.id.btST:
                     if (!Player.equals("")) {
                         Action = RecordAction.Action_ST;
-                        tvOnlineA.setText("   "+getResources().getString(R.string.ST));
+                        tvOnlineA.setText(getResources().getString(R.string.ST));
                         int foul=new ActionDAO(ButtonRecord.this).getFoul(pid, Player);
                         if(!Player.equals("G") && foul==5){}
                         else{
@@ -313,7 +314,7 @@ public class ButtonRecord extends AppCompatActivity {
                 case R.id.btAS:
                     if (!Player.equals("")) {
                         Action = RecordAction.Action_AS;
-                        tvOnlineA.setText("   "+getResources().getString(R.string.AS));
+                        tvOnlineA.setText(getResources().getString(R.string.AS));
                         int foul=new ActionDAO(ButtonRecord.this).getFoul(pid, Player);
                         if(!Player.equals("G") && foul==5){}
                         else{
@@ -341,7 +342,7 @@ public class ButtonRecord extends AppCompatActivity {
                 case R.id.btTO:
                     if (!Player.equals("")) {
                         Action = RecordAction.Action_TO;
-                        tvOnlineA.setText("   "+getResources().getString(R.string.TO));
+                        tvOnlineA.setText(getResources().getString(R.string.TO));
                         int foul=new ActionDAO(ButtonRecord.this).getFoul(pid, Player);
                         if(!Player.equals("G") && foul==5){}
                         else{
@@ -406,11 +407,11 @@ public class ButtonRecord extends AppCompatActivity {
                         tvOnlineA.setText("   "+getResources().getString(R.string.start));}
                     else if (Section == 2)
                     {Section = RecordAction.Section3;
-                        tvOnlineN.setText(getResources().getString(R.string.section2));
+                        tvOnlineN.setText(getResources().getString(R.string.section3));
                         tvOnlineA.setText("   "+getResources().getString(R.string.start));}
                     else if (Section == 3)
                     {Section = RecordAction.Section4;
-                        tvOnlineN.setText(getResources().getString(R.string.section2));
+                        tvOnlineN.setText(getResources().getString(R.string.section4));
                         tvOnlineA.setText("   "+getResources().getString(R.string.start));}
                     Log.d("Section",Section+"");
                     tvSectionFoul1.setText("0");
@@ -534,7 +535,7 @@ public class ButtonRecord extends AppCompatActivity {
                     tvOnlineA.setText(getResources().getString(R.string.choose2));
                 }
                 else{tvOnlineN.setText(getResources().getString(R.string.change1));
-                tvOnlineA.setText(getResources().getString(R.string.change2));}
+                    tvOnlineA.setText(getResources().getString(R.string.change2));}
 //
             }
         });
@@ -556,18 +557,18 @@ public class ButtonRecord extends AppCompatActivity {
         builder.setPositiveButton(getResources().getString(R.string.OK), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                    tvOnlineN.setText(getResources().getString(R.string.alreadycancel1));
-                    tvOnlineA.setText(getResources().getString(R.string.alreadycancel2));
-                    ActionDAO dao = new ActionDAO(ButtonRecord.this);
-                    dao.delAction();
-                    flag=false;
-                    Log.d("FLAG",flag+"");
-                    int []Foul=dao.getFoulBySection(pid,Section);
-                    int []Scores=dao.getScores(pid);
-                    tvScore1.setText(String.valueOf(Scores[0]));
-                    tvScore2.setText(String.valueOf(Scores[1]));
-                    tvSectionFoul1.setText(String.valueOf(Foul[0]));
-                    tvSectionFoul2.setText(String.valueOf(Foul[1]));
+                tvOnlineN.setText(getResources().getString(R.string.alreadycancel1));
+                tvOnlineA.setText(getResources().getString(R.string.alreadycancel2));
+                ActionDAO dao = new ActionDAO(ButtonRecord.this);
+                dao.delAction();
+                flag=false;
+                Log.d("FLAG",flag+"");
+                int []Foul=dao.getFoulBySection(pid,Section);
+                int []Scores=dao.getScores(pid);
+                tvScore1.setText(String.valueOf(Scores[0]));
+                tvScore2.setText(String.valueOf(Scores[1]));
+                tvSectionFoul1.setText(String.valueOf(Foul[0]));
+                tvSectionFoul2.setText(String.valueOf(Foul[1]));
             }
         });
         builder.setNegativeButton(getResources().getString(R.string.cancel), new DialogInterface.OnClickListener() {

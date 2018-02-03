@@ -6,11 +6,11 @@
     <string name="group">Please Enter the Jursey Numbers and Names</string>
     <string name="teamEnter">Please Enter Team names</string>
     <string name="point2_in">2pt made</string>
-    <string name="point2_out">2pt att</string>
+    <string name="point2_out">2pt miss</string>
     <string name="point3_in">3pt made</string>
-    <string name="point3_out">3pt att</string>
+    <string name="point3_out">3pt miss</string>
     <string name="FT_in">FT made</string>
-    <string name="FT_out">FT att</string>
+    <string name="FT_out">FT miss</string>
     <string name="foul">Foul</string>
     <string name="AS">AS</string>
     <string name="BS">BS</string>
