@@ -140,11 +140,11 @@ public class ParseHTML {
             tr.appendChild(th);
 
             th=doc.createElement("th");
-            th.appendChild(doc.createTextNode(res.getString(R.string.OR)));
+            th.appendChild(doc.createTextNode(res.getString(R.string.oror)));
             tr.appendChild(th);
 
             th=doc.createElement("th");
-            th.appendChild(doc.createTextNode(res.getString(R.string.DR)));
+            th.appendChild(doc.createTextNode(res.getString(R.string.drdr)));
             tr.appendChild(th);
             table.appendChild(tr);
 

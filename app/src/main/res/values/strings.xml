@@ -63,4 +63,6 @@
     <string name="miss">miss</string>
     <string name="score">PTS</string>
     <string name="rebound">Rebounds</string>
+    <string name="oror">OR</string>
+    <string name="drdr">DR</string>
 </resources>

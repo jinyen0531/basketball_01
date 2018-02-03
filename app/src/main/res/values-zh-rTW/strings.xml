@@ -58,10 +58,12 @@
     <string name="noResult">尚未有比賽成績！</string>
     <string name="saveConfrim">請確認是否儲存比賽？</string>
     <string name="ft">罰球</string>
-    <string name="point2">二分球</string>
-    <string name="point3">三分球</string>
+    <string name="point2">二分</string>
+    <string name="point3">三分</string>
     <string name="goal">進</string>
     <string name="miss">不進</string>
     <string name="score">分數</string>
-    <string name="rebound">籃板球</string>
+    <string name="rebound">籃板</string>
+    <string name="oror">進攻</string>
+    <string name="drdr">防守</string>
 </resources>
