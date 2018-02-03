@@ -9,19 +9,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.yenyu.basketball_01.dao.Action;
-import com.yenyu.basketball_01.dao.ActionDAO;
-import com.yenyu.basketball_01.dao.Game;
-import com.yenyu.basketball_01.dao.GameDAO;
-import com.yenyu.basketball_01.dao.Player;
-import com.yenyu.basketball_01.dao.PlayerDAO;
 import com.yenyu.basketball_01.dao.Team;
 import com.yenyu.basketball_01.dao.TeamDAO;
 
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,18 +23,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void click1(View v)
-    {
-
-//        Intent it=new Intent(MainActivity.this,SummaryActivity.class);
-//        startActivity(it);
+    {   //輸入主客場名稱
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-        builder.setTitle("請輸入隊伍名稱");
+        builder.setTitle(getResources().getString(R.string.teamEnter));
         LayoutInflater inflater = LayoutInflater.from(MainActivity.this);
         View v1= inflater.inflate(R.layout.player5,null);
         final EditText ed1= v1.findViewById(R.id.editText);
         final EditText ed2= v1.findViewById(R.id.editText2);
         builder.setView(v1);
-        builder.setPositiveButton("確定", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(getResources().getString(R.string.OK), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 Intent it= new Intent(MainActivity.this, ActivityCheck.class);

@@ -33,7 +33,7 @@ public class Pick5Activity extends AppCompatActivity {
         pid=it.getStringExtra("pid");
         team1=it.getStringExtra("Team1");
         team2=it.getStringExtra("Team2");
-        setTitle(team1+"v.s."+team2);
+        setTitle(team1+" v.s. "+team2);
         Log.d("pick pid",pid);
 
         PlayerDAO playerDAO=new PlayerDAO(Pick5Activity.this);
@@ -73,7 +73,7 @@ public class Pick5Activity extends AppCompatActivity {
         }
         else
         {
-            Toast.makeText(Pick5Activity.this,"請選擇五人",Toast.LENGTH_SHORT).show();
+            Toast.makeText(Pick5Activity.this,getResources().getString(R.string.choose),Toast.LENGTH_SHORT).show();
         }
 
     }

@@ -23,7 +23,7 @@
 
     <Spinner
         android:id="@+id/spinner"
-        android:layout_width="75dp"
+        android:layout_width="65dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -32,11 +32,11 @@
 
     <TextView
         android:id="@+id/textView8"
-        android:layout_width="60dp"
+        android:layout_width="70dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="節次："
+        android:text="@string/section"
         android:textColor="#A52A2A"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -45,11 +45,11 @@
 
     <TextView
         android:id="@+id/textView9"
-        android:layout_width="60dp"
+        android:layout_width="70dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
-        android:text="球員："
+        android:text="@string/number"
         android:textColor="#A52A2A"
         android:textSize="18sp"
         android:textStyle="bold"

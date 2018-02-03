@@ -1,11 +1,17 @@
 package com.yenyu.basketball_01;
 
+import android.content.Context;
+import android.content.res.Resources;
+import android.util.Log;
+
 import com.yenyu.basketball_01.dao.Action;
 import com.yenyu.basketball_01.dao.Game;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import java.io.StringWriter;
 import java.util.ArrayList;
+import java.util.Locale;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -22,9 +28,15 @@ import javax.xml.transform.stream.StreamResult;
 
 public class ParseHTML {
 
+    Resources res;
+    public ParseHTML(Context context)
+    {
+        res=context.getResources();
+    }
+
     public String getString(ArrayList<Game> mylist)
     {
-        if(mylist.size() ==0 || mylist==null) return "<html><body bgcolor='#FDF5E6'>無資料</body></thml>";
+        if(mylist.size() ==0 || mylist==null) return "<html><body bgcolor='#FDF5E6'>"+res.getString(R.string.nodata)+"</body></thml>";
         DocumentBuilderFactory df=DocumentBuilderFactory.newInstance();
         DocumentBuilder builder= null;
         Document doc=null;
@@ -43,96 +55,96 @@ public class ParseHTML {
 
             Element th=doc.createElement("th");
             th.setAttribute("rowspan","2");
-            th.appendChild(doc.createTextNode("節次"));
+            th.appendChild(doc.createTextNode(res.getString(R.string.section)));
             tr.appendChild(th);
 
             th=doc.createElement("th");
             th.setAttribute("rowspan","2");
-            th.appendChild(doc.createTextNode("背號"));
+            th.appendChild(doc.createTextNode(res.getString(R.string.number)));
             tr.appendChild(th);
 
             th=doc.createElement("th");
             th.setAttribute("rowspan","2");
-            th.appendChild(doc.createTextNode("分數"));
+            th.appendChild(doc.createTextNode(res.getString(R.string.score)));
             tr.appendChild(th);
 
             th=doc.createElement("th");
             th.setAttribute("colspan","2");
-            th.appendChild(doc.createTextNode("二分"));
+            th.appendChild(doc.createTextNode(res.getString(R.string.point2)));
             tr.appendChild(th);
 
             th=doc.createElement("th");
             th.setAttribute("colspan","2");
-            th.appendChild(doc.createTextNode("三分"));
+            th.appendChild(doc.createTextNode(res.getString(R.string.point3)));
             tr.appendChild(th);
 
             th=doc.createElement("th");
             th.setAttribute("colspan","2");
-            th.appendChild(doc.createTextNode("罰球"));
+            th.appendChild(doc.createTextNode(res.getString(R.string.ft)));
             tr.appendChild(th);
 
             th=doc.createElement("th");
             th.setAttribute("colspan","2");
-            th.appendChild(doc.createTextNode("籃板"));
+            th.appendChild(doc.createTextNode(res.getString(R.string.rebound)));
             tr.appendChild(th);
 
             th=doc.createElement("th");
             th.setAttribute("rowspan","2");
-            th.appendChild(doc.createTextNode("抄截"));
+            th.appendChild(doc.createTextNode(res.getString(R.string.ST)));
             tr.appendChild(th);
 
             th=doc.createElement("th");
             th.setAttribute("rowspan","2");
-            th.appendChild(doc.createTextNode("助攻"));
+            th.appendChild(doc.createTextNode(res.getString(R.string.AS)));
             tr.appendChild(th);
 
             th=doc.createElement("th");
             th.setAttribute("rowspan","2");
-            th.appendChild(doc.createTextNode("阻攻"));
+            th.appendChild(doc.createTextNode(res.getString(R.string.BS)));
             tr.appendChild(th);
 
             th=doc.createElement("th");
             th.setAttribute("rowspan","2");
-            th.appendChild(doc.createTextNode("失誤"));
+            th.appendChild(doc.createTextNode(res.getString(R.string.TO)));
             tr.appendChild(th);
 
             th=doc.createElement("th");
             th.setAttribute("rowspan","2");
-            th.appendChild(doc.createTextNode("犯規"));
+            th.appendChild(doc.createTextNode(res.getString(R.string.foul)));
             tr.appendChild(th);
             table.appendChild(tr);
 
             tr=doc.createElement("tr");
             th=doc.createElement("th");
-            th.appendChild(doc.createTextNode("進"));
+            th.appendChild(doc.createTextNode(res.getString(R.string.goal)));
             tr.appendChild(th);
 
             th=doc.createElement("th");
-            th.appendChild(doc.createTextNode("不進"));
+            th.appendChild(doc.createTextNode(res.getString(R.string.miss)));
             tr.appendChild(th);
 
             th=doc.createElement("th");
-            th.appendChild(doc.createTextNode("進"));
+            th.appendChild(doc.createTextNode(res.getString(R.string.goal)));
             tr.appendChild(th);
 
             th=doc.createElement("th");
-            th.appendChild(doc.createTextNode("不進"));
+            th.appendChild(doc.createTextNode(res.getString(R.string.miss)));
             tr.appendChild(th);
 
             th=doc.createElement("th");
-            th.appendChild(doc.createTextNode("進"));
+            th.appendChild(doc.createTextNode(res.getString(R.string.goal)));
             tr.appendChild(th);
 
             th=doc.createElement("th");
-            th.appendChild(doc.createTextNode("不進"));
+            th.appendChild(doc.createTextNode(res.getString(R.string.miss)));
             tr.appendChild(th);
 
             th=doc.createElement("th");
-            th.appendChild(doc.createTextNode("進攻"));
+            th.appendChild(doc.createTextNode(res.getString(R.string.oror)));
             tr.appendChild(th);
 
             th=doc.createElement("th");
-            th.appendChild(doc.createTextNode("防守"));
+            th.appendChild(doc.createTextNode(res.getString(R.string.drdr)));
             tr.appendChild(th);
             table.appendChild(tr);
 
@@ -268,7 +280,7 @@ public class ParseHTML {
         games.add(new Game(pid,section,number));
 
         for(int i=0;i<actions.size();i++) {
-            //Log.d("action",mylist.get(i).toString());
+            Log.d("action",actions.get(i).toString());
             if (section != actions.get(i).getSection() || !actions.get(i).getNumber().equals(number)) {
                 section = actions.get(i).getSection();
                 number = actions.get(i).getNumber();
@@ -320,7 +332,6 @@ public class ParseHTML {
                     break;
             }
         }
-        //Log.d("P total",total.toString());
         return games;
     }
 }
