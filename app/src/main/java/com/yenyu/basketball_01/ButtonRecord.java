@@ -44,7 +44,6 @@ public class ButtonRecord extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.button_record);
 
-
         tvScore1 = (TextView) findViewById(R.id.tvScore1); //自己的得分
         tvScore2 = (TextView) findViewById(R.id.tvScore2); //對方的得分
         tvSectionFoul1 = (TextView) findViewById(R.id.tvSectionFoul1); //自己的團犯
@@ -111,7 +110,7 @@ public class ButtonRecord extends AppCompatActivity {
         pid=b.getString("pid");
         team1=b.getString("Team1");
         team2=b.getString("Team2");
-        setTitle(team1+"v.s."+team2);
+        setTitle(team1+" v.s. "+team2);
         Log.d("button record pid",pid);
         numbers = b.getStringArray("numbers");
         chks = b.getBooleanArray("chks");

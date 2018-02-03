@@ -28,7 +28,7 @@ public class ActivityCheck extends AppCompatActivity {
         pid=it.getStringExtra("pid");
         team1=it.getStringExtra("Team1");
         team2=it.getStringExtra("Team2");
-        setTitle(team1+"v.s."+team2);
+        setTitle(team1+" v.s. "+team2);
         Log.d("2TeamId",pid);
     }
 
@@ -78,7 +78,7 @@ public class ActivityCheck extends AppCompatActivity {
         }
         else
         {
-            Toast.makeText(ActivityCheck.this,"請至少輸入五人",Toast.LENGTH_SHORT).show();
+            Toast.makeText(ActivityCheck.this,getResources().getString(R.string.lastFive),Toast.LENGTH_SHORT).show();
         }
 
     }

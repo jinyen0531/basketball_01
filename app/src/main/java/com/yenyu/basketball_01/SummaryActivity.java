@@ -1,6 +1,5 @@
 package com.yenyu.basketball_01;
 
-import android.content.ClipData;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
@@ -51,11 +50,11 @@ public class SummaryActivity extends AppCompatActivity {
         wv=findViewById(R.id.webView);
         sp1=findViewById(R.id.spinner);
         sp2=findViewById(R.id.spinner2);
-        parseHTML=new ParseHTML();
+        parseHTML=new ParseHTML(SummaryActivity.this);
         actionDAO=new ActionDAO(SummaryActivity.this);
 
         //選擇節次
-        String[] sections={"全部","1","2","3","4"};
+        String[] sections={getResources().getString(R.string.all),"1","2","3","4"};
         ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,sections);
         sp1.setAdapter(adapter);
         sp1.setOnItemSelectedListener(new MyListener());
@@ -65,12 +64,12 @@ public class SummaryActivity extends AppCompatActivity {
         players=dao.getPlayers(pid);
         String[] names=new String[players.size()+2];
         int c=0;
-        names[c++]="全部";
+        names[c++]=getResources().getString(R.string.all);
         for(Player p:players)
         {
             names[c++]=p.getNumber()+" "+p.getName();
         }
-        names[c++]="G 客隊";
+        names[c++]="G "+getResources().getString(R.string.guest);
         final ArrayAdapter<String> adapterName=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,names);
         sp2.setAdapter(adapterName);
         sp2.setOnItemSelectedListener(new MyListener());
@@ -99,16 +98,16 @@ public class SummaryActivity extends AppCompatActivity {
                 break;
             case R.id.menu_save:
                 AlertDialog.Builder builder=new AlertDialog.Builder(this);
-                builder.setTitle("儲存資料");
-                builder.setMessage("請確認是否儲存比賽？");
+                builder.setTitle(getResources().getString(R.string.confirm));
+                builder.setMessage(getResources().getString(R.string.saveConfrim));
 
-                builder.setPositiveButton("確定", new DialogInterface.OnClickListener() {
+                builder.setPositiveButton(getResources().getString(R.string.confirm), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         actions=actionDAO.getActions(pid,0,"");
                         if(actions.size()<1)
                         {
-                            Toast.makeText(SummaryActivity.this,"尚未有比賽成績！",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SummaryActivity.this,getResources().getString(R.string.noResult),Toast.LENGTH_SHORT).show();
                         }
                         else
                         {
@@ -134,7 +133,7 @@ public class SummaryActivity extends AppCompatActivity {
                         }
                     }
                 });
-                builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                builder.setNegativeButton(getResources().getString(R.string.cancel), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
