@@ -29,15 +29,16 @@ public class SummaryActivity extends AppCompatActivity {
 
     WebView wv;
     Spinner sp1,sp2;
-    ArrayList<Game> games=new ArrayList<>();
     static String pid="";  //場次
-    String sour="";
+    String sour="";     //由何處來
     int sec=0;      //spinner1的節次,0(全部),1,2,3,4
     String num="";  //spinner2的背號,""為全部,其餘為背號
     ArrayList<Player> players;  //取得球員
+    ArrayList<Action> actions;//取得的動作
+    ArrayList<Game> games=new ArrayList<>();
     ParseHTML parseHTML;    //將ArrayList<Game>轉為字串
     ActionDAO actionDAO;
-    ArrayList<Action> actions;//取得的動作
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -271,7 +271,7 @@ public class ParseHTML {
     //將actions轉換為games
     public ArrayList<Game> getSummary(ArrayList<Action> actions)
     {
-        String pid=SummaryActivity.pid;
+        String pid=DataActivity.pid;
         ArrayList<Game> games=new ArrayList<>();
         //先指定第一筆資料
         int section=actions.get(0).getSection();

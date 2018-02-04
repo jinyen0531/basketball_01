@@ -3,6 +3,7 @@ package com.yenyu.basketball_01;
 import android.app.DownloadManager;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.provider.ContactsContract;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -78,7 +79,8 @@ public class QueryActivity extends AppCompatActivity {
         queryView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent it=new Intent(QueryActivity.this,SummaryActivity.class);
+                Intent it=new Intent(QueryActivity.this, DataActivity.class);
+                //Intent it=new Intent(QueryActivity.this,SummaryActivity.class);
                 it.putExtra("pid",String.valueOf(teams.get(i).get_id()));
                 it.putExtra("sour","Query");
                 startActivity(it);
