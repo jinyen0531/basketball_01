@@ -111,7 +111,7 @@ public class ButtonRecord extends AppCompatActivity {
         pid=b.getString("pid");
         team1=b.getString("Team1");
         team2=b.getString("Team2");
-        setTitle(team1+"v.s."+team2);
+        setTitle(team1+" v.s. "+team2);
         Log.d("button record pid",pid);
         numbers = b.getStringArray("numbers");
         chks = b.getBooleanArray("chks");
@@ -155,8 +155,8 @@ public class ButtonRecord extends AppCompatActivity {
         switch (item.getItemId())
         {
             case R.id.menu_record:
-
-                Intent it=new Intent(ButtonRecord.this,SummaryActivity.class);
+                Intent it=new Intent(ButtonRecord.this,DataActivity.class);
+                //Intent it=new Intent(ButtonRecord.this,SummaryActivity.class);
                 it.putExtra("pid",pid);
                 it.putExtra("sour","Button");
                 startActivity(it);

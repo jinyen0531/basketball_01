@@ -9,7 +9,9 @@
         android:roundIcon="@drawable/basketball_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity" android:screenOrientation="portrait">
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,7 +23,11 @@
         //android:screenOrientation="landscape"
         <activity android:name=".Pick5Activity" />
         <activity android:name=".SummaryActivity" />
-        <activity android:name=".QueryActivity"></activity>
+        <activity android:name=".QueryActivity" />
+        <activity
+            android:name=".DataActivity"
+            android:label="@string/title_activity_data"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
