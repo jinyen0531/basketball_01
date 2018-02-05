@@ -66,7 +66,7 @@
     <string name="rebound">籃板</string>
     <string name="oror">進攻</string>
     <string name="drdr">防守</string>
-    <string name="data1">總數據</string>
+    <string name="data1">球員數據</string>
     <string name="data2">每節比分</string>
     <string name="data3">詳細數據</string>
 </resources>

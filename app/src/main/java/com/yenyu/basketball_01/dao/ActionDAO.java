@@ -37,6 +37,32 @@ public class ActionDAO {
         return id>0 ? true:false;
     }
 
+    //依場次取得所有動作
+    public ArrayList<Action> getActions(String pid)
+    {
+        String strSql="select * from actions where pid=? order by CAST(number as integer)";
+        Cursor c=null;
+        ArrayList<Action> mylist=new ArrayList<>();
+        SQLiteDatabase database=new MyDBHelper(context).getWritableDatabase();
+        c=database.rawQuery(strSql,new String[]{pid});
+        if(c.moveToFirst())
+        {
+            do
+            {
+                int _id=c.getInt(c.getColumnIndex("_id"));
+                int section=c.getInt(c.getColumnIndex("section"));
+                String number=c.getString(c.getColumnIndex("number"));
+                int move=c.getInt(c.getColumnIndex("move"));
+                mylist.add(new Action(_id,pid,section,number,move));
+                Log.d("LoadAction","id : "+_id+", section : "+section+", pid : "+pid+", number : "+number+", move : "+move);
+            }while(c.moveToNext());
+        }
+
+        Log.d("Action_Count",mylist.size()+"");
+        database.close();
+        return mylist;
+    }
+
     //取得全部動作,依場次 節次 背號
     public ArrayList<Action> getActions(String pid,int sec,String num)
     {
@@ -137,6 +163,7 @@ public class ActionDAO {
         }
         return fouls;
     }
+
     //依場次取得雙方分數
     public int[] getScores(String pid)
     {

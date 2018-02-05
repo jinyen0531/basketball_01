@@ -145,7 +145,7 @@ public class DetailFragment extends Fragment {
             actions=DataActivity.actionDAO.getActions(pid,sec,num);
             if(actions.size()!=0)
             {
-                games=DataActivity.parseHTML.getSummary(actions);
+                games=DataActivity.parseHTML.getSummary(actions,"detail");
             }
             else
             {

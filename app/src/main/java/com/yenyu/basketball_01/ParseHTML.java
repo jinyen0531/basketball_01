@@ -52,11 +52,15 @@ public class ParseHTML {
 
             //建立表頭
             Element tr=doc.createElement("tr");
+            Element th=null;
 
-            Element th=doc.createElement("th");
-            th.setAttribute("rowspan","2");
-            th.appendChild(doc.createTextNode(res.getString(R.string.section)));
-            tr.appendChild(th);
+            if(mylist.get(0).getSection()!=0)
+            {
+                th=doc.createElement("th");
+                th.setAttribute("rowspan","2");
+                th.appendChild(doc.createTextNode(res.getString(R.string.section)));
+                tr.appendChild(th);
+            }
 
             th=doc.createElement("th");
             th.setAttribute("rowspan","2");
@@ -154,11 +158,13 @@ public class ParseHTML {
             {
                 tr=doc.createElement("tr");
 
-                td=doc.createElement("td");
-                td.setAttribute("align","center");
-                td.appendChild(doc.createTextNode(String.valueOf(mylist.get(i).getSection())));
-                tr.appendChild(td);
-
+                if(mylist.get(0).getSection()!=0)
+                {
+                    td=doc.createElement("td");
+                    td.setAttribute("align","center");
+                    td.appendChild(doc.createTextNode(String.valueOf(mylist.get(i).getSection())));
+                    tr.appendChild(td);
+                }
                 td=doc.createElement("td");
                 td.setAttribute("align","center");
                 td.appendChild(doc.createTextNode(mylist.get(i).getNumber()));
@@ -269,24 +275,42 @@ public class ParseHTML {
     }
 
     //將actions轉換為games
-    public ArrayList<Game> getSummary(ArrayList<Action> actions)
+    public ArrayList<Game> getSummary(ArrayList<Action> actions,String frm)
     {
         String pid=DataActivity.pid;
         ArrayList<Game> games=new ArrayList<>();
+        int section=0;
+        String number="";
         //先指定第一筆資料
-        int section=actions.get(0).getSection();
-        String number=actions.get(0).getNumber();
+        if(frm.equals("detail"))
+        {
+            section=actions.get(0).getSection();
+        }
+        number=actions.get(0).getNumber();
+
         int count=0;
         games.add(new Game(pid,section,number));
 
         for(int i=0;i<actions.size();i++) {
             Log.d("action",actions.get(i).toString());
-            if (section != actions.get(i).getSection() || !actions.get(i).getNumber().equals(number)) {
-                section = actions.get(i).getSection();
-                number = actions.get(i).getNumber();
-                games.add(new Game(pid, section, number));
-                count++;
+            if(frm.equals("detail"))
+            {
+                if (section != actions.get(i).getSection() || !actions.get(i).getNumber().equals(number)) {
+                    section = actions.get(i).getSection();
+                    number = actions.get(i).getNumber();
+                    games.add(new Game(pid, section, number));
+                    count++;
+                }
             }
+            else
+            {
+                if (!actions.get(i).getNumber().equals(number)) {
+                    number = actions.get(i).getNumber();
+                    games.add(new Game(pid, section, number));
+                    count++;
+                }
+            }
+
             switch (actions.get(i).getMove()) {
                 case RecordAction.Action_2point_in:
                     games.get(count).setPoint2in(games.get(count).getPoint2in() + 1);

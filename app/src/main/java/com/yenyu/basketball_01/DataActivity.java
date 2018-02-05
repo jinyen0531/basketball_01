@@ -79,9 +79,23 @@ public class DataActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 // When the given dropdown item is selected, show its contents in the
                 // container view.
-                getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.container, DetailFragment.newInstance())
-                        .commit();
+                switch (position)
+                {
+                    case 0:
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.container, PlayersFragment.newInstance())
+                                .commit();
+                        break;
+                    case 1:
+                        break;
+                    case 2:
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.container, DetailFragment.newInstance())
+                                .commit();
+                        break;
+
+                }
+
             }
 
             @Override
@@ -126,7 +140,7 @@ public class DataActivity extends AppCompatActivity {
                         }
                         else
                         {
-                            games=parseHTML.getSummary(actions);
+                            games=parseHTML.getSummary(actions,"detail");
                             int score1=0;
                             int score2=0;
                             for(int a=0;a<games.size();a++)

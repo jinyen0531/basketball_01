@@ -112,7 +112,7 @@ public class SummaryActivity extends AppCompatActivity {
                         }
                         else
                         {
-                            games=parseHTML.getSummary(actions);
+                            games=parseHTML.getSummary(actions,"deital");
                             int score1=0;
                             int score2=0;
                             for(int a=0;a<games.size();a++)
@@ -194,7 +194,7 @@ public class SummaryActivity extends AppCompatActivity {
             actions=actionDAO.getActions(pid,sec,num);
             if(actions.size()!=0)
             {
-                games=parseHTML.getSummary(actions);
+                games=parseHTML.getSummary(actions,"detial");
                 wv.loadUrl("about:blank");
                 wv.loadData(parseHTML.getString(games),"text/html;charset=UTF-8",null);
             }
