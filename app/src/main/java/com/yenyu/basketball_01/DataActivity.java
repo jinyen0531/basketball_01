@@ -2,15 +2,10 @@ package com.yenyu.basketball_01;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.res.Configuration;
-import android.graphics.Bitmap;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,18 +17,16 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-import android.content.Context;
-import android.support.v7.widget.ThemedSpinnerAdapter;
-import android.content.res.Resources.Theme;
-
 import android.widget.TextView;
 import android.widget.Toast;
+import android.content.Context;
+import android.content.res.Resources.Theme;
+import android.support.v7.widget.ThemedSpinnerAdapter;
 
 import com.yenyu.basketball_01.dao.Action;
 import com.yenyu.basketball_01.dao.ActionDAO;
 import com.yenyu.basketball_01.dao.Game;
 import com.yenyu.basketball_01.dao.GameDAO;
-import com.yenyu.basketball_01.dao.Player;
 import com.yenyu.basketball_01.dao.TeamDAO;
 
 import java.util.ArrayList;
@@ -42,8 +35,6 @@ public class DataActivity extends AppCompatActivity {
 
     static String pid="";
     static String sour="";
-    int sec=0;      //spinner1的節次,0(全部),1,2,3,4
-    String num="";  //spinner2的背號,""為全部,其餘為背號
     ArrayList<Action> actions;//取得的動作
     ArrayList<Game> games=new ArrayList<>();
     static ParseHTML parseHTML;    //將ArrayList<Game>轉為字串
@@ -77,8 +68,6 @@ public class DataActivity extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                // When the given dropdown item is selected, show its contents in the
-                // container view.
                 switch (position)
                 {
                     case 0:
@@ -87,6 +76,9 @@ public class DataActivity extends AppCompatActivity {
                                 .commit();
                         break;
                     case 1:
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.container, SectionFragment.newInstance())
+                                .commit();
                         break;
                     case 2:
                         getSupportFragmentManager().beginTransaction()
@@ -154,10 +146,8 @@ public class DataActivity extends AppCompatActivity {
                                     score1+=games.get(a).getScore();
                                 }
                             }
-                            Log.d("score",score1+" "+score2+" team "+pid);
                             new TeamDAO(DataActivity.this).updateTeams(score1,score2,pid);
                             GameDAO gameDAO=new GameDAO(DataActivity.this);
-                            Log.d("Game size",games.size()+"");
                             gameDAO.insertGames(games);
                             finish();
                         }

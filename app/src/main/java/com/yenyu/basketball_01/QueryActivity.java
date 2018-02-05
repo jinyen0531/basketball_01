@@ -45,9 +45,9 @@ public class QueryActivity extends AppCompatActivity {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, final int position, long l) {
                 AlertDialog.Builder builder=new AlertDialog.Builder(QueryActivity.this);
-                builder.setTitle("刪除確認");
-                builder.setMessage("請確認是否刪除？");
-                builder.setPositiveButton("確認", new DialogInterface.OnClickListener() {
+                builder.setTitle(getResources().getString(R.string.pleaseConfirm));
+                builder.setMessage(getResources().getString(R.string.delConfrim));
+                builder.setPositiveButton(getResources().getString(R.string.confirm), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         String pid=String.valueOf(teams.get(position).get_id());
@@ -55,6 +55,7 @@ public class QueryActivity extends AppCompatActivity {
                         new PlayerDAO(QueryActivity.this).delPlayer(pid);
                         new ActionDAO(QueryActivity.this).delActionByPid(pid);
                         new GameDAO(QueryActivity.this).delGameByPid(pid);
+                        Toast.makeText(QueryActivity.this,getResources().getString(R.string.dataDelete),Toast.LENGTH_SHORT).show();
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
@@ -63,7 +64,7 @@ public class QueryActivity extends AppCompatActivity {
                         });
                     }
                 });
-                builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                builder.setNegativeButton(getResources().getString(R.string.cancel), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 

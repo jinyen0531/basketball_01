@@ -20,6 +20,8 @@ public class ActivityCheck extends AppCompatActivity {
 
     String pid="";
     String team1="",team2="";
+    boolean flag=false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +31,6 @@ public class ActivityCheck extends AppCompatActivity {
         team1=it.getStringExtra("Team1");
         team2=it.getStringExtra("Team2");
         setTitle(team1+" v.s. "+team2);
-        Log.d("2TeamId",pid);
     }
 
     public void clickOK(View v)
@@ -37,8 +38,9 @@ public class ActivityCheck extends AppCompatActivity {
         ArrayList<Player> list=new ArrayList<>();
         PlayerDAO dp=new PlayerDAO(ActivityCheck.this);
         LinearLayout layout=(LinearLayout) findViewById(R.id.linearLayout);
-        //Toast.makeText(ActivityCheck.this,String.valueOf(layout.getChildCount()),Toast.LENGTH_SHORT).show();
         ArrayList<EditText> textArrayList=new ArrayList<>();
+
+        //將 EditText 放入陣列
         for(int i=0;i<layout.getChildCount();i++)
         {
             if(layout.getChildAt(i) instanceof LinearLayout)
@@ -59,7 +61,6 @@ public class ActivityCheck extends AppCompatActivity {
         {
             number=textArrayList.get(i).getText().toString();
             name=textArrayList.get(i+1).getText().toString();
-            Log.d("add","number : "+number+ "name : "+name);
             if(number.length()>0 && name.length()>0)
             {
                 list.add(new Player(pid,number,name));
@@ -68,25 +69,25 @@ public class ActivityCheck extends AppCompatActivity {
         }
         if(count>=5)
         {
-            dp.insertPlayers(list);       //測試,故標記
+            dp.insertPlayers(list);
             Intent it = new Intent(ActivityCheck.this,Pick5Activity.class);
             it.putExtra("pid",pid);
-            Log.d("Check pid",pid);
             it.putExtra("Team1",team1);
             it.putExtra("Team2",team2);
+            flag=true;
             startActivity(it);
         }
         else
         {
             Toast.makeText(ActivityCheck.this,getResources().getString(R.string.lastFive),Toast.LENGTH_SHORT).show();
         }
-
     }
+
     @Override
     protected void onResume() {
         super.onResume();
         Team team=new TeamDAO(ActivityCheck.this).getTeam(pid);
-        if(team.getScore1() >0 || team.getScore2()>0)
+        if(team.getScore1() >0 || team.getScore2()>0 || flag)
         {
             finish();
         }

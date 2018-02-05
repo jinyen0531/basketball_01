@@ -34,7 +34,6 @@ public class Pick5Activity extends AppCompatActivity {
         team1=it.getStringExtra("Team1");
         team2=it.getStringExtra("Team2");
         setTitle(team1+" v.s. "+team2);
-        Log.d("pick pid",pid);
 
         PlayerDAO playerDAO=new PlayerDAO(Pick5Activity.this);
         mylist=playerDAO.getPlayers(pid);
@@ -44,10 +43,9 @@ public class Pick5Activity extends AppCompatActivity {
         {
             numbers[i]=mylist.get(i).getNumber();
         }
-        Log.d("Pick5A",mylist.size()+"");
+
         MyAdapter adapter=new MyAdapter(mylist,Pick5Activity.this,chks);
         lv.setAdapter(adapter);
-
     }
 
     public void clickOk(View v)
@@ -65,7 +63,6 @@ public class Pick5Activity extends AppCompatActivity {
             b.putString("pid",pid);
             b.putString("Team1",team1);
             b.putString("Team2",team2);
-
             b.putStringArray("numbers",numbers);
             b.putBooleanArray("chks",chks);
             it.putExtras(b);

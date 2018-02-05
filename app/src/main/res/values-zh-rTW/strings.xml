@@ -57,6 +57,8 @@
     <string name="confirm">確認</string>
     <string name="noResult">尚未有比賽成績！</string>
     <string name="saveConfrim">請確認是否儲存比賽？</string>
+    <string name="delConfrim">請確認是否刪除比賽？</string>
+    <string name="dataDelete">資料已刪除</string>
     <string name="ft">罰球</string>
     <string name="point2">二分</string>
     <string name="point3">三分</string>
@@ -69,4 +71,5 @@
     <string name="data1">球員數據</string>
     <string name="data2">每節比分</string>
     <string name="data3">詳細數據</string>
+    <string name="total">總分</string>
 </resources>

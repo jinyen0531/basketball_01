@@ -433,7 +433,6 @@ public class ButtonRecord extends AppCompatActivity {
         }
     }
 
-
     class MyPlayersListener implements CompoundButton.OnClickListener {
         @Override
         public void onClick(View view) {
@@ -487,6 +486,16 @@ public class ButtonRecord extends AppCompatActivity {
     }
 
     public void clickChange(View v) {
+        count = 0;
+        for(int i=0;i<chks.length;i++)
+        {
+            if(chks[i])
+            {
+                count++;
+            }
+        }
+        Log.d("count",count+"");
+
         //換球員名單
         AlertDialog.Builder builder = new AlertDialog.Builder(ButtonRecord.this);
         builder.setTitle(getResources().getString(R.string.choose));
@@ -504,26 +513,6 @@ public class ButtonRecord extends AppCompatActivity {
                     }
                 }
                 Log.d("count",count+"");
-                rbNumber1.setText("");
-                rbNumber2.setText("");
-                rbNumber3.setText("");
-                rbNumber4.setText("");
-                rbNumber5.setText("");
-                for (int i = 0; i < chks.length; i++) {
-                    if (chks[i]) {
-                        if (rbNumber1.getText().toString().equals("")) {
-                            rbNumber1.setText(numbers[i]);
-                        } else if (rbNumber2.getText().toString().equals("")) {
-                            rbNumber2.setText(numbers[i]);
-                        } else if (rbNumber3.getText().toString().equals("")) {
-                            rbNumber3.setText(numbers[i]);
-                        } else if (rbNumber4.getText().toString().equals("")) {
-                            rbNumber4.setText(numbers[i]);
-                        } else if (rbNumber5.getText().toString().equals("")) {
-                            rbNumber5.setText(numbers[i]);
-                        }
-                    }
-                }
             }
         });
         builder.setPositiveButton(getResources().getString(R.string.OK), new DialogInterface.OnClickListener() {
@@ -534,9 +523,34 @@ public class ButtonRecord extends AppCompatActivity {
                     tvOnlineN.setText(getResources().getString(R.string.choose1));
                     tvOnlineA.setText(getResources().getString(R.string.choose2));
                 }
-                else{tvOnlineN.setText(getResources().getString(R.string.change1));
-                    tvOnlineA.setText(getResources().getString(R.string.change2));}
-//
+                else
+                {
+                    clickCancel();
+
+                    tvOnlineN.setText(getResources().getString(R.string.change1));
+                    tvOnlineA.setText(getResources().getString(R.string.change2));
+
+                    rbNumber1.setText("");
+                    rbNumber2.setText("");
+                    rbNumber3.setText("");
+                    rbNumber4.setText("");
+                    rbNumber5.setText("");
+                    for (int i = 0; i < chks.length; i++) {
+                        if (chks[i]) {
+                            if (rbNumber1.getText().toString().equals("")) {
+                                rbNumber1.setText(numbers[i]);
+                            } else if (rbNumber2.getText().toString().equals("")) {
+                                rbNumber2.setText(numbers[i]);
+                            } else if (rbNumber3.getText().toString().equals("")) {
+                                rbNumber3.setText(numbers[i]);
+                            } else if (rbNumber4.getText().toString().equals("")) {
+                                rbNumber4.setText(numbers[i]);
+                            } else if (rbNumber5.getText().toString().equals("")) {
+                                rbNumber5.setText(numbers[i]);
+                            }
+                        }
+                    }
+                }
             }
         });
         builder.setNegativeButton(getResources().getString(R.string.cancel), new DialogInterface.OnClickListener() {

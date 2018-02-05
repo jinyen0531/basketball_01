@@ -10,7 +10,6 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import java.io.StringWriter;
 import java.util.ArrayList;
-import java.util.Locale;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -254,6 +253,86 @@ public class ParseHTML {
         return parse(doc);
     }
 
+    public String getScoreString(int[][] scores)
+    {
+        DocumentBuilderFactory df=DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder= null;
+        Document doc=null;
+
+        try {
+            builder=df.newDocumentBuilder();
+            doc=builder.newDocument();
+            Element html=doc.createElement("html");
+            Element body=doc.createElement("body");
+            body.setAttribute("bgcolor","#FDF5E6");
+
+            Element table=doc.createElement("table");
+            table.setAttribute("width","300");
+            table.setAttribute("align","center");
+            table.setAttribute("border","1");
+
+            Element tr=doc.createElement("tr");
+            tr.setAttribute("height","30");
+            Element th=doc.createElement("th");
+            th.setAttribute("width","20%");
+            th.appendChild(doc.createTextNode(" "));
+            tr.appendChild(th);
+            th=doc.createElement("th");
+            th.setAttribute("width","16%");
+            th.appendChild(doc.createTextNode("1"));
+            tr.appendChild(th);
+            th=doc.createElement("th");
+            th.setAttribute("width","16%");
+            th.appendChild(doc.createTextNode("2"));
+            tr.appendChild(th);
+            th=doc.createElement("th");
+            th.setAttribute("width","16%");
+            th.appendChild(doc.createTextNode("3"));
+            tr.appendChild(th);
+            th=doc.createElement("th");
+            th.setAttribute("width","16%");
+            th.appendChild(doc.createTextNode("4"));
+            tr.appendChild(th);
+            th=doc.createElement("th");
+            th.setAttribute("width","16%");
+            th.appendChild(doc.createTextNode(res.getString(R.string.total)));
+            tr.appendChild(th);
+            table.appendChild(tr);
+
+            Element td=null;
+            for(int i=0;i<scores.length;i++)
+            {
+                tr=doc.createElement("tr");
+                tr.setAttribute("height","30");
+                th=doc.createElement("th");
+                if(i==0)
+                {
+                    th.appendChild(doc.createTextNode(res.getString(R.string.home)));
+                }
+                else if(i==1)
+                {
+                    th.appendChild(doc.createTextNode(res.getString(R.string.guest)));
+                }
+                tr.appendChild(th);
+                for(int j=0;j<scores[i].length;j++)
+                {
+                    td=doc.createElement("td");
+                    td.setAttribute("align","center");
+                    td.appendChild(doc.createTextNode(String.valueOf(scores[i][j])));
+                    tr.appendChild(td);
+                }
+                table.appendChild(tr);
+            }
+
+            body.appendChild(table);
+            html.appendChild(body);
+            doc.appendChild(html);
+
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        }
+        return parse(doc);
+    }
     //將Document轉為字串
     private String parse(Document document)
     {

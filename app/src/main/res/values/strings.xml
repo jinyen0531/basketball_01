@@ -56,6 +56,8 @@
     <string name="confirm">Confrim</string>
     <string name="noResult">No game results yet!</string>
     <string name="saveConfrim">Please confirm whether to save the game?</string>
+    <string name="delConfrim">Please confirm whether to delete the game?</string>
+    <string name="dataDelete">Record Deleted</string>
     <string name="ft">FT</string>
     <string name="point2">2Point</string>
     <string name="point3">3Point</string>
@@ -68,6 +70,7 @@
     <string name="data1">Players</string>
     <string name="data2">Sections</string>
     <string name="data3">Detail</string>
+    <string name="total">Total</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="title_activity_data">DataActivity</string>
