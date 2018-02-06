@@ -75,19 +75,16 @@ public class QueryActivity extends AppCompatActivity {
             }
         });
 
-
         //查詢各場數據
         queryView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent it=new Intent(QueryActivity.this, DataActivity.class);
-                //Intent it=new Intent(QueryActivity.this,SummaryActivity.class);
                 it.putExtra("pid",String.valueOf(teams.get(i).get_id()));
                 it.putExtra("sour","Query");
                 startActivity(it);
             }
         });
-
 
     }
     public void refreshData()

@@ -36,11 +36,11 @@
     <string name="change_other">You have to change another.</string>
     <string name="OK">OK</string>
     <string name="cancel">Cancel</string>
-    <string name="cancel_question">Do you want to cancel the previous step?</string>
-    <string name="one_step1">You can only</string>
-    <string name="one_step2">cancel one step</string>
-    <string name="alreadycancel1">" You have canceled"</string>
-    <string name="alreadycancel2">the previous step</string>
+    <string name="cancel_question">Do you want to cancel the last step?</string>
+    <string name="one_step1">You can only c</string>
+    <string name="one_step2">ancel one step</string>
+    <string name="alreadycancel1">Already canc</string>
+    <string name="alreadycancel2">el the last step</string>
     <string name="choose1">You have to</string>
     <string name="choose2">choose five players</string>
     <string name="change1">You have changed</string>

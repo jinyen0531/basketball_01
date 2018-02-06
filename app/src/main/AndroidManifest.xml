@@ -22,7 +22,6 @@
         <activity android:name=".ButtonRecord" android:screenOrientation="landscape" />
         //android:screenOrientation="landscape"
         <activity android:name=".Pick5Activity" />
-        <activity android:name=".SummaryActivity" />
         <activity android:name=".QueryActivity" />
         <activity
             android:name=".DataActivity"
