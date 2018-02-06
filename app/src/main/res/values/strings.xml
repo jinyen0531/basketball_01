@@ -11,6 +11,12 @@
     <string name="point3_out">3pt miss</string>
     <string name="FT_in">FT made</string>
     <string name="FT_out">FT miss</string>
+    <string name="point2_inn">2pt made</string>
+    <string name="point2_outn">2pt miss</string>
+    <string name="point3_inn">3pt made</string>
+    <string name="point3_outn">3pt miss</string>
+    <string name="FT_inn">FT made</string>
+    <string name="FT_outn">FT miss</string>
     <string name="foul">Foul</string>
     <string name="AS">AS</string>
     <string name="BS">BS</string>
@@ -18,6 +24,8 @@
     <string name="ST">ST</string>
     <string name="OR">OR</string>
     <string name="DR">DR</string>
+    <string name="ORn">OR</string>
+    <string name="DRn">DR</string>
     <string name="change">change player</string>
     <string name="Opponent">opponent</string>
     <string name="NextSection">Next Section</string>

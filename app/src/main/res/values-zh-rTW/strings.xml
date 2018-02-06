@@ -12,6 +12,12 @@
     <string name="point3_out">三分球\n不進</string>
     <string name="FT_in">罰球\n進</string>
     <string name="FT_out">罰球\n不進</string>
+    <string name="point2_inn">兩分球進</string>
+    <string name="point2_outn">兩分球不進</string>
+    <string name="point3_inn">三分球進</string>
+    <string name="point3_outn">三分球不進</string>
+    <string name="FT_inn">罰球進</string>
+    <string name="FT_outn">罰球不進</string>
     <string name="foul">犯規</string>
     <string name="AS">助攻</string>
     <string name="BS">阻攻</string>
@@ -19,6 +25,8 @@
     <string name="ST">抄截</string>
     <string name="OR">進攻\n籃板</string>
     <string name="DR">防守\n籃板</string>
+    <string name="ORn">進攻籃板</string>
+    <string name="DRn">防守籃板</string>
     <string name="change">換球員</string>
     <string name="Opponent">對手</string>
     <string name="NextSection">下一節</string>

@@ -178,7 +178,7 @@ public class ButtonRecord extends AppCompatActivity {
                         } else {
                             tvScore1.setText(String.valueOf(Integer.valueOf(tvScore1.getText().toString()) + 2));
                         }
-                        tvOnlineA.setText(getResources().getString(R.string.point2_in));
+                        tvOnlineA.setText(getResources().getString(R.string.point2_inn));
                         int foul=new ActionDAO(ButtonRecord.this).getFoul(pid, Player);
                         if(!Player.equals("G") && foul==5){}
                         else{
@@ -192,7 +192,7 @@ public class ButtonRecord extends AppCompatActivity {
                 case R.id.bt2out:
                     if (!Player.equals("")) {
                         Action = RecordAction.Action_2point_out;
-                        tvOnlineA.setText(getResources().getString(R.string.point2_out));
+                        tvOnlineA.setText(getResources().getString(R.string.point2_outn));
                         int foul=new ActionDAO(ButtonRecord.this).getFoul(pid, Player);
                         if(!Player.equals("G") && foul==5){}
                         else{
@@ -211,7 +211,7 @@ public class ButtonRecord extends AppCompatActivity {
                         } else{
                             tvScore1.setText(String.valueOf(Integer.valueOf(tvScore1.getText().toString()) + 3));
                         }
-                        tvOnlineA.setText(getResources().getString(R.string.point3_in));
+                        tvOnlineA.setText(getResources().getString(R.string.point3_inn));
                         int foul=new ActionDAO(ButtonRecord.this).getFoul(pid, Player);
                         if(!Player.equals("G") && foul==5){}
                         else{
@@ -225,7 +225,7 @@ public class ButtonRecord extends AppCompatActivity {
                 case R.id.bt3out:
                     if(!Player.equals("")) {
                         Action = RecordAction.Action_3point_out;
-                        tvOnlineA.setText(getResources().getString(R.string.point3_out));
+                        tvOnlineA.setText(getResources().getString(R.string.point3_outn));
                         int foul=new ActionDAO(ButtonRecord.this).getFoul(pid, Player);
                         if(!Player.equals("G") && foul==5){}
                         else{
@@ -244,7 +244,7 @@ public class ButtonRecord extends AppCompatActivity {
                         } else{
                             tvScore1.setText(String.valueOf(Integer.valueOf(tvScore1.getText().toString()) + 1));
                         }
-                        tvOnlineA.setText(getResources().getString(R.string.FT_in));
+                        tvOnlineA.setText(getResources().getString(R.string.FT_inn));
                         int foul=new ActionDAO(ButtonRecord.this).getFoul(pid, Player);
                         if(!Player.equals("G") && foul==5){}
                         else{
@@ -258,7 +258,7 @@ public class ButtonRecord extends AppCompatActivity {
                 case R.id.btFTout:
                     if (!Player.equals("")) {
                         Action = RecordAction.Action_FT_out;
-                        tvOnlineA.setText(getResources().getString(R.string.FT_out));
+                        tvOnlineA.setText(getResources().getString(R.string.FT_outn));
                         int foul=new ActionDAO(ButtonRecord.this).getFoul(pid, Player);
                         if(!Player.equals("G") && foul==5){}
                         else{
@@ -272,7 +272,7 @@ public class ButtonRecord extends AppCompatActivity {
                 case R.id.btOR:
                     if (!Player.equals("")) {
                         Action = RecordAction.Action_OR;
-                        tvOnlineA.setText(getResources().getString(R.string.OR));
+                        tvOnlineA.setText(getResources().getString(R.string.ORn));
                         int foul=new ActionDAO(ButtonRecord.this).getFoul(pid, Player);
                         if(!Player.equals("G") && foul==5){}
                         else{
@@ -286,7 +286,7 @@ public class ButtonRecord extends AppCompatActivity {
                 case R.id.btDR:
                     if (!Player.equals("")) {
                         Action = RecordAction.Action_DR;
-                        tvOnlineA.setText(getResources().getString(R.string.DR));
+                        tvOnlineA.setText(getResources().getString(R.string.DRn));
                         int foul=new ActionDAO(ButtonRecord.this).getFoul(pid, Player);
                         if(!Player.equals("G") && foul==5){}
                         else{
