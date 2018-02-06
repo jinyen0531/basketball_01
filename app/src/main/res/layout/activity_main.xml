@@ -69,6 +69,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:srcCompat="@drawable/basketball_co" />
+        app:srcCompat="@drawable/basketball" />
 
 </android.support.constraint.ConstraintLayout>
