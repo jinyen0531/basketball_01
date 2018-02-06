@@ -118,7 +118,7 @@ public class DetailFragment extends Fragment {
                     {
                         if(i==players.size()+1)
                         {
-                            num="G";
+                            num="999";
                         }
                         else
                         {
