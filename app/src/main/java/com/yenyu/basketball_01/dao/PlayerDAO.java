@@ -60,6 +60,7 @@ public class PlayerDAO {
             Log.d("Player get","_id : "+id+", pid : "+pid+", number : "+number+", name : "+name);
         }while(c.moveToNext());
         Log.d("Player_Count",list.size()+"");
+        c.close();
         database.close();
         return list;
     }

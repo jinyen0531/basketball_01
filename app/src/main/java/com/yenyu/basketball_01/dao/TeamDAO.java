@@ -51,6 +51,7 @@ public class TeamDAO {
             int score2=c.getInt(c.getColumnIndex("score2"));
             team=new Team(id,team1,team2,score1,score2);
         }
+        c.close();
         database.close();
         return team;
     }
@@ -73,6 +74,7 @@ public class TeamDAO {
                 Log.d("dao Team","_id : "+id+", team1 : "+team1+", team2 : "+team2+", score1 : "+score1+", score2 : "+score2);
             }while(c.moveToNext());
         }
+        c.close();
         database.close();
         return teams;
     }

@@ -45,7 +45,7 @@
     <string name="choose2">choose five players</string>
     <string name="change1">You have changed</string>
     <string name="change2">your player list</string>
-    <string name="player_list">at least 5,Up to 12</string>
+    <string name="player_list">at least 5   ,  Up to 12</string>
     <string name="starting_lineup">Please choose starting lineup</string>
     <string name="choose">Please choose five Players</string>
     <string name="section4">"section 4 "</string>

@@ -57,8 +57,8 @@ public class ActionDAO {
                 Log.d("LoadAction","id : "+_id+", section : "+section+", pid : "+pid+", number : "+number+", move : "+move);
             }while(c.moveToNext());
         }
-
         Log.d("Action_Count",mylist.size()+"");
+        c.close();
         database.close();
         return mylist;
     }
@@ -101,6 +101,7 @@ public class ActionDAO {
         }
 
         Log.d("Action_Count",mylist.size()+"");
+        c.close();
         database.close();
         return mylist;
     }
@@ -114,6 +115,8 @@ public class ActionDAO {
         c.moveToFirst();
         int i=c.getInt(0);
         Log.d("foul",i+"");
+        c.close();
+        database.close();
         return i;
     }
 
@@ -126,6 +129,7 @@ public class ActionDAO {
         c.moveToFirst();
         int id=c.getInt(c.getColumnIndex("_id"));
         int i=database.delete("actions","_id=?",new String[]{String.valueOf(id)});
+        c.close();
         database.close();
         return i>0 ? true : false;
     }
@@ -161,6 +165,8 @@ public class ActionDAO {
 
             }while(c.moveToNext());
         }
+        c.close();
+        database.close();
         return fouls;
     }
 
@@ -192,6 +198,8 @@ public class ActionDAO {
                 }
             }while(c.moveToNext());
         }
+        c.close();
+        database.close();
         return scores;
     }
 }

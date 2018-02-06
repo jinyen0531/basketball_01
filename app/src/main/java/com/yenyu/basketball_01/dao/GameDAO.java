@@ -104,6 +104,7 @@ public class GameDAO {
             }while(c.moveToNext());
         }
         Log.d("Game_Count",mylist.size()+"");
+        c.close();
         database.close();
         return mylist;
     }
