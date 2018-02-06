@@ -3,7 +3,6 @@ package com.yenyu.basketball_01;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -55,6 +54,8 @@ public class ActivityCheck extends AppCompatActivity {
                 }
             }
         }
+
+        //讀取EditText上的值
         int count=0;
         String number,name;
         for(int i=0;i<textArrayList.size();i+=2)
@@ -67,6 +68,8 @@ public class ActivityCheck extends AppCompatActivity {
                 count++;
             }
         }
+
+        //輸入球員人數必須為 5-12 人
         if(count>=5)
         {
             dp.insertPlayers(list);

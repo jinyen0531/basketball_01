@@ -61,7 +61,6 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:inputType="number"
-                    android:text="1"
                     android:textColor="#A52A2A" />
 
                 <EditText
@@ -74,7 +73,6 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Name1"
                     android:textColor="#A52A2A" />
 
             </LinearLayout>
@@ -93,7 +91,6 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:inputType="number"
-                    android:text="2"
                     android:textColor="#A52A2A" />
 
                 <EditText
@@ -106,7 +103,6 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Name2"
                     android:textColor="#A52A2A" />
 
             </LinearLayout>
@@ -125,7 +121,6 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:inputType="number"
-                    android:text="3"
                     android:textColor="#A52A2A" />
 
                 <EditText
@@ -138,7 +133,6 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Name3"
                     android:textColor="#A52A2A" />
             </LinearLayout>
 
@@ -156,7 +150,6 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:inputType="number"
-                    android:text="4"
                     android:textColor="#A52A2A" />
 
                 <EditText
@@ -169,7 +162,6 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Name4"
                     android:textColor="#A52A2A" />
             </LinearLayout>
 
@@ -187,7 +179,6 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:inputType="number"
-                    android:text="5"
                     android:textColor="#A52A2A" />
 
                 <EditText
@@ -200,7 +191,6 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Name5"
                     android:textColor="#A52A2A" />
             </LinearLayout>
 
@@ -218,7 +208,6 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:inputType="number"
-                    android:text="6"
                     android:textColor="#A52A2A" />
 
                 <EditText
@@ -231,7 +220,6 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Name6"
                     android:textColor="#A52A2A" />
             </LinearLayout>
 
@@ -249,7 +237,6 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:inputType="number"
-                    android:text="7"
                     android:textColor="#A52A2A" />
 
                 <EditText
@@ -262,7 +249,6 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Name7"
                     android:textColor="#A52A2A" />
             </LinearLayout>
 
@@ -280,7 +266,6 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:inputType="number"
-                    android:text="8"
                     android:textColor="#A52A2A" />
 
                 <EditText
@@ -293,7 +278,6 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Name8"
                     android:textColor="#A52A2A" />
             </LinearLayout>
 
@@ -326,7 +310,6 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Name"
                     android:textColor="#A52A2A"
                     app:layout_constraintBaseline_toBaselineOf="@+id/edNum1"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -361,7 +344,6 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Name"
                     android:textColor="#A52A2A"
                     app:layout_constraintBaseline_toBaselineOf="@+id/edNum12"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -397,7 +379,6 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Name"
                     android:textColor="#A52A2A"
                     app:layout_constraintBaseline_toBaselineOf="@+id/edNum9"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -435,7 +416,6 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Name"
                     android:textColor="#A52A2A"
                     app:layout_constraintBaseline_toBaselineOf="@+id/edNum10"
                     app:layout_constraintEnd_toEndOf="parent"

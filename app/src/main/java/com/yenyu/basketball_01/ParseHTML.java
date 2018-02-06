@@ -253,6 +253,7 @@ public class ParseHTML {
         return parse(doc);
     }
 
+    //SectionFragment用,將雙方的分數以表格呈現
     public String getScoreString(int[][] scores)
     {
         DocumentBuilderFactory df=DocumentBuilderFactory.newInstance();
