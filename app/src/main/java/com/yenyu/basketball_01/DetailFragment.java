@@ -25,11 +25,6 @@ import com.yenyu.basketball_01.dao.PlayerDAO;
 import java.util.ArrayList;
 
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link DetailFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class DetailFragment extends Fragment {
 
     String pid,sour;
@@ -118,7 +113,7 @@ public class DetailFragment extends Fragment {
                     {
                         if(i==players.size()+1)
                         {
-                            num="G";
+                            num="999";
                         }
                         else
                         {

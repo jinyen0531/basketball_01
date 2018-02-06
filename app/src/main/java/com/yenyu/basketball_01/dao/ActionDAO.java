@@ -27,6 +27,10 @@ public class ActionDAO {
         ContentValues values=new ContentValues();
         values.put("pid",action.getPid());
         values.put("section",action.getSection());
+        if(action.getNumber().equals("G"))
+        {
+            action.setNumber("999");
+        }
         values.put("number",action.getNumber());
         values.put("move",action.getMove());
         long id=database.insert("actions",null,values);
@@ -52,6 +56,10 @@ public class ActionDAO {
                 int _id=c.getInt(c.getColumnIndex("_id"));
                 int section=c.getInt(c.getColumnIndex("section"));
                 String number=c.getString(c.getColumnIndex("number"));
+                if(number.equals("999"))
+                {
+                    number="G";
+                }
                 int move=c.getInt(c.getColumnIndex("move"));
                 mylist.add(new Action(_id,pid,section,number,move));
                 Log.d("LoadAction","id : "+_id+", section : "+section+", pid : "+pid+", number : "+number+", move : "+move);
@@ -94,6 +102,10 @@ public class ActionDAO {
                 int _id=c.getInt(c.getColumnIndex("_id"));
                 int section=c.getInt(c.getColumnIndex("section"));
                 String number=c.getString(c.getColumnIndex("number"));
+                if(number.equals("999"))
+                {
+                    number="G";
+                }
                 int move=c.getInt(c.getColumnIndex("move"));
                 mylist.add(new Action(_id,pid,section,number,move));
                 Log.d("LoadAction","id : "+_id+", section : "+section+", pid : "+pid+", number : "+number+", move : "+move);
@@ -154,7 +166,7 @@ public class ActionDAO {
         if(c.moveToFirst())
         {
             do {
-                if(c.getString(c.getColumnIndex("number")).equals("G"))
+                if(c.getString(c.getColumnIndex("number")).equals("999"))
                 {
                     fouls[1]+=1;
                 }
@@ -183,7 +195,7 @@ public class ActionDAO {
         {
             do{
                 String number=c.getString(c.getColumnIndex("number"));
-                i=(number.equals("G"))?1:0;
+                i=(number.equals("999"))?1:0;
                 switch (c.getInt(c.getColumnIndex("move")))
                 {
                     case 1:

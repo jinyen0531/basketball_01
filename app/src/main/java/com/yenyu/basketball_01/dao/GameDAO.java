@@ -31,6 +31,8 @@ public class GameDAO {
             values=new ContentValues();
             values.put("pid",games.get(i).getPid());
             values.put("section",games.get(i).getSection());
+            if(games.get(i).getNumber().equals("G"))
+                games.get(i).setNumber("999");
             values.put("number",games.get(i).getNumber());
             values.put("score",games.get(i).getScore());
             values.put("point2in",games.get(i).getPoint2in());
@@ -85,6 +87,10 @@ public class GameDAO {
                 int id=c.getInt(c.getColumnIndex("_id"));
                 int section=c.getInt(c.getColumnIndex("section"));
                 String number=c.getString(c.getColumnIndex("number"));
+                if(number.equals("999"))
+                {
+                    number="G";
+                }
                 int score=c.getInt(c.getColumnIndex("score"));
                 int point2in=c.getInt(c.getColumnIndex("point2in"));
                 int point2out=c.getInt(c.getColumnIndex("point2out"));
