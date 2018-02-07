@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.webkit.WebView;
 
 import com.yenyu.basketball_01.dao.Action;
+import com.yenyu.basketball_01.dao.Game;
+import com.yenyu.basketball_01.dao.GameDAO;
 
 import java.util.ArrayList;
 
@@ -24,6 +26,7 @@ public class SectionFragment extends Fragment {
 
     WebView wv4;
     String pid;
+    String sour;
     ArrayList<Action> actions;
 
     public SectionFragment() {
@@ -52,32 +55,47 @@ public class SectionFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         wv4=getActivity().findViewById(R.id.webView4);
         pid=DataActivity.pid;
-        actions=DataActivity.actionDAO.getActions(pid);
+        sour=DataActivity.sour;
         int[][] scores=new int[2][5];
         int p=0;
         int s=0;
-        for(int i=0;i<actions.size();i++)
+        if(sour.equals("Button"))
         {
-            p=actions.get(i).getNumber().equals("G") ? 1 : 0;
-            s=actions.get(i).getSection()-1;
-            switch (actions.get(i).getMove())
+            actions=DataActivity.actionDAO.getActions(pid);
+            for(int i=0;i<actions.size();i++)
             {
-                case 1: //二分
-                    scores[p][s]+=2;
-                    scores[p][4]+=2;
-                    break;
-                case 3: //三分
-                    scores[p][s]+=3;
-                    scores[p][4]+=3;
-                    break;
-                case 5: //罰球
-                    scores[p][s]+=1;
-                    scores[p][4]+=1;
-                    break;
+                p=actions.get(i).getNumber().equals("G") ? 1 : 0;
+                s=actions.get(i).getSection()-1;
+                switch (actions.get(i).getMove())
+                {
+                    case 1: //二分
+                        scores[p][s]+=2;
+                        scores[p][4]+=2;
+                        break;
+                    case 3: //三分
+                        scores[p][s]+=3;
+                        scores[p][4]+=3;
+                        break;
+                    case 5: //罰球
+                        scores[p][s]+=1;
+                        scores[p][4]+=1;
+                        break;
+                }
             }
         }
-        //Log.d("score 1","s1 "+scores[0][0]+"s2 "+scores[0][1]+"s3 "+scores[0][2]+"s4 "+scores[0][3]+"ss "+scores[0][4]);
-        //Log.d("score 2","s2 "+scores[1][0]+"s2 "+scores[1][1]+"s3 "+scores[1][2]+"s4 "+scores[1][3]+"ss "+scores[1][4]);
+        else if(sour.equals("Query"))
+        {
+            ArrayList<Game> games=new GameDAO(getContext()).getGames(pid,0,"");
+            for(int i=0;i<games.size();i++)
+            {
+                p=games.get(i).getNumber().equals("G") ? 1 : 0;
+                s=games.get(i).getSection()-1;
+                scores[p][s]+=games.get(i).getScore();
+                scores[p][4]+=games.get(i).getScore();
+            }
+        }
+
+        //將分數資料轉為字串並顯示在webView中
         wv4.loadUrl("about:blank");
         wv4.loadData(DataActivity.parseHTML.getScoreString(scores),"text/html;charset=UTF-8",null);
     }

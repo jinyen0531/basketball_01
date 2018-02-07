@@ -34,7 +34,6 @@ public class PlayersFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -56,6 +55,7 @@ public class PlayersFragment extends Fragment {
         } else {
             games = new ArrayList<>();
         }
+
         wv3.loadUrl("about:blank");
         wv3.loadData(DataActivity.parseHTML.getString(games), "text/html;charset=UTF-8", null);
 

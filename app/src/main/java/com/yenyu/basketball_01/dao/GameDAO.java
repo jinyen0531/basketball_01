@@ -56,7 +56,7 @@ public class GameDAO {
         return (count>0)? true : false;
     }
 
-    //依 場次 節次 背號
+    //依 場次 節次 背號取得資料
     public ArrayList<Game> getGames(String pid,int sec,String num)
     {
         String strSql="";
@@ -64,7 +64,7 @@ public class GameDAO {
         ArrayList<Game> mylist=new ArrayList<>();
         SQLiteDatabase database=new MyDBHelper(context).getWritableDatabase();
         if(sec==0 && num.equals("")) {
-            strSql="select * from games where pid=?order by section,CAST(number as integer)";
+            strSql="select * from games where pid=? order by section,CAST(number as integer)";
             c=database.rawQuery(strSql,new String[]{pid});
         } else if(sec==0 && !num.equals(""))
         {
