@@ -1,6 +1,5 @@
 package com.yenyu.basketball_01;
 
-
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -19,6 +18,7 @@ public class PlayersFragment extends Fragment {
 
     WebView wv3;
     String pid;
+    String sour;
     ArrayList<Action> actions;
     ArrayList<Game> games;
 
@@ -48,12 +48,19 @@ public class PlayersFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         wv3=getActivity().findViewById(R.id.webView3);
         pid = DataActivity.pid;
-
-        actions = DataActivity.actionDAO.getActions(pid);
-        if (actions.size() != 0) {
-            games = DataActivity.parseHTML.getSummary(actions,"players");
-        } else {
-            games = new ArrayList<>();
+        sour=DataActivity.sour;
+        if(sour.equals("Button"))
+        {
+            actions = DataActivity.actionDAO.getActions(pid);
+            if (actions.size() != 0) {
+                games = DataActivity.parseHTML.getSummary(actions,"players");
+            } else {
+                games = new ArrayList<>();
+            }
+        }
+        else if(sour.equals("Query"))
+        {
+            games=new GameDAO(getContext()).getGames(pid);
         }
 
         wv3.loadUrl("about:blank");

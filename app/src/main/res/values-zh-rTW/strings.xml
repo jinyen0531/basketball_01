@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Team Score</string>
-    <string name="Title">Team Scroe</string>
+    <string name="Title">Team Score</string>
     <string name="gameStart">比賽開始</string>
     <string name="query">紀錄查詢</string>
     <string name="group">請輸入球員背號及姓名</string>
@@ -31,7 +31,7 @@
     <string name="Opponent">對手</string>
     <string name="NextSection">下一節</string>
     <string name="start">開始</string>
-    <string name="Number">Number</string>
+    <string name="Number">號</string>
     <string name="already_foul">號已經犯規</string>
     <string name="foul_out">畢業快樂!!!</string>
     <string name="change_other">你必須換上另一個球員!</string>
@@ -80,4 +80,5 @@
     <string name="data2">每節比分</string>
     <string name="data3">詳細數據</string>
     <string name="total">總分</string>
+    <string name="name">姓名</string>
 </resources>

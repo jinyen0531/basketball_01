@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.yenyu.basketball_01.dao.Team;
 import com.yenyu.basketball_01.dao.TeamDAO;
@@ -24,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void click1(View v)
     {   //輸入主客場名稱
-        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setTitle(getResources().getString(R.string.teamEnter));
         LayoutInflater inflater = LayoutInflater.from(MainActivity.this);
         View v1= inflater.inflate(R.layout.player5,null);
@@ -37,13 +38,17 @@ public class MainActivity extends AppCompatActivity {
                 Intent it= new Intent(MainActivity.this, ActivityCheck.class);
                 String team1=ed1.getText().toString();
                 String team2=ed2.getText().toString();
-                TeamDAO teamDAO=new TeamDAO(MainActivity.this);
-                int id=teamDAO.insertTeam(new Team(team1,team2));
-                it.putExtra("pid",String.valueOf(id));
-                it.putExtra("Team1",team1);
-                it.putExtra("Team2",team2);
-                Log.d("1TeamId",id+"");
-                startActivity(it);
+                if(team1.length()>0 && team2.length()>0)
+                {
+                    TeamDAO teamDAO=new TeamDAO(MainActivity.this);
+                    int id=teamDAO.insertTeam(new Team(team1,team2));
+                    it.putExtra("pid",String.valueOf(id));
+                    it.putExtra("Team1",team1);
+                    it.putExtra("Team2",team2);
+                    Log.d("1TeamId",id+"");
+                    startActivity(it);
+                }
+
             }
         });
         builder.show();

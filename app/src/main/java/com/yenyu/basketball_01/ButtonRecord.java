@@ -22,6 +22,8 @@ import com.yenyu.basketball_01.dao.ActionDAO;
 import com.yenyu.basketball_01.dao.Team;
 import com.yenyu.basketball_01.dao.TeamDAO;
 
+import java.util.Locale;
+
 
 public class ButtonRecord extends AppCompatActivity {
     Button bt2in, bt2out, bt3in, bt3out, btFTin, btFTout, btOR, btDR, btST, btAS, btBS, btTO, btFoul, btNextSection;
@@ -37,14 +39,14 @@ public class ButtonRecord extends AppCompatActivity {
     boolean flag=false;
     String pid="";
     String team1="",team2="";
-
+    String language=""; //語系
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.button_record);
 
-
+        language = Locale.getDefault().getLanguage();    //取得預設語系
         tvScore1 = (TextView) findViewById(R.id.tvScore1); //自己的得分
         tvScore2 = (TextView) findViewById(R.id.tvScore2); //對方的得分
         tvSectionFoul1 = (TextView) findViewById(R.id.tvSectionFoul1); //自己的團犯
@@ -71,14 +73,12 @@ public class ButtonRecord extends AppCompatActivity {
         btFoul = (Button) findViewById(R.id.btFoul);
         btNextSection = (Button) findViewById(R.id.btNextSection);
 
-
         rbNumber1 = (RadioButton) findViewById(R.id.rbNumber1);
         rbNumber2 = (RadioButton) findViewById(R.id.rbNumber2);
         rbNumber3 = (RadioButton) findViewById(R.id.rbNumber3);
         rbNumber4 = (RadioButton) findViewById(R.id.rbNumber4);
         rbNumber5 = (RadioButton) findViewById(R.id.rbNumber5);
         rbOP = (RadioButton) findViewById(R.id.rbOP); //對手
-
 
         MyPlayersListener listener2 = new MyPlayersListener();
         rbNumber1.setOnClickListener(listener2);
@@ -87,7 +87,6 @@ public class ButtonRecord extends AppCompatActivity {
         rbNumber4.setOnClickListener(listener2);
         rbNumber5.setOnClickListener(listener2);
         rbOP.setOnClickListener(listener2);
-
 
         MyOnClickListener listener = new MyOnClickListener();
         bt2in.setOnClickListener(listener);
@@ -142,7 +141,6 @@ public class ButtonRecord extends AppCompatActivity {
                 }
             }
         }
-
 
     }
     @Override
@@ -413,6 +411,10 @@ public class ButtonRecord extends AppCompatActivity {
                     {Section = RecordAction.Section4;
                         tvOnlineN.setText(getResources().getString(R.string.section4));
                         tvOnlineA.setText("   "+getResources().getString(R.string.start));}
+                    else if(Section == 4)
+                    {
+                        break;
+                    }
                     Log.d("Section",Section+"");
                     tvSectionFoul1.setText("0");
                     tvSectionFoul2.setText("0");
@@ -436,35 +438,41 @@ public class ButtonRecord extends AppCompatActivity {
     class MyPlayersListener implements CompoundButton.OnClickListener {
         @Override
         public void onClick(View view) {
+            String tvNtext="";
             switch (view.getId()) {
                 case R.id.rbNumber1:
                     rg2.clearCheck();
                     Player = rbNumber1.getText().toString();
-                    tvOnlineN.setText(getResources().getString(R.string.Number)+Player+"");
+                    tvNtext=language.equals("zh") ? Player+getResources().getString(R.string.Number) : getResources().getString(R.string.Number)+" "+Player;
+                    tvOnlineN.setText(tvNtext);
                     tvOnlineA.setText("");
                     break;
                 case R.id.rbNumber2:
                     rg2.clearCheck();
                     Player = rbNumber2.getText().toString();
-                    tvOnlineN.setText(getResources().getString(R.string.Number)+Player+"");
+                    tvNtext=language.equals("zh") ? Player+getResources().getString(R.string.Number) : getResources().getString(R.string.Number)+" "+Player;
+                    tvOnlineN.setText(tvNtext);
                     tvOnlineA.setText("");
                     break;
                 case R.id.rbNumber3:
                     rg2.clearCheck();
                     Player = rbNumber3.getText().toString();
-                    tvOnlineN.setText(getResources().getString(R.string.Number)+Player+"");
+                    tvNtext=language.equals("zh") ? Player+getResources().getString(R.string.Number) : getResources().getString(R.string.Number)+" "+Player;
+                    tvOnlineN.setText(tvNtext);
                     tvOnlineA.setText("");
                     break;
                 case R.id.rbNumber4:
                     rg1.clearCheck();
                     Player = rbNumber4.getText().toString();
-                    tvOnlineN.setText(getResources().getString(R.string.Number)+Player+"");
+                    tvNtext=language.equals("zh") ? Player+getResources().getString(R.string.Number) : getResources().getString(R.string.Number)+" "+Player;
+                    tvOnlineN.setText(tvNtext);
                     tvOnlineA.setText("");
                     break;
                 case R.id.rbNumber5:
                     rg1.clearCheck();
                     Player = rbNumber5.getText().toString();
-                    tvOnlineN.setText(getResources().getString(R.string.Number)+Player+"");
+                    tvNtext=language.equals("zh") ? Player+getResources().getString(R.string.Number) : getResources().getString(R.string.Number)+" "+Player;
+                    tvOnlineN.setText(tvNtext);
                     tvOnlineA.setText("");
                     break;
                 case R.id.rbOP:

@@ -16,12 +16,6 @@ import com.yenyu.basketball_01.dao.GameDAO;
 
 import java.util.ArrayList;
 
-
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link SectionFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class SectionFragment extends Fragment {
 
     WebView wv4;

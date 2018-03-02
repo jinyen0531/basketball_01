@@ -115,6 +115,55 @@ public class GameDAO {
         return mylist;
     }
 
+    //依場次取得資料
+    public ArrayList<Game> getGames(String pid)
+    {
+        ArrayList<Game> mylist=new ArrayList<>();
+        SQLiteDatabase database=new MyDBHelper(context).getWritableDatabase();
+        String strSql="select * from games where pid=? order by CAST(number as integer)";
+        Cursor c=database.rawQuery(strSql,new String[]{pid});
+        if(c.moveToFirst())
+        {
+            String number=c.getString(c.getColumnIndex("number"));
+            Game game=new Game(pid,0,number);
+            do{
+                if(!c.getString(c.getColumnIndex("number")).equals(number))
+                {
+                    if(number.equals("999"))
+                    {
+                        game.setNumber("G");
+                    }
+                    mylist.add(game);
+                    number=c.getString(c.getColumnIndex("number"));
+                    game=new Game(pid,0,number);
+                }
+                game.setScore(game.getScore()+c.getInt(c.getColumnIndex("score")));
+                game.setPoint2in(game.getPoint2in()+c.getInt(c.getColumnIndex("point2in")));
+                game.setPoint2out(game.getPoint2out()+c.getInt(c.getColumnIndex("point2out")));
+                game.setPoint3in(game.getPoint3in()+c.getInt(c.getColumnIndex("point3in")));
+                game.setPoint3out(game.getPoint3out()+c.getInt(c.getColumnIndex("point3out")));
+                game.setFtin(game.getFtin()+c.getInt(c.getColumnIndex("ftin")));
+                game.setFtout(game.getFtout()+c.getInt(c.getColumnIndex("ftout")));
+                game.setOr(game.getOr()+c.getInt(c.getColumnIndex("oror")));
+                game.setDr(game.getDr()+c.getInt(c.getColumnIndex("dr")));
+                game.setSt(game.getSt()+c.getInt(c.getColumnIndex("st")));
+                game.setAs(game.getAs()+c.getInt(c.getColumnIndex("asas")));
+                game.setBs(game.getBs()+c.getInt(c.getColumnIndex("bs")));
+                game.setTo(game.getTo()+c.getInt(c.getColumnIndex("toto")));
+                game.setFoul(game.getFoul()+c.getInt(c.getColumnIndex("foul")));
+
+            }while (c.moveToNext());
+            if(number.equals("999"))
+            {
+                game.setNumber("G");
+            }
+            mylist.add(game);
+        }
+        c.close();
+        database.close();
+        return mylist;
+    }
+
     //依場次,刪除Games
     public int delGameByPid(String pid)
     {

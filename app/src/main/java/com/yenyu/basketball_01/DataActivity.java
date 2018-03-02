@@ -85,18 +85,14 @@ public class DataActivity extends AppCompatActivity {
                                 .replace(R.id.container, DetailFragment.newInstance())
                                 .commit();
                         break;
-
                 }
-
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
-
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -163,10 +159,8 @@ public class DataActivity extends AppCompatActivity {
                 builder.show();
                 break;
         }
-
         return super.onOptionsItemSelected(item);
     }
-
 
     private static class MyAdapter extends ArrayAdapter<String> implements ThemedSpinnerAdapter {
         private final ThemedSpinnerAdapter.Helper mDropDownHelper;
@@ -204,5 +198,4 @@ public class DataActivity extends AppCompatActivity {
             mDropDownHelper.setDropDownViewTheme(theme);
         }
     }
-
 }

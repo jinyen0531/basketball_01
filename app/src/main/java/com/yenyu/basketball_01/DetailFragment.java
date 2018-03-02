@@ -1,9 +1,7 @@
 package com.yenyu.basketball_01;
 
-
 import android.content.Context;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -16,14 +14,12 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import com.yenyu.basketball_01.dao.Action;
-import com.yenyu.basketball_01.dao.ActionDAO;
 import com.yenyu.basketball_01.dao.Game;
 import com.yenyu.basketball_01.dao.GameDAO;
 import com.yenyu.basketball_01.dao.Player;
 import com.yenyu.basketball_01.dao.PlayerDAO;
 
 import java.util.ArrayList;
-
 
 public class DetailFragment extends Fragment {
 
@@ -135,6 +131,7 @@ public class DetailFragment extends Fragment {
 
     public void insertData()
     {
+        //Log.d("insertData","pid "+pid+" sec "+sec+" num "+num);
         if(sour.equals("Button"))
         {
             actions=DataActivity.actionDAO.getActions(pid,sec,num);
@@ -151,7 +148,9 @@ public class DetailFragment extends Fragment {
         {
             games=new GameDAO(context).getGames(pid,sec,num);
         }
-        wv2.loadUrl("about:blank");
-        wv2.loadData(DataActivity.parseHTML.getString(games),"text/html;charset=UTF-8",null);
+        //Log.d("insertData","size : "+games.size());
+        wv2.loadDataWithBaseURL(null, DataActivity.parseHTML.getString(games),"text/html;charset=UTF-8",null,null);
+//        wv2.loadUrl("about:blank");
+//        wv2.loadData(DataActivity.parseHTML.getString(games),"text/html;charset=UTF-8",null);
     }
 }
