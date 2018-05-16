@@ -81,4 +81,5 @@
     <string name="data3">詳細數據</string>
     <string name="total">總分</string>
     <string name="name">姓名</string>
+    <string name="exit">確認要結束應用程式嗎？</string>
 </resources>

@@ -6,14 +6,13 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.yenyu.basketball_01.dao.Team;
 import com.yenyu.basketball_01.dao.TeamDAO;
-
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,6 +20,27 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
+
+    //按Back鍵離開程式
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode==KeyEvent.KEYCODE_BACK)
+        {
+            new AlertDialog.Builder(MainActivity.this)
+                    .setTitle(getResources().getString(R.string.pleaseConfirm))
+                    .setMessage(getResources().getString(R.string.exit))
+                    .setIcon(R.drawable.basketball)
+                    .setPositiveButton(getResources().getString(R.string.OK), new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            finish();
+                        }
+                    })
+                    .setNegativeButton(getResources().getString(R.string.cancel),null)
+                    .show();
+        }
+        return true;
     }
 
     public void click1(View v)

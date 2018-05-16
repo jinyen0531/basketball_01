@@ -35,7 +35,7 @@ public class DetailFragment extends Fragment {
 
     public DetailFragment() {}
 
-   public static DetailFragment newInstance() {
+    public static DetailFragment newInstance() {
         DetailFragment fragment = new DetailFragment();
         return fragment;
     }

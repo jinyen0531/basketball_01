@@ -80,4 +80,5 @@
     <string name="data3">Detail</string>
     <string name="total">Total</string>
     <string name="name">Name</string>
+    <string name="exit">Do you want to end the application?</string>
 </resources>
